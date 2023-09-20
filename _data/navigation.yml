@@ -8,21 +8,17 @@ main:
     #url: /publications/
     url: https://scholar.google.com/citations?user=NpoVjbMAAAAJ&hl=en
 
-  - title: "Teaching & Volunteering"
-    url: /teaching/    
+  #- title: "Portfolio"
+  #  url: /portfolio/
+  
+  #- title: "Teaching & Volunteering"
+  #  url: /teaching/    
 
   #- title: "Talks"
   #  url: /talks/    
 
-
-    
-  #- title: "Portfolio"
-  #  url: /portfolio/
         
   #- title: "Blog Posts"
    # url: /year-archive/
     
   
-    
-  #- title: "Guide"
-   # url: /markdown/
