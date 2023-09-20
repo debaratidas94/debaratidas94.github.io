@@ -7,9 +7,9 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Your Name / Site Title"
+title                    : "Deb's homepage"
 title_separator          : "-"
-name                     : &name "Your Name"
+name                     : &name "Debarati Das"
 description              : &description "personal description"
 url                      : https://debaratidas94.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
@@ -80,14 +80,14 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Sidebar Name"
-  avatar           : "profile.png"
-  bio              : "Your biography for the left-hand sidebar"
-  location         : "Location"
+  name             : "Debarati Das"
+  avatar           : "dp_2.jpg"
+  bio              : "Researcher applying NLP to Social Sciences "
+  location         : "Minneapolis, Minnesota, USA"
   employer         :
-  pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
-  googlescholar    : "http://yourfullgooglescholarurl.com"
-  email            :
+  pubmed           : 
+  googlescholar    : "https://scholar.google.com/citations?user=NpoVjbMAAAAJ&hl=en"
+  email            : "debarati.d1994@gmail.com"
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
@@ -96,20 +96,20 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : "academicpages"
+  github           : "debaratidas94"
   google_plus      :
   keybase          :
-  instagram        :
-  impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
+  Instagram        : "geekylilchef"
+  impactstory      :
   lastfm           :
-  linkedin         :
-  orcid            : "http://orcid.org/yourorcidurl"
+  LinkedIn         : https://www.linkedin.com/in/debaratidas1994/
+  orcid            :
   pinterest        :
   soundcloud       :
-  stackoverflow    : # http://stackoverflow.com/users/123456/username
+  stackoverflow    : 
   steam            :
   tumblr           :
-  twitter          : "replacethistwitterhandle"
+  twitter          : "geekylildeb"
   vine             :
   weibo            :
   xing             :
