@@ -83,7 +83,7 @@ author:
   name             : "Debarati Das"
   avatar           : "dp_2.jpg"
   bio              : "PhD Candidate, Department of Computer Science "
-  location         : "Minneapolis, Minnesota, USA"
+  location         : #"Minneapolis, Minnesota, USA"
   employer         : University of Minnesota, Twin Cities
   pubmed           : 
   googlescholar    : "https://scholar.google.com/citations?user=NpoVjbMAAAAJ&hl=en"
