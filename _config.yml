@@ -85,9 +85,9 @@ author:
   bio              : "Researcher applying NLP to Social Sciences "
   location         : "Location"
   employer         :
-  pubmed           : #"https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
+  pubmed           : 
   googlescholar    : "https://scholar.google.com/citations?user=NpoVjbMAAAAJ&hl=en"
-  email            :
+  email            : "debarati.d1994@gmail.com"
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
@@ -99,10 +99,10 @@ author:
   github           : "debaratidas94"
   google_plus      :
   keybase          :
-  instagram        :
+  Instagram        : "geekylilchef"
   impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
-  linkedin         :
+  LinkedIn         : https://www.linkedin.com/in/debaratidas1994/
   orcid            : #"http://orcid.org/yourorcidurl"
   pinterest        :
   soundcloud       :
