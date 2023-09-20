@@ -1,12 +1,14 @@
 # main links links
 main:
   - title: "CV"
-    url: /cv/
+    #url: /cv/
+    url: /files/Resume.pdf
     
   - title: "Publications"
-    url: /publications/
+    #url: /publications/
+    url: https://scholar.google.com/citations?user=NpoVjbMAAAAJ&hl=en
 
-  - title: "Teaching"
+  - title: "Teaching & Volunteering"
     url: /teaching/    
 
   #- title: "Talks"
