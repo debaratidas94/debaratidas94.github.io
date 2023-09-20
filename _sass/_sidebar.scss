@@ -26,7 +26,7 @@
 
 
   @include breakpoint($x-large) {
-    width: 600px;
+    padding-right: 0;
   }
 
   h2, h3, h4, h5, h6 {
@@ -45,8 +45,7 @@
   }
 
   img {
-    width: 150%;
-    padding:10%;
+    width: 100%;
   }
 }
 
@@ -84,8 +83,8 @@
   }
 
   img {
-    max-width: 255px;
-    border-radius: 10%;
+    max-width: 175px;
+    border-radius: 50%;
 
     @include breakpoint($large) {
       padding: 5px;
