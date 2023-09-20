@@ -1,4 +1,4 @@
-# Welcome to Jekyll!
+ti # Welcome to Jekyll!
 #
 # This config file is meant for settings that affect your entire site, values
 # which you are expected to set up once and rarely need to edit after that.
@@ -9,7 +9,7 @@
 locale                   : "en-US"
 title                    : "Deb's Homepage"
 title_separator          : "-"
-name                     : &name "Your Name"
+name                     : &name "Debarati Das"
 description              : &description "personal description"
 url                      : https://debaratidas94.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
@@ -80,7 +80,7 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Sidebar Name"
+  name             : "Debarati Das"
   avatar           : "dp_2.jpg"
   bio              : "Researcher applying NLP to Social Sciences "
   location         : "Minneapolis, Minnesota, USA"
