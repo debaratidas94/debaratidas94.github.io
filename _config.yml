@@ -83,7 +83,7 @@ author:
   name             : "Debarati Das"
   avatar           : "dp_2.jpg"
   bio              : "PhD Candidate, Department of Computer Science "
-  location         : #"Minneapolis, Minnesota, USA"
+  location         : 
   employer         : University of Minnesota, Twin Cities
   pubmed           : 
   googlescholar    : "https://scholar.google.com/citations?user=NpoVjbMAAAAJ&hl=en"
@@ -102,7 +102,7 @@ author:
   Instagram        : "geekylilchef"
   impactstory      :
   lastfm           :
-  LinkedIn         : https://www.linkedin.com/in/debaratidas1994/
+  LinkedIn         : "https://www.linkedin.com/in/debaratidas1994/"
   orcid            :
   pinterest        :
   soundcloud       :
