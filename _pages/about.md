@@ -16,7 +16,8 @@ Specifically, I am interested in learning about people — how user preferences,
 I obtained my Master's degree in Computer Science from the University of Minnesota, Twin Cities, and my Bachelor's degree in Computer science from PES University, Bangalore, India.
 
 # Updates
-* Dec 2023 - Our newest preprint, at the intersection of Graphs and LLMS - ["Which Modality should I use -- Text, Motif, or Image? : Understanding Graphs with Large Language Models"](https://arxiv.org/abs/2311.09862)  is out on ArXiv! 🆕  
+* Jan 2024 - My first venture as a project team lead and MinnesotaNLP's first labwide project's preprint - ["Under the Surface: Tracking the Artifactuality of LLM-Generated Data"]([https://arxiv.org/abs/2311.09862](https://arxiv.org/abs/2401.14698)  is finally out on ArXiv! 🆕 
+* Dec 2023 - Our preprint, at the intersection of Graphs and LLMS - ["Which Modality should I use -- Text, Motif, or Image? : Understanding Graphs with Large Language Models"](https://arxiv.org/abs/2311.09862)  is out on ArXiv! 🆕  
 * July 2023 - Our [paper](https://aclanthology.org/2023.findings-acl.243/) on "Balancing the Effect of Training Dataset Distribution of Multiple Styles for Multi-Style Text Transfer" was presented at Findings of ACL 2023. 
 * May 2023 - Our work on "Rebuilding Social Connection and Enhancing Advertising Effects Through the Nostalgic Appeal during the Pandemic" was accepted to AEJMC 2023.
 * Jan 2023 - Our work on "Publics’ Perceptions of Legitimacy in Corporate Social Advocacy: A Computational Analysis of the Influence of Ideological Congruence" was accepted to ICA 2023.
