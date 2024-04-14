@@ -15,19 +15,18 @@ Specifically, I am interested in learning about people — how user preferences,
  
 I obtained my Master's degree in Computer Science from the University of Minnesota, Twin Cities, and my Bachelor's degree in Computer science from PES University, Bangalore, India.
 
----
-updates:
-  - date: 2024-04-01
-    description: Passed my Thesis Proposal Exam ✌🏽 One more exam to go!
-  - date: 2024-03-01
-    description: "Which Modality should I use -- Text, Motif, or Image? : Understanding Graphs with Large Language Models is accepted at NAACL 2024 Findings!🥳"
-  - date: 2024-01-01
-    description: "Under the Surface: Tracking the Artifactuality of LLM-Generated Data is finally out on ArXiv. 🆕 This paper marks my first venture as a project team lead and MinnesotaNLP's first lab-wide project!"
-  - date: 2023-12-01
-    description: Our preprint, at the intersection of Graphs and LLMS - "Which Modality should I use -- Text, Motif, or Image? : Understanding Graphs with Large Language Models" is out on ArXiv! 🆕
-  - date: 2023-07-01
-    description: Our paper on "Balancing the Effect of Training Dataset Distribution of Multiple Styles for Multi-Style Text Transfer" was presented at ACL 2023 Findings.
----
+# Updates
+- April 2024 - Passed my Thesis Proposal Exam ✌🏽 One more exam to go!
+- Mar 2024 - ["Which Modality should I use -- Text, Motif, or Image? : Understanding Graphs with Large Language Models"](https://arxiv.org/abs/2311.09862) is accepted at _NAACL 2024 Findings_!🥳
+- Jan 2024 - ["Under the Surface: Tracking the Artifactuality of LLM-Generated Data"](https://arxiv.org/abs/2401.14698) is finally out on ArXiv. 🆕 This paper marks my first venture as a project team lead and MinnesotaNLP's first lab-wide project!
+- Dec 2023 - Our preprint, at the intersection of Graphs and LLMS - ["Which Modality should I use -- Text, Motif, or Image? : Understanding Graphs with Large Language Models"](https://arxiv.org/abs/2311.09862) is out on ArXiv! 🆕
+- July 2023 - Our [paper](https://aclanthology.org/2023.findings-acl.243/) on "Balancing the Effect of Training Dataset Distribution of Multiple Styles for Multi-Style Text Transfer" was presented at _ACL 2023 Findings_.
+<!--
+- May 2023 - Our work on "Rebuilding Social Connection and Enhancing Advertising Effects Through the Nostalgic Appeal during the Pandemic" was accepted to _AEJMC 2023_.
+- January 2023 - Our work on "Publics’ Perceptions of Legitimacy in Corporate Social Advocacy: A Computational Analysis of the Influence of Ideological Congruence" was accepted to _ICA 2023_.
+- October 2022 - Our [paper](https://aclanthology.org/2022.wnut-1.19.pdf) on "AdBERT: An Effective Few Shot Learning Framework for Aligning Tweets to Superbowl Advertisements" was presented at _WNUT@COLING 2022_.
+-->
+
 
   
      
