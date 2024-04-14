@@ -21,6 +21,7 @@ I obtained my Master's degree in Computer Science from the University of Minneso
 - Jan 2024 - ["Under the Surface: Tracking the Artifactuality of LLM-Generated Data"](https://arxiv.org/abs/2401.14698) is finally out on ArXiv. 🆕 This paper marks my first venture as a project team lead and MinnesotaNLP's first lab-wide project!
 - Dec 2023 - Our preprint, at the intersection of Graphs and LLMS - ["Which Modality should I use -- Text, Motif, or Image? : Understanding Graphs with Large Language Models"](https://arxiv.org/abs/2311.09862) is out on ArXiv! 🆕
 - July 2023 - Our paper on ["Balancing the Effect of Training Dataset Distribution of Multiple Styles for Multi-Style Text Transfer"](https://aclanthology.org/2023.findings-acl.243/)  was presented at _ACL 2023 Findings_.
+
 <!--
 - May 2023 - Our work on "Rebuilding Social Connection and Enhancing Advertising Effects Through the Nostalgic Appeal during the Pandemic" was accepted to _AEJMC 2023_.
 - January 2023 - Our work on "Publics’ Perceptions of Legitimacy in Corporate Social Advocacy: A Computational Analysis of the Influence of Ideological Congruence" was accepted to _ICA 2023_.
