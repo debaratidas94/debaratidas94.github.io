@@ -16,7 +16,7 @@ Specifically, I am interested in learning about people — how user preferences,
 I obtained my Master's degree in Computer Science from the University of Minnesota, Twin Cities, and my Bachelor's degree in Computer science from PES University, Bangalore, India.
 
 # Updates
-- May 2024 - I will present my [recent paper](https://arxiv.org/abs/2401.14698) on LLM-generated artifacts at Megagon Labs. 
+- May 2024 - Presented my [recent paper](https://arxiv.org/abs/2401.14698) on LLM-generated artifacts at Megagon Labs, along with [Dongyeop Kang](https://dykang.github.io/)
 - April 2024 - Our abstract "Beyond Words: Incorporating Graph Data into LLMs for Comprehensive Social System Analysis" is selected for oral presentation at _IC2S2 2024_!🥳
 - April 2024 - Passed my Thesis Proposal Exam ✌🏽 One more exam to go until my defense!
 - Mar 2024 - ["Which Modality should I use -- Text, Motif, or Image? : Understanding Graphs with Large Language Models"](https://arxiv.org/abs/2311.09862) is accepted at _NAACL 2024 Findings_!🥳
