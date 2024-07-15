@@ -16,7 +16,8 @@ Specifically, I am interested in learning about people — how user preferences,
 I obtained my Master's degree in Computer Science from the University of Minnesota, Twin Cities, and my Bachelor's degree in Computer science from PES University, Bangalore, India.
 
 # Updates
-- June 2024 - Presented my paper ["Which Modality should I use -- Text, Motif, or Image? : Understanding Graphs with Large Language Models"](https://aclanthology.org/2024.findings-naacl.34/) at _NAACL 2024_ in Mexico City!🇲🇽 [[Tweet]](https://x.com/geekylildeb/status/1803542147460690103)
+- July 2024 - Our paper "Publics’ Perceptions of Legitimacy in Corporate Social Advocacy: A Computational Analysis of the Influence of Ideological Congruence" is accepted in _Public Relations Review_ 🥳
+- June 2024 - Presented my paper ["Which Modality should I use -- Text, Motif, or Image? : Understanding Graphs with Large Language Models"](https://aclanthology.org/2024.findings-naacl.34/) at _NAACL 2024_ in Mexico City! [[Tweet]](https://x.com/geekylildeb/status/1803542147460690103)
 - June 2024 - I am thrilled to be interning at Microsoft Research this summer!
 - May 2024 - Presented my [recent paper](https://arxiv.org/abs/2401.14698) on LLM-generated artifacts at Megagon Labs, along with [Dongyeop Kang](https://dykang.github.io/)
 - April 2024 - Our abstract "Beyond Words: Incorporating Graph Data into LLMs for Comprehensive Social System Analysis" is selected for oral presentation at _IC2S2 2024_!🥳
