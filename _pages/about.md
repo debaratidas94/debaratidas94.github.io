@@ -21,14 +21,12 @@ I obtained my Master's degree in Computer Science from the University of Minneso
 - June 2024 - Presented my paper ["Which Modality should I use -- Text, Motif, or Image? : Understanding Graphs with Large Language Models"](https://aclanthology.org/2024.findings-naacl.34/) at _NAACL 2024_ in Mexico City! [[Tweet]](https://x.com/geekylildeb/status/1803542147460690103)
 - June 2024 - I am thrilled to be interning at Microsoft Research this summer!
 - May 2024 - Presented my [recent paper](https://arxiv.org/abs/2401.14698) on LLM-generated artifacts at Megagon Labs, along with [Dongyeop Kang](https://dykang.github.io/)
-<!--
-- April 2024 - Our abstract "Beyond Words: Incorporating Graph Data into LLMs for Comprehensive Social System Analysis" is selected for oral presentation at _IC2S2 2024_!🥳
--->
 - April 2024 - Passed my Thesis Proposal Exam ✌🏽 One more exam to go until my defense!💪🏼
 - Mar 2024 - ["Which Modality should I use -- Text, Motif, or Image? : Understanding Graphs with Large Language Models"](https://arxiv.org/abs/2311.09862) is accepted at _NAACL 2024 Findings_!🥳
 - Jan 2024 - ["Under the Surface: Tracking the Artifactuality of LLM-Generated Data"](https://arxiv.org/abs/2401.14698) is finally out on ArXiv. 🆕 This paper marks my first venture as a project team lead and MinnesotaNLP's first lab-wide project!
 
 <!--
+- April 2024 - Our abstract "Beyond Words: Incorporating Graph Data into LLMs for Comprehensive Social System Analysis" is selected for oral presentation at _IC2S2 2024_!🥳
 - Dec 2023 - Our preprint, at the intersection of Graphs and LLMS - ["Which Modality should I use -- Text, Motif, or Image? : Understanding Graphs with Large Language Models"](https://arxiv.org/abs/2311.09862) is out on ArXiv! 🆕
 - July 2023 - Our paper on ["Balancing the Effect of Training Dataset Distribution of Multiple Styles for Multi-Style Text Transfer"](https://aclanthology.org/2023.findings-acl.243/)  was presented at _ACL 2023 Findings_.
 
