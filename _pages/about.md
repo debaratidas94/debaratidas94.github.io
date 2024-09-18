@@ -16,6 +16,7 @@ Specifically, I am interested in learning about people — how user preferences,
 I obtained my Master's degree in Computer Science from the University of Minnesota, Twin Cities, and my Bachelor's degree in Computer science from PES University, Bangalore, India.
 
 # Updates
+- Sept 2024 - I received the _2024 AnitaB.org Advancing Inclusion scholarship_!
 - July 2024 - Our paper "Publics’ Perceptions of Legitimacy in Corporate Social Advocacy: A Computational Analysis of the Influence of Ideological Congruence" is published in [_Public Relations Review_](https://www.sciencedirect.com/science/article/pii/S0363811124000651)🥳
 - July 2024 - Gave a talk titled "Beyond Words: Incorporating Graph Data into LLMs for Comprehensive Social System Analysis" at _IC2S2 2024_! P.S the cheesesteak is just fantastic at Philadelphia 🤤
 - June 2024 - Presented my paper ["Which Modality should I use -- Text, Motif, or Image? : Understanding Graphs with Large Language Models"](https://aclanthology.org/2024.findings-naacl.34/) at _NAACL 2024_ in Mexico City! [[Tweet]](https://x.com/geekylildeb/status/1803542147460690103)
