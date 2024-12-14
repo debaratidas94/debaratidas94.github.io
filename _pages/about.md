@@ -16,6 +16,7 @@ Specifically, I am interested in learning about people — how user preferences,
 I obtained my Master's degree in Computer Science from the University of Minnesota, Twin Cities, and my Bachelor's degree in Computer science from PES University, Bangalore, India.
 
 # Updates
+- Nov 2024 - Excited to give a talk titled "When AI learns to Listen: Generative AI in the Social Sciences" to high school students for the [Sparkway Learning PythonAI Workshop 2024](https://sites.google.com/view/sparkwaylearning/home). 
 - Nov 2024 - Honored to be a speaker at the [Women in AI and DS Conference 2024](https://sites.google.com/umn.edu/dsi-wiads/speakers) and discussed the impact of artifacts in LLM-generated data with an incredibly talented crowd!
 - Sept 2024 - I received the _2024 AnitaB.org Advancing Inclusion scholarship_!
 - July 2024 - Our paper "Publics’ Perceptions of Legitimacy in Corporate Social Advocacy: A Computational Analysis of the Influence of Ideological Congruence" is published in [_Public Relations Review_](https://www.sciencedirect.com/science/article/pii/S0363811124000651)🥳
