@@ -440,7 +440,7 @@ ninja.data = [{
           title: '🎉 Our abstract “Beyond Words: Incorporating Graph Data into LLMs for Comprehensive Social...',
           description: "",
           section: "News",},{id: "news-presented-my-recent-paper-on-llm-generated-artifacts-at-megagon-labs-along-with-dongyeop-kang",
-          title: '✅ Presented my recent paper on LLM-generated artifacts at Megagon Labs, along with...',
+          title: '🎤 Presented my recent paper on LLM-generated artifacts at Megagon Labs, along with...',
           description: "",
           section: "News",},{id: "news-i-am-thrilled-to-be-interning-at-microsoft-research-this-summer",
           title: '🥳I am thrilled to be interning at Microsoft Research this summer!',
