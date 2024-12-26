@@ -431,14 +431,14 @@ ninja.data = [{
           window.location.href = "/blog/2015/formatting-and-links/";
         
       },
-    },{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
-          title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
-          description: "",
-          section: "News",},{id: "news-our-paper-on-adbert-an-effective-few-shot-learning-framework-for-aligning-tweets-to-superbowl-advertisements-was-presented-at-wnut-coling-2022",
+    },{id: "news-our-paper-on-adbert-an-effective-few-shot-learning-framework-for-aligning-tweets-to-superbowl-advertisements-was-presented-at-wnut-coling-2022",
           title: 'Our paper on “AdBERT: An Effective Few Shot Learning Framework for Aligning Tweets...',
           description: "",
           section: "News",},{id: "news-our-work-on-publics-perceptions-of-legitimacy-in-corporate-social-advocacy-a-computational-analysis-of-the-influence-of-ideological-congruence-was-accepted-to-ica-2023",
           title: 'Our work on “Publics’ Perceptions of Legitimacy in Corporate Social Advocacy: A Computational...',
+          description: "",
+          section: "News",},{id: "news-our-work-on-work-in-progress-reactions-to-incivility-a-computational-approach-to-measuring-affective-polarization-on-twitter-during-the-first-2020-u-s-presidential-debate-was-accepted-to-ica-2023",
+          title: 'Our work on “Work In Progress: Reactions to Incivility: A Computational Approach to...',
           description: "",
           section: "News",},{id: "projects-project-1",
           title: 'project 1',
