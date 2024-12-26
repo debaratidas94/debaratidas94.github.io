@@ -495,6 +495,13 @@ ninja.data = [{
           window.open("mailto:%64%65%62%61%72%61%74%69.%64%31%39%39%34@%67%6D%61%69%6C.%63%6F%6D", "_blank");
         },
       },{
+        id: 'social-github',
+        title: 'GitHub',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://github.com/debaratidas94", "_blank");
+        },
+      },{
         id: 'social-instagram',
         title: 'Instagram',
         section: 'Socials',
@@ -523,11 +530,18 @@ ninja.data = [{
           window.open("https://scholar.google.com/citations?user=NpoVjbMAAAAJ", "_blank");
         },
       },{
-        id: 'social-custom_social',
-        title: 'Custom_social',
+        id: 'social-semanticscholar',
+        title: 'Semantic Scholar',
         section: 'Socials',
         handler: () => {
-          window.open("https://www.alberteinstein.com/", "_blank");
+          window.open("https://www.semanticscholar.org/author/2605263", "_blank");
+        },
+      },{
+        id: 'social-x',
+        title: 'X',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://twitter.com/geekylildeb", "_blank");
         },
       },{
       id: 'light-theme',
