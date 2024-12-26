@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
+subtitle: <a href='#'>Researcher at Microsoft Research</a>. PhD Candidate @ UMN Twin-Cities. 
 
 profile:
   align: right
@@ -24,5 +24,4 @@ Specifically, I am interested in learning about people — how user preferences,
  
 I obtained my Master's degree in Computer Science from the University of Minnesota, Twin Cities, and my Bachelor's degree in Computer science from PES University, Bangalore, India.
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
 
