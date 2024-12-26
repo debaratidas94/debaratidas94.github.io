@@ -6,4 +6,4 @@ related_posts: false
 ---
 
 
-Our abstract "Beyond Words: Incorporating Graph Data into LLMs for Comprehensive Social System Analysis" is selected for oral presentation at _IC2S2 2024_!🥳
+🎉 Our abstract "Beyond Words: Incorporating Graph Data into LLMs for Comprehensive Social System Analysis" is selected for oral presentation at _IC2S2 2024_!
