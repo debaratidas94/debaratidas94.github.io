@@ -10,7 +10,7 @@
 email: debarati.d1994@gmail.com # your email address
 # facebook_id: # your facebook id
 # flickr_id: # your flickr id
-# github_username: # your GitHub user name
+github_username: debaratidas94 # your GitHub user name
 # gitlab_username: # your GitLab user name
 # ieee_id: # your ieeexplore.ieee.org/author/id
 # inspirehep_id: 1010907 # Inspire HEP author ID
@@ -32,7 +32,7 @@ linkedin_username: debaratidas1994 # your LinkedIn user name
 rss_icon: true # set to true to show the RSS icon
 scholar_userid: NpoVjbMAAAAJ # your Google Scholar ID
 # scopus_id: # your profile on Scopus
-# semanticscholar_id: # your Semantic Scholar ID
+semanticscholar_id: 2605263 # your Semantic Scholar ID
 # spotify_id: # your spotify id
 # stackoverflow_id: # your stackoverflow id
 # telegram_username: # your Telegram user name
@@ -42,10 +42,10 @@ scholar_userid: NpoVjbMAAAAJ # your Google Scholar ID
 # wikidata_id: # your wikidata id
 # wikipedia_id: # your wikipedia id (Case sensitive)
 # work_url: # work page URL
-# x_username: # your X handle
+x_username: geekylildeb # your X handle
 # youtube_id: # your youtube channel id (youtube.com/@<youtube_id>)
 # zotero_username: # your zotero username
-custom_social: # can be any name here other than the ones already defined above
-  logo: https://www.alberteinstein.com/wp-content/uploads/2024/03/cropped-favicon-192x192.png # can be png, svg, jpg
-  title: Custom Social
-  url: https://www.alberteinstein.com/
+#custom_social: # can be any name here other than the ones already defined above
+  #logo: https://www.alberteinstein.com/wp-content/uploads/2024/03/cropped-favicon-192x192.png # can be png, svg, jpg
+  #title: Custom Social
+  #url: https://www.alberteinstein.com/
