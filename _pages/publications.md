@@ -14,6 +14,8 @@ nav_order: 2
 {% include bib_search.liquid %}
 
 <div class="publications">
+Below is a list of my recent publications. Asterisks ("*") denote equal contribution.
+Please refer to my [Google scholar page](https://scholar.google.com/citations?view_op=list_works&hl=en&hl=en&user=NpoVjbMAAAAJ) for the full list.
 
 {% bibliography %}
 
