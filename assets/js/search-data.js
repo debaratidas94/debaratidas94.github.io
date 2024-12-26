@@ -449,7 +449,7 @@ ninja.data = [{
           title: '✅ Presented my paper “Which Modality should I use – Text, Motif, or...',
           description: "",
           section: "News",},{id: "news-gave-a-talk-titled-beyond-words-incorporating-graph-data-into-llms-for-comprehensive-social-system-analysis-at-ic2s2-2024-p-s-the-cheesesteak-is-just-fantastic-at-philadelphia",
-          title: '✅ Gave a talk titled “Beyond Words: Incorporating Graph Data into LLMs for...',
+          title: '🎤 Gave a talk titled “Beyond Words: Incorporating Graph Data into LLMs for...',
           description: "",
           section: "News",},{id: "news-our-paper-publics-perceptions-of-legitimacy-in-corporate-social-advocacy-a-computational-analysis-of-the-influence-of-ideological-congruence-is-published-in-public-relations-review",
           title: '🥳 Our paper “Publics’ Perceptions of Legitimacy in Corporate Social Advocacy: A Computational...',
