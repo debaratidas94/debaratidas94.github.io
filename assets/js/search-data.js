@@ -446,7 +446,7 @@ ninja.data = [{
           title: '🥳I am thrilled to be interning at Microsoft Research this summer!',
           description: "",
           section: "News",},{id: "news-presented-my-paper-which-modality-should-i-use-text-motif-or-image-understanding-graphs-with-large-language-models-at-naacl-2024-in-mexico-city-tweet",
-          title: 'Presented my paper “Which Modality should I use – Text, Motif, or Image?...',
+          title: '✅ Presented my paper “Which Modality should I use – Text, Motif, or...',
           description: "",
           section: "News",},{id: "projects-project-1",
           title: 'project 1',
