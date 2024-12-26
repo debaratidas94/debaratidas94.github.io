@@ -6,4 +6,4 @@ inline: true
 related_posts: false
 ---
 
-Our work on "Publics’ Perceptions of Legitimacy in Corporate Social Advocacy: A Computational Analysis of the Influence of Ideological Congruence" was accepted to _ICA 2023_.
+🎉 Our work on "Publics’ Perceptions of Legitimacy in Corporate Social Advocacy: A Computational Analysis of the Influence of Ideological Congruence" was accepted to _ICA 2023_.
