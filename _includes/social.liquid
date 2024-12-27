@@ -108,3 +108,9 @@
       </a>
   {% endcase %}
 {% endfor %}
+<!-- Add CV Icon -->
+{% if site.cv_url %}
+  <a href="{{ site.baseurl | prepend: site.cv_url }}" title="CV" target="_blank">
+    <i class="ai ai-cv ai-1x"></i>
+  </a>
+{% endif %}
