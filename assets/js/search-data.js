@@ -16,8 +16,8 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/publications/";
           },
-        },{id: "nav-",
-          title: "",
+        },{id: "nav-teaching-amp-mentorship",
+          title: "teaching &amp; mentorship",
           description: "",
           section: "Navigation",
           handler: () => {
