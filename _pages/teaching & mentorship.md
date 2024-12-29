@@ -1,8 +1,6 @@
 ---
 layout: page
 permalink: /teaching/
-title: teaching
-description: Materials for courses you taught. Replace this text with your description.
 nav: true
 nav_order: 6
 ---
@@ -12,7 +10,7 @@ nav_order: 6
     * Designing course material and instructing prospective graduate students on how to serve as teaching assistants.
     * Summer 2023  
 
-# Teaching assistant experience
+# Teaching Assistant experience
 
 -  **UMN CSCI 4707 Practice of Database Systems**
     * Designing and grading assignments, holding office hours, and conducting lectures.
