@@ -6,12 +6,12 @@ title : teaching-mentorship
 nav_order: 6
 ---
 
-# Teaching 
+# courses
 -  [UMN CSE TALK Program](https://cei.umn.edu/programs/international-teaching-assistant-ita-program/cse-talk-teaching-and-language-kick)
     * Designing course material and instructing prospective graduate students on how to serve as teaching assistants.
     * Summer 2023  
 
-# Teaching Assistant experience
+# teaching assistant experience
 
 -  **UMN CSCI 4707 Practice of Database Systems**
     * Designing and grading assignments, holding office hours, and conducting lectures.
@@ -27,7 +27,7 @@ nav_order: 6
     * Grading assignments and holding office hours.
     * Fall 2023, Spring 2019, Fall 2018    
 
-# Mentorship experience
+# mentorship experience
 1. [Jianing Wen](jianingwen.github.io/) -> MS @ UMN TC
 2. [Amrutha Shetty](https://amruthashetty3899.wixsite.com/amruthaslittleworld) -> Data analyst @ Malec Engineering
 3. [Sanjali Roy](https://github.com/sanjaliroy) -> BS @ UMN TC [[Publication during mentorship]](https://arxiv.org/pdf/2401.14698)
