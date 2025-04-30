@@ -6,4 +6,4 @@ inline: true
 related_posts: false
 ---
 
-✅ [LawFlow](https://arxiv.org/abs/2504.18942), which captures lawyers' end-to-end thought processes, is out on ArXiv!.
+✅ [LawFlow](https://arxiv.org/abs/2504.18942), which captures lawyers' end-to-end thought processes, is out on ArXiv!
