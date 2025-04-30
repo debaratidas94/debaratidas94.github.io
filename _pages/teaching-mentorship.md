@@ -28,7 +28,7 @@ nav_order: 6
     * Fall 2023, Spring 2019, Fall 2018    
 
 # mentorship experience
-1. [Jianing Wen](jianingwen.github.io/) -> MS @ UMN TC
+1. [Jianing Wen](jianingwen.github.io/) -> PhD @ Northeastern University 
 2. [Amrutha Shetty](https://amruthashetty3899.wixsite.com/amruthaslittleworld) -> Data analyst @ Malec Engineering
 3. [Sanjali Roy](https://github.com/sanjaliroy) -> BS @ UMN TC [[Publication during mentorship]](https://arxiv.org/pdf/2401.14698)
 4. [Ishaan Gupta](https://ishaang-1.github.io/portfolio/) -> Intern @ Seagate [[Publication during mentorship]](https://aclanthology.org/2024.findings-naacl.34/)
