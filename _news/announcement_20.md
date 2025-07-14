@@ -6,4 +6,4 @@ related_posts: false
 ---
 
 
-✅ [LawFlow](https://arxiv.org/abs/2504.18942), which captures lawyers' end-to-end thought processes, is accepted to COLM 2025! See you in Montreal :)
+🥳[LawFlow](https://arxiv.org/abs/2504.18942) is accepted to COLM 2025! See you in Montreal :)
