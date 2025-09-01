@@ -8,9 +8,9 @@ profile:
   align: right
   image: dp_2.jpg
   image_circular: true # crops the image to make it circular
-  more_info: >
+  <!--more_info: >
     <p>200 Union St SE</p>
-    <p>Minneapolis, Minnesota</p>
+    <p>Minneapolis, Minnesota</p>-->
 
 news: true # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
