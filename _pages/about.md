@@ -17,9 +17,9 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-I am a Senior Applied Scientist at Microsoft, where I work on measuring and steering the impact of Generative AI on Productivity. I am a part of the IDEAS Research group led by [Scott Counts](https://www.microsoft.com/en-us/research/people/counts/).
+I work on measuring and steering the impact of Generative AI on Productivity and am a part of the IDEAS Research group led by [Scott Counts](https://www.microsoft.com/en-us/research/people/counts/).
 
-During my PhD, I was a part of the [Minnesota NLP group](https://minnesotanlp.github.io/) led by [Prof. Dongyeop Kang](https://dykang.github.io/) and am co-supervised by [Prof. Jaideep Srivastava](https://scholar.google.com/citations?user=Y4J5SOwAAAAJ&hl=en), who leads the Data Mining and Research Group ([DMR](https://cse.umn.edu/cs/data-science-and-machine-learning)) at the University of Minnesota Twin Cities. 
+During my PhD, I was a member of the [Minnesota NLP group](https://minnesotanlp.github.io/) led by [Prof. Dongyeop Kang](https://dykang.github.io/) and am co-supervised by [Prof. Jaideep Srivastava](https://scholar.google.com/citations?user=Y4J5SOwAAAAJ&hl=en), who leads the Data Mining and Research Group ([DMR](https://cse.umn.edu/cs/data-science-and-machine-learning)) at the University of Minnesota Twin Cities. 
 
 Previously, I have interned at Microsoft Research and 3M R&D. Before completing my PhD, I earned my Master's degree at the University of Minnesota Twin Cities, where I worked on applying NLP to online social media analysis.
 
