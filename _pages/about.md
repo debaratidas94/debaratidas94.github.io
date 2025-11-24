@@ -16,7 +16,7 @@ news: true # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
-I am a part of the IDEAS Research group led by [Scott Counts](https://www.microsoft.com/en-us/research/people/counts/), where I work on measuring and steering the impact of Generative AI on Productivity. 
+I am a part of the [IDEAS Research group](https://www.microsoft.com/en-us/research/people/debaratidas/) led by Scott Counts, where I work on measuring and steering the impact of Generative AI on Productivity. 
 
 During my PhD, I was a member of the [Minnesota NLP group](https://minnesotanlp.github.io/) led by [Prof. Dongyeop Kang](https://dykang.github.io/) and was co-supervised by [Prof. Jaideep Srivastava](https://scholar.google.com/citations?user=Y4J5SOwAAAAJ&hl=en), who leads the Data Mining and Research Group ([DMR](https://cse.umn.edu/cs/data-science-and-machine-learning)) at the University of Minnesota Twin Cities. 
 
