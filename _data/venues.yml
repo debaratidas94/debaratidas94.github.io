@@ -7,3 +7,15 @@
 
 "Vision":
   color: "#009f36"
+
+"preprint":
+  color: "#e07b54"
+
+"journal":
+  color: "#2a9d8f"
+
+"conference":
+  color: "#457b9d"
+
+"workshop":
+  color: "#6a4c93"
