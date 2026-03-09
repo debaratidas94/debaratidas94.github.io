@@ -1,0 +1,65 @@
+[
+  {
+    "date": "Mar 2025",
+    "venue": "Microsoft Redmond (Guest Talk)",
+    "title": "LLMs as Sensors and Subjects: Expanding Human–AI Collaboration in Socio‑Technical Systems",
+    "url": "",
+    "about": "",
+    "image": "",
+    "slides": ""
+  },
+  {
+    "date": "Dec 2024",
+    "venue": "Sparkway Learning PythonAI Workshop 2024",
+    "title": "When AI Learns to Listen: Generative AI in the Social Sciences",
+    "url": "https://sites.google.com/view/sparkwaylearning/home",
+    "about": "",
+    "image": "",
+    "slides": ""
+  },
+  {
+    "date": "Nov 2024",
+    "venue": "Women in AI and Data Science (WiADS 2024)",
+    "title": "LLM‑generated Artifacts and their Impact on the AI Ecosystem",
+    "url": "https://sites.google.com/umn.edu/dsi-wiads/speakers",
+    "about": "",
+    "image": "",
+    "slides": ""
+  },
+  {
+    "date": "Jul 2024",
+    "venue": "10th International Conference on Computational Social Science (IC2S2 2024)",
+    "title": "Beyond Words: Incorporating Graph Data into LLMs for Comprehensive Social System Analysis",
+    "url": "https://ic2s2-2024.org/schedule",
+    "about": "",
+    "image": "",
+    "slides": ""
+  },
+  {
+    "date": "Jul 2024",
+    "venue": "Megagon Labs",
+    "title": "Under the Surface: Tracking the Artifactuality of LLM-Generated Data",
+    "url": "https://megagon.ai/speakers/",
+    "about": "",
+    "image": "",
+    "slides": ""
+  },
+  {
+    "date": "May 2023",
+    "venue": "Hubbard School of Journalism (JOUR8500), UMN Twin Cities",
+    "title": "Computational Techniques Used to Analyze Political Ideologies and Sentiments in Social Media Data",
+    "url": "",
+    "about": "",
+    "image": "",
+    "slides": ""
+  },
+  {
+    "date": "Feb 2017",
+    "venue": "Microsoft Research India",
+    "title": "Computational Analysis of the Mahabharata",
+    "url": "https://www.microsoft.com/en-us/research/lab/microsoft-research-india/",
+    "about": "",
+    "image": "",
+    "slides": ""
+  }
+]

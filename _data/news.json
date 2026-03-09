@@ -1,0 +1,133 @@
+[
+  {
+    "date": "Feb 2026",
+    "type": "MILESTONE",
+    "text": "Thrilled to announce that I have defended my PhD titled *LLMs as Sociotechnical Actors: A Scaffolding Framework for Recovering Context Lost in Text-Only Settings*. Grateful to everyone who supported this work!"
+  },
+  {
+    "date": "Nov 2025",
+    "type": "AWARD",
+    "text": "The [PATHs](https://arxiv.org/pdf/2505.16023) paper received a **Senior Area Chair Highlight** award at EMNLP 2025!"
+  },
+  {
+    "date": "Aug 2025",
+    "type": "MILESTONE",
+    "text": "Started as a Senior Applied Scientist at [Microsoft](https://www.microsoft.com/en-us/research/group/office-of-applied-research/) and moved to the Seattle area! I will continue working on human-agent collaboration for productivity."
+  },
+  {
+    "date": "Aug 2025",
+    "type": "PAPER",
+    "text": "Our paper [PATHs](https://arxiv.org/pdf/2505.16023) is accepted to EMNLP 2025! See you in Suzhou, China."
+  },
+
+  {
+    "date": "Jul 2025",
+    "type": "PAPER",
+    "text": "[LawFlow](https://arxiv.org/abs/2504.18942) is accepted to COLM 2025! See you in Montreal."
+  },
+  {
+    "date": "May 2025",
+    "type": "PAPER",
+    "text": "[Thinking Like A Lawyer In The Age Of Generative AI: Cognitive Limits On AI Adoption Among Lawyers](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5260645) is out on SSRN."
+  },
+  {
+    "date": "Apr 2025",
+    "type": "ANNOUNCEMENT",
+    "text": "[LawFlow](https://arxiv.org/abs/2504.18942), which captures lawyers' end-to-end thought processes, is out on ArXiv!"
+  },
+  {
+    "date": "Dec 2024",
+    "type": "TALK",
+    "text": "Gave a talk titled *When AI Learns to Listen: Generative AI in the Social Sciences* to high school students at the [Sparkway Learning PythonAI Workshop 2024](https://sites.google.com/view/sparkwaylearning/home)."
+  },
+  {
+    "date": "Nov 2024",
+    "type": "TALK",
+    "text": "Honored to be a speaker at the [Women in AI and Data Science Conference 2024](https://sites.google.com/umn.edu/dsi-wiads/speakers), discussing the impact of artifacts in LLM-generated data."
+  },
+  {
+    "date": "Oct 2024",
+    "type": "MILESTONE",
+    "text": "Thrilled to be interning at the [Office of Applied Research at Microsoft](https://www.microsoft.com/en-us/research/group/office-of-applied-research/) this fall!"
+  },
+  {
+    "date": "Oct 2024",
+    "type": "AWARD",
+    "text": "Received the *2024 AnitaB.org Advancing Inclusion Scholarship*!"
+  },
+  {
+    "date": "Jul 2024",
+    "type": "PAPER",
+    "text": "Our paper *Publics' Perceptions of Legitimacy in Corporate Social Advocacy: A Computational Analysis of the Influence of Ideological Congruence* is published in [Public Relations Review](https://www.sciencedirect.com/science/article/pii/S0363811124000651)."
+  },
+  {
+    "date": "Jul 2024",
+    "type": "TALK",
+    "text": "Gave a talk titled *Beyond Words: Incorporating Graph Data into LLMs for Comprehensive Social System Analysis* at [IC2S2 2024](https://ic2s2-2024.org/schedule)."
+  },
+  {
+    "date": "Jun 2024",
+    "type": "TALK",
+    "text": "Presented [Which Modality should I use?](https://aclanthology.org/2024.findings-naacl.34/) at NAACL 2024 in Mexico City! [[Tweet]](https://x.com/geekylildeb/status/1803542147460690103)"
+  },
+  {
+    "date": "Jun 2024",
+    "type": "MILESTONE",
+    "text": "Thrilled to be interning at [Microsoft Research](https://www.microsoft.com/en-us/research/group/office-of-applied-research/) this summer!"
+  },
+  {
+    "date": "May 2024",
+    "type": "TALK",
+    "text": "Presented my [recent paper](https://arxiv.org/abs/2401.14698) on LLM-generated artifacts at Megagon Labs, along with [Dongyeop Kang](https://dykang.github.io/)."
+  },
+  {
+    "date": "Apr 2024",
+    "type": "MILESTONE",
+    "text": "Passed my Thesis Proposal Exam :) One more exam to go until my defense!"
+  },
+  {
+    "date": "Apr 2024",
+    "type": "PAPER",
+    "text": "Abstract *Beyond Words: Incorporating Graph Data into LLMs for Comprehensive Social System Analysis* selected for oral presentation at IC2S2 2024!"
+  },
+  {
+    "date": "Mar 2024",
+    "type": "PAPER",
+    "text": "[Which Modality should I use — Text, Motif, or Image? Understanding Graphs with Large Language Models](https://arxiv.org/abs/2311.09862) is accepted at NAACL 2024 Findings!"
+  },
+  {
+    "date": "Jan 2024",
+    "type": "ANNOUNCEMENT",
+    "text": "[Under the Surface: Tracking the Artifactuality of LLM-Generated Data](https://arxiv.org/abs/2401.14698) is out on ArXiv. This paper marks my first venture as a project team lead and MinnesotaNLP's first lab-wide project!"
+  },
+  {
+    "date": "Dec 2023",
+    "type": "ANNOUNCEMENT",
+    "text": "New preprint at the intersection of graphs and LLMs — [Which Modality should I use — Text, Motif, or Image? Understanding Graphs with Large Language Models](https://arxiv.org/abs/2311.09862) is out on ArXiv!"
+  },
+  {
+    "date": "Jul 2023",
+    "type": "PAPER",
+    "text": "Our paper [Balancing the Effect of Training Dataset Distribution of Multiple Styles for Multi-Style Text Transfer](https://aclanthology.org/2023.findings-acl.243/) was presented at ACL 2023 Findings."
+  },
+  {
+    "date": "May 2023",
+    "type": "PAPER",
+    "text": "Our work on *Rebuilding Social Connection and Enhancing Advertising Effects Through the Nostalgic Appeal during the Pandemic* was accepted to AEJMC 2023."
+  },
+  {
+    "date": "Jan 2023",
+    "type": "PAPER",
+    "text": "Our work on *Work In Progress: Reactions to Incivility: A Computational Approach to Measuring Affective Polarization on Twitter During the First 2020 U.S. Presidential Debate* was accepted to ICA 2023."
+  },
+  {
+    "date": "Jan 2023",
+    "type": "PAPER",
+    "text": "Our work on *Publics' Perceptions of Legitimacy in Corporate Social Advocacy: A Computational Analysis of the Influence of Ideological Congruence* was accepted to ICA 2023."
+  },
+  {
+    "date": "Oct 2022",
+    "type": "PAPER",
+    "text": "Our paper [AdBERT: An Effective Few Shot Learning Framework for Aligning Tweets to Superbowl Advertisements](https://aclanthology.org/2022.wnut-1.19.pdf) was presented at WNUT @ COLING 2022."
+  }
+]

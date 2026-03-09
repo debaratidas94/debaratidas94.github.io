@@ -1,34 +1,227 @@
-<div class="news">
-  {% if site.news != blank %}
-    {% assign news_size = site.news | size %}
-    <div
-      class="table-responsive"
-      {% if include.limit and site.announcements.scrollable and news_size > 5 %}
-        style="max-height: 300px; overflow-y: auto;"
-      {% endif %}
-    >
-      <table class="table table-sm table-borderless">
-        {% assign news = site.news | reverse %}
-        {% if include.limit and site.announcements.limit %}
-          {% assign news_limit = site.announcements.limit %}
-        {% else %}
-          {% assign news_limit = news_size %}
-        {% endif %}
-        {% for item in news limit: news_limit %}
-          <tr>
-            <th scope="row" style="width: 20%">{{ item.date | date: '%b %d, %Y' }}</th>
-            <td>
-              {% if item.inline %}
-                {{ item.content | remove: '<p>' | remove: '</p>' | emojify }}
-              {% else %}
-                <a class="news-title" href="{{ item.url | relative_url }}">{{ item.title }}</a>
-              {% endif %}
-            </td>
-          </tr>
-        {% endfor %}
-      </table>
-    </div>
-  {% else %}
-    <p>No news so far...</p>
-  {% endif %}
+<style>
+  /* ── Filter bar ───────────────────────────────────────────── */
+  .news-filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1.1rem;
+  }
+
+  .news-filter-btn {
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    border: 1.5px solid;
+    background: transparent;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .news-filter-btn[data-type="all"]          { border-color: var(--global-text-color-light); color: var(--global-text-color-light); }
+  .news-filter-btn[data-type="AWARD"]        { border-color: #457b9d; color: #457b9d; }
+  .news-filter-btn[data-type="MILESTONE"]    { border-color: #2a9d8f; color: #2a9d8f; }
+  .news-filter-btn[data-type="PAPER"]        { border-color: #6a4c93; color: #6a4c93; }
+  .news-filter-btn[data-type="TALK"]         { border-color: #d67c26; color: #d67c26; }
+  .news-filter-btn[data-type="ANNOUNCEMENT"] { border-color: #e91e8c; color: #e91e8c; }
+
+  .news-filter-btn.active,
+  .news-filter-btn:hover {
+    color: #fff !important;
+  }
+  .news-filter-btn.active[data-type="all"],
+  .news-filter-btn:hover[data-type="all"]          { background: var(--global-text-color-light); }
+  .news-filter-btn.active[data-type="AWARD"],
+  .news-filter-btn:hover[data-type="AWARD"]        { background: #457b9d; }
+  .news-filter-btn.active[data-type="MILESTONE"],
+  .news-filter-btn:hover[data-type="MILESTONE"]    { background: #2a9d8f; }
+  .news-filter-btn.active[data-type="PAPER"],
+  .news-filter-btn:hover[data-type="PAPER"]        { background: #6a4c93; }
+  .news-filter-btn.active[data-type="TALK"],
+  .news-filter-btn:hover[data-type="TALK"]         { background: #d67c26; }
+  .news-filter-btn.active[data-type="ANNOUNCEMENT"],
+  .news-filter-btn:hover[data-type="ANNOUNCEMENT"] { background: #e91e8c; }
+
+  /* ── Cards ────────────────────────────────────────────────── */
+  .news-card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .news-card {
+    display: flex;
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--global-bg-color);
+    border: 1px solid var(--global-divider-color);
+    transition: box-shadow 0.15s;
+  }
+
+  .news-card:hover {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  }
+
+  .news-card-accent {
+    width: 4px;
+    min-width: 4px;
+    flex-shrink: 0;
+  }
+
+  .news-card[data-type="AWARD"]        .news-card-accent { background: #457b9d; }
+  .news-card[data-type="MILESTONE"]    .news-card-accent { background: #2a9d8f; }
+  .news-card[data-type="PAPER"]        .news-card-accent { background: #6a4c93; }
+  .news-card[data-type="TALK"]         .news-card-accent { background: #d67c26; }
+  .news-card[data-type="ANNOUNCEMENT"] .news-card-accent { background: #e91e8c; }
+
+  .news-card-body {
+    padding: 0.6rem 0.85rem;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .news-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .news-badge {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.1rem 0.45rem;
+    border-radius: 3px;
+    color: #fff;
+    flex-shrink: 0;
+  }
+
+  .news-card[data-type="AWARD"]        .news-badge { background: #457b9d; }
+  .news-card[data-type="MILESTONE"]    .news-badge { background: #2a9d8f; }
+  .news-card[data-type="PAPER"]        .news-badge { background: #6a4c93; }
+  .news-card[data-type="TALK"]         .news-badge { background: #d67c26; }
+  .news-card[data-type="ANNOUNCEMENT"] .news-badge { background: #e91e8c; }
+
+  .news-card-date {
+    font-size: 0.75rem;
+    color: var(--global-text-color-light);
+    white-space: nowrap;
+  }
+
+  .news-card-text {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: var(--global-text-color);
+    margin: 0;
+  }
+
+  .news-card-text p {
+    margin: 0;
+  }
+
+  .news-card-text a {
+    color: #2563eb;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+  }
+
+  .news-card-text a:hover {
+    border-bottom-color: #2563eb;
+  }
+
+  .news-show-more {
+    display: block;
+    width: 100%;
+    margin-top: 0.6rem;
+    padding: 0.4rem;
+    background: transparent;
+    border: 1px dashed var(--global-divider-color);
+    border-radius: 6px;
+    font-size: 0.8rem;
+    color: var(--global-text-color-light);
+    cursor: pointer;
+    text-align: center;
+    transition: border-color 0.15s, color 0.15s;
+  }
+
+  .news-show-more:hover {
+    border-color: var(--global-theme-color);
+    color: var(--global-theme-color);
+  }
+</style>
+
+{% assign all_news = site.data.news %}
+
+<!-- Filter buttons — only show types that exist in data -->
+{% assign types_present = all_news | map: "type" | uniq %}
+<div class="news-filter-bar">
+  <button class="news-filter-btn active" data-type="all">All</button>
+  {% for t in types_present %}
+    <button class="news-filter-btn" data-type="{{ t }}">{{ t }}</button>
+  {% endfor %}
 </div>
+
+<!-- Card list -->
+<div class="news-card-list">
+  {% for item in all_news %}
+    <div class="news-card{% if forloop.index > 6 %} news-card--overflow{% endif %}" data-type="{{ item.type }}">
+      <div class="news-card-accent"></div>
+      <div class="news-card-body">
+        <div class="news-card-meta">
+          <span class="news-badge">{{ item.type }}</span>
+          <span class="news-card-date">{{ item.date }}</span>
+        </div>
+        <div class="news-card-text">{{ item.text | markdownify | remove: '<p>' | remove: '</p>' | strip }}</div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+<button class="news-show-more" id="newsShowMore">Show all {{ all_news | size }} announcements ↓</button>
+
+<script>
+(function () {
+  var btns       = document.querySelectorAll('.news-filter-btn');
+  var cards      = document.querySelectorAll('.news-card');
+  var overflow   = document.querySelectorAll('.news-card--overflow');
+  var showMoreBtn = document.getElementById('newsShowMore');
+  var expanded   = false;
+  var activeType = 'all';
+
+  // Initially hide overflow cards
+  overflow.forEach(function (c) { c.style.display = 'none'; });
+
+  function applyFilter() {
+    cards.forEach(function (card) {
+      var matchesType = activeType === 'all' || card.getAttribute('data-type') === activeType;
+      var isOverflow  = card.classList.contains('news-card--overflow');
+      if (matchesType && (expanded || !isOverflow || activeType !== 'all')) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    // Show/hide the "Show all" button only in the default all+collapsed view
+    showMoreBtn.style.display = (activeType === 'all' && !expanded) ? 'block' : 'none';
+  }
+
+  btns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      activeType = this.getAttribute('data-type');
+      btns.forEach(function (b) { b.classList.remove('active'); });
+      this.classList.add('active');
+      applyFilter();
+    });
+  });
+
+  showMoreBtn.addEventListener('click', function () {
+    expanded = true;
+    applyFilter();
+  });
+}());
+</script>

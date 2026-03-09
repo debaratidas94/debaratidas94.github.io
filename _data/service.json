@@ -1,0 +1,72 @@
+[
+  {
+    "role": "Reviewer",
+    "org": "",
+    "period": "Fall 2022 – Present",
+    "sections": [
+      {
+        "label": "CS Conferences and Workshops",
+        "entries": [
+          "ACM SIGCHI 2026",
+          "NLP4PosImpact 2025 @ ACL 2025",
+          "COLING 2025",
+          "IC2S2 2024, 2025",
+          "In2Writing Workshop @ CHI 2024, 2025",
+          "Pluralistic‑Alignment @ Neurips 2024",
+          "CustomNLP4U @ EMNLP 2024",
+          "ARR [2024 – Feb, June, August]",
+          "WiNLP Workshop @ EMNLP 2024",
+          "LREC‑COLING 2024",
+          "NLP+CSS Workshop @ EMNLP 2023"
+        ]
+      },
+      {
+        "label": "Journals and Other Scholarly Venues",
+        "entries": [
+          "Transactions on Knowledge Discovery from Data",
+          "Transactions on Visualizations and Computer Graphics",
+          "Humanities and Social Sciences Communications",
+          "Computational Communication Research Journal",
+          "Journal of Marketing Communications",
+          "American Academy of Advertising 2023"
+        ]
+      }
+    ]
+  },
+  {
+    "role": "Co-organizer",
+    "org": "Minnesota NLP Seminar",
+    "period": "Fall 2021 – Fall 2023",
+    "bullets": [
+      "Organized seminars hosting speakers from different fields of Natural Language Processing."
+    ]
+  },
+  {
+    "role": "Officer",
+    "org": "Computer Science Graduate Students Association",
+    "period": "Fall 2020 – Fall 2022",
+    "bullets": [
+      "Advocate for CS graduate students.",
+      "Organize social and academic events for grad students."
+    ]
+  },
+  {
+    "role": "Member",
+    "org": "Diversity, Equity, and Advocacy Committee (CS-IDEA)",
+    "period": "Spring 2020 – Fall 2025",
+    "bullets": [
+      "Work collaboratively to encourage students and staff to grow in their understanding of diversity.",
+      "Promote equal opportunity for all."
+    ]
+  },
+  {
+    "role": "Coordinator",
+    "org": "Women in Computer Science",
+    "period": "Spring 2019 – Spring 2022",
+    "bullets": [
+      "Encourage and build a support system for female‑identifying and non‑binary graduate students in the department.",
+      "Facilitate networking between academic/industry professionals and students.",
+      "Organize events and outreach activities to create awareness about inclusion and diversity issues."
+    ]
+  }
+]
