@@ -13,13 +13,9 @@
   const legend = root.querySelector('#legend');
   const list = root.querySelector('#publications');
   const tooltip = root.querySelector('#paperTooltip');
-  let activeSquare = null;
+  let activeCircle = null;
   const uniqueYears = papers.map(paper => paper.year);
   const years = Array.from({ length: Math.max(...uniqueYears) - Math.min(...uniqueYears) + 1 }, (_, i) => Math.min(...uniqueYears) + i);
-  const maxPerYear = Math.max(...years.map(year => papers.filter(paper => paper.year === year).length));
-  chart.style.setProperty('--cp-chart-height', `${Math.max(56, Math.ceil(maxPerYear / 3) * 14)}px`);
-  chart.style.gridTemplateColumns = `repeat(${years.length}, minmax(40px, 1fr))`;
-  chart.style.minWidth = `${years.length * 40}px`;
   const paperCategories = paper => dimension === 'focus' ? paper.themes : paper.areas;
   const matches = paper => filter === 'all' || paperCategories(paper).includes(filter);
   const label = key => categories.find(category => category[0] === key)?.[1] || key;
@@ -36,22 +32,22 @@
   };
   function hideDetails() {
     tooltip.hidden = true;
-    if (activeSquare) activeSquare.removeAttribute('aria-describedby');
-    activeSquare = null;
+    if (activeCircle) activeCircle.removeAttribute('aria-describedby');
+    activeCircle = null;
   }
-  function showDetails(paper, square) {
+  function showDetails(paper, circle) {
     hideDetails();
-    activeSquare = square;
+    activeCircle = circle;
     tooltip.replaceChildren(
       element('strong', paper.title, 'tooltip-title'),
       element('span', `${paper.year}. ${paper.publication || venueLabels[paper.venue] || paper.venue}`, 'tooltip-meta')
     );
     tooltip.hidden = false;
-    square.setAttribute('aria-describedby', tooltip.id);
+    circle.setAttribute('aria-describedby', tooltip.id);
     positionDetails();
   }
   function positionDetails() {
-    const rect = activeSquare.getBoundingClientRect();
+    const rect = activeCircle.getBoundingClientRect();
     if (rect.bottom < 0 || rect.top > window.innerHeight || rect.right < 0 || rect.left > window.innerWidth) {
       hideDetails();
       return;
@@ -63,53 +59,80 @@
     tooltip.style.left = `${left}px`;
     tooltip.style.top = `${top}px`;
   }
-  function makeSquare(paper) {
-    const square = element('a', undefined, 'paper-square');
-    square.href = paper.url || `#paper-${paper.key}`;
+  function makeCircle(paper) {
+    const circle = element('a', undefined, 'paper-circle');
+    circle.href = paper.url || `#paper-${paper.key}`;
     if (paper.url) {
-      square.target = '_blank';
-      square.rel = 'noopener noreferrer';
+      circle.target = '_blank';
+      circle.rel = 'noopener noreferrer';
     }
-    square.dataset.key = paper.key;
-    square.setAttribute('aria-label', paper.title);
-    paperCategories(paper).forEach(key => {
-      const segment = element('span');
-      segment.style.setProperty('--cp-mark', mark(key));
-      square.append(segment);
-    });
-    square.classList.toggle('is-muted', !matches(paper));
-    square.addEventListener('pointerenter', () => showDetails(paper, square));
-    square.addEventListener('focus', () => showDetails(paper, square));
-    ['pointerleave', 'blur'].forEach(event => square.addEventListener(event, () => {
-      if (activeSquare === square) hideDetails();
+    circle.dataset.key = paper.key;
+    circle.setAttribute('aria-label', paper.title);
+    const tags = paperCategories(paper);
+    const fill = tags.length === 1 ? mark(tags[0]) : `conic-gradient(${tags.map((tag, index) =>
+      `${mark(tag)} ${index * 100 / tags.length}% ${(index + 1) * 100 / tags.length}%`).join(', ')})`;
+    circle.style.setProperty('--cp-fill', fill);
+    circle.classList.toggle('is-muted', !matches(paper));
+    circle.addEventListener('pointerenter', () => showDetails(paper, circle));
+    circle.addEventListener('focus', () => showDetails(paper, circle));
+    ['pointerleave', 'blur'].forEach(event => circle.addEventListener(event, () => {
+      if (activeCircle === circle) hideDetails();
     }));
-    if (!paper.url) square.addEventListener('click', () => {
+    if (!paper.url) circle.addEventListener('click', () => {
       if (!matches(paper)) {
         filter = 'all';
         render();
       }
     });
-    return square;
+    return circle;
+  }
+  function circleLayout(count) {
+    let base = 1;
+    while (base * (base + 1) / 2 < count) base++;
+    const width = Math.min(base, count);
+    let slots = Array.from({ length: width }, (_, index) => index - (width - 1) / 2);
+    const positions = [];
+    let y = 0;
+    while (positions.length < count) {
+      const size = Math.min(count - positions.length, slots.length);
+      const start = Math.floor((slots.length - size) / 2);
+      const row = slots.slice(start, start + size);
+      row.forEach(x => positions.push({ x, y }));
+      slots = row.slice(1).map((x, index) => (row[index] + x) / 2);
+      if (!slots.length) slots = [0];
+      y++;
+    }
+    return positions;
   }
   function renderChart() {
     hideDetails();
     chart.replaceChildren();
+    let maxRows = 0;
+    let columnWidth = 72;
     years.forEach(year => {
       const column = element('div', undefined, 'year');
       const blocks = element('div', undefined, 'blocks');
       const entries = papers.filter(paper => paper.year === year);
-      const stack = element('div', undefined, 'square-stack');
-      for (let index = 0; index < entries.length; index += 3) {
-        const row = element('div', undefined, 'square-row');
-        entries.slice(index, index + 3).forEach(paper => row.append(makeSquare(paper)));
-        stack.append(row);
+      const positions = circleLayout(entries.length);
+      positions.forEach((position, index) => {
+        const circle = makeCircle(entries[index]);
+        circle.style.setProperty('--cp-x', position.x);
+        circle.style.setProperty('--cp-y', position.y);
+        blocks.append(circle);
+        maxRows = Math.max(maxRows, position.y + 1);
+      });
+      if (positions.length) {
+        const xs = positions.map(position => position.x);
+        columnWidth = Math.max(columnWidth, (Math.max(...xs) - Math.min(...xs)) * 22 + 24);
       }
-      blocks.append(stack);
       column.setAttribute('role', 'group');
       column.setAttribute('aria-label', `${year}: ${entries.length} papers`);
       column.append(blocks, element('div', year, 'year-label'));
       chart.append(column);
     });
+    chart.style.setProperty('--cp-chart-height', `${Math.max(56, maxRows * 19 + 16)}px`);
+    chart.style.gridTemplateColumns = `repeat(${years.length}, minmax(${columnWidth}px, 1fr))`;
+    chart.style.minWidth = `${years.length * columnWidth}px`;
   }
   function renderLegend() {
     legend.replaceChildren();
@@ -252,7 +275,7 @@
     if (event.key === 'Escape') hideDetails();
   });
   window.addEventListener('scroll', () => {
-    if (activeSquare) positionDetails();
+    if (activeCircle) positionDetails();
   }, true);
   window.addEventListener('resize', hideDetails);
   render();

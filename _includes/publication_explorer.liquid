@@ -2,7 +2,7 @@
 {% assign explorer_json = include.json | default: site.data.publication_explorer_json %}
 <link rel="stylesheet" href="{{ '/assets/css/publication-explorer.css' | relative_url }}">
 <div class="publication-explorer" id="publicationExplorer" data-dimension="focus">
-  <p class="intro">Each square is one paper. Hover for details; click to open it.</p>
+  <p class="intro">Each circle is one paper. Hover for details; click to open it.</p>
   <section class="overview" aria-label="Publication overview">
     <div class="legend" id="legend" aria-label="Filter by research focus"></div>
     <div class="chart-scroll" tabindex="0" role="region" aria-label="Papers by year. Scroll horizontally on narrow screens." aria-describedby="dimensionNote">

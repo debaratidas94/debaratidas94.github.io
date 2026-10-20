@@ -68,13 +68,11 @@
   .chart-scroll { overflow-x: auto; padding: 10px 0 2px; scrollbar-width: thin; }
   .chart { display: grid; align-items: end; }
   .year { text-align: center; min-width: 0; }
-  .blocks { display: flex; align-items: flex-end; justify-content: center; height: var(--cp-chart-height, 56px); }
-  .square-stack { display: flex; flex-direction: column-reverse; gap: 2px; }
-  .square-row { display: flex; justify-content: center; gap: 2px; }
-  .paper-square { display: flex; width: 12px; height: 12px; flex: 0 0 12px; border: 0; border-radius: 2px; overflow: hidden; padding: 0; background: var(--cp-surface); text-decoration: none; }
-  .paper-square:hover { outline: 2px solid var(--cp-text); outline-offset: 2px; }
-  .paper-square span { flex: 1; background: var(--cp-mark); }
-  .paper-square.is-muted { opacity: .17; }
+  .blocks { position: relative; height: var(--cp-chart-height, 56px); }
+  .paper-circle { position: absolute; width: 18px; height: 18px; left: calc(50% + var(--cp-x) * 22px - 9px); bottom: calc(var(--cp-y) * 19px + 3px); border: 0; border-radius: 50%; padding: 0; background: var(--cp-fill); text-decoration: none; }
+  .paper-circle::before { content: ''; position: absolute; inset: -3px; border-radius: 50%; }
+  .paper-circle:hover, .paper-circle:focus-visible { transform: scale(1.3); z-index: 2; outline: 2px solid var(--cp-text); outline-offset: 2px; }
+  .paper-circle.is-muted { opacity: .17; }
   .year-label { font-size: 12px; padding-top: 5px; margin-top: 2px; border-top: 1px solid var(--cp-border); color: var(--cp-text-soft); }
   .legend { display: flex; column-gap: 16px; row-gap: 2px; flex-wrap: wrap; margin: 4px 0; }
   .legend button { display: flex; gap: 5px; align-items: center; padding: 0; border: 0; border-radius: 0; font-size: 12px; text-align: left; background: var(--cp-surface); color: var(--cp-text-soft); }
