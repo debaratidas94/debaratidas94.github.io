@@ -201,7 +201,11 @@
         groups.get(key).push(paper);
       });
     }
-    groups.forEach((entries, key) => {
+    const orderedGroups = [...groups];
+    if (grouping === 'focus') {
+      orderedGroups.sort(([a], [b]) => Number(a === 'foundation') - Number(b === 'foundation'));
+    }
+    orderedGroups.forEach(([key, entries]) => {
       const tags = grouping !== 'date' ? key.split('|') : [];
       const name = grouping === 'date' ? key : tags.map(label).join(' | ');
       const group = element('section', undefined, 'publication-group');

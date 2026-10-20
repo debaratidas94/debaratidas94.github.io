@@ -1,21 +1,26 @@
 ---
 ---
 
-% Research themes are independent of the discipline tags in keywords.
-% understanding-user-work-and-context: Understanding user work and context.
-% understanding-ai-collaboration: Understanding AI collaboration.
+% Research focus tags are independent of the discipline tags in keywords.
+% understanding-human-ai-collaboration: Understanding human-AI collaboration.
+% Human side: what people want, their work and context, and how they collaborate with AI.
+% understanding-and-characterizing-llm-behavior: Understanding and characterizing LLM behavior.
+% Agent side: how language models behave, reason, generate and respond to steering.
 % evaluating-consequences-of-ai: Evaluating consequences of AI.
-% foundation: Earlier conceptual or methodological research outside the three themes.
-% theme_fit: direct = studies the theme; indirect = enabling AI methods;
-% foundational = assigned to foundation rather than a current research theme.
+% Consequences for people: benefits, remaining effort, oversight and meaningful control.
+% foundation: Foundations outside the three current research focuses.
+% theme_fit: direct = directly studies at least one assigned focus;
+% indirect = supports a focus without directly studying it; foundational = foundation only.
+% For multi-focus papers, theme_rationale distinguishes direct and indirect connections.
+% Consequences include more than productivity; indirect relevance is not a measured effect.
 
 @misc{mittal2026babysitting,
   abbr={preprint},
   keywords={human-ai-interaction, natural-language-processing, computational-social-science},
   authorship={senior},
-  research_themes={understanding-ai-collaboration, evaluating-consequences-of-ai},
+  research_themes={understanding-human-ai-collaboration, evaluating-consequences-of-ai},
   theme_fit={direct},
-  theme_rationale={Delegation failures connect human oversight and recovery to the burden of checking and repairing agent work.},
+  theme_rationale={Directly studies delegation failures from the user perspective, connecting what people expect from agents and how they recover with the burden of checking and repairing agent work. These are human consequences beyond productivity alone.},
   title={Babysitting AI Agents: A User-Centered Taxonomy and Study of Agentic Delegation Failures},
   author={Mittal, S. and Kim, S. and Counts, S. and Neville, J. and Das*, Debarati and Laban*, P.},
   year={2026},
@@ -28,9 +33,9 @@
   abbr={workshop},
   keywords={human-ai-interaction, natural-language-processing, computational-social-science},
   authorship={coauthor},
-  research_themes={understanding-user-work-and-context, understanding-ai-collaboration},
+  research_themes={understanding-human-ai-collaboration, understanding-and-characterizing-llm-behavior},
   theme_fit={indirect},
-  theme_rationale={User simulation represents user state and behavior and enables studies of interaction; it is not itself evidence of improved human collaboration outcomes.},
+  theme_rationale={Cognitive user simulation represents user state and behavior and offers an enabling method for probing agent behavior. Both connections are indirect: simulated users are not evidence of observed human collaboration or human outcomes.},
   title={{COGENT}: a modular cognitive architecture for agentic user simulation},
   author={Chi, Y. and Davies, A. and Das, Debarati and Ai, L. and Counts, S.},
   booktitle={USERSIM at NeurIPS},
@@ -44,9 +49,9 @@
   abbr={preprint},
   keywords={human-ai-interaction, natural-language-processing, computational-social-science},
   authorship={first},
-  research_themes={understanding-user-work-and-context, understanding-ai-collaboration},
+  research_themes={understanding-human-ai-collaboration, understanding-and-characterizing-llm-behavior},
   theme_fit={direct},
-  theme_rationale={Situational context shapes workplace writing needs and how people steer and repair AI assistance.},
+  theme_rationale={Directly studies what people want from AI-assisted workplace communication and how situational context shapes steering and repair. Its connection to model behavior is through alignment of generated text with those requirements, rather than a standalone model benchmark.},
   title={Not Just My Style: Toward Contextual Personalization in AI-Assisted Workplace Communication},
   author={Das, Debarati and Mysore, S. and St.Hill, C. and Kang, D. and Sarrafzadeh, B.},
   journal={TIIS},
@@ -60,9 +65,9 @@
       abbr={conference},
       keywords={human-ai-interaction, natural-language-processing, computational-social-science},
       authorship={coauthor},
-      research_themes={understanding-ai-collaboration},
+      research_themes={understanding-human-ai-collaboration, understanding-and-characterizing-llm-behavior},
       theme_fit={direct},
-      theme_rationale={Characterizes how people steer and refine LLM assistance across writing interactions in the wild.},
+      theme_rationale={Directly characterizes human collaboration and steering during LLM-assisted writing in relation to user intent. Model-behavior and human-consequence connections are indirect through interaction patterns; these do not establish causal effects on effort, productivity or control.},
       title={Prototypical Human-AI Collaboration Behaviors from LLM-Assisted Writing in the Wild}, 
       author={Sheshera Mysore and Debarati Das and Hancheng Cao and Bahareh Sarrafzadeh},
       year={2025},
@@ -84,9 +89,9 @@
   abbr={journal},
   keywords={human-ai-interaction, computational-social-science},
   authorship={coauthor},
-  research_themes={understanding-user-work-and-context, evaluating-consequences-of-ai},
+  research_themes={understanding-human-ai-collaboration, evaluating-consequences-of-ai},
   theme_fit={direct},
-  theme_rationale={Connects legal expertise and cognitive constraints to the ability to understand, evaluate and use AI assistance.},
+  theme_rationale={Conceptually examines how legal expertise and cognitive constraints shape understanding, evaluating and using AI assistance. Directly connects human requirements with the consequences of relying on AI, without claiming an empirical measurement of productivity gains.},
   title     = {Thinking Like A Lawyer In The Age Of Generative AI: Cognitive Limits On AI Adoption Among Lawyers},
   author    = {Daniel Schwarcz and Debarati Das and Dongyeop Kang and Brett H. McDonnell},
   journal   = {Journal of Institutional and Theoretical Economics},
@@ -107,9 +112,9 @@
       abbr={conference},
       keywords={human-ai-interaction, natural-language-processing, computational-social-science},
       authorship={first},
-      research_themes={understanding-user-work-and-context},
+      research_themes={understanding-human-ai-collaboration, understanding-and-characterizing-llm-behavior},
       theme_fit={direct},
-      theme_rationale={Captures expert legal reasoning and workflows as context that AI assistance must accommodate; comparing workflows is not the same as observing a collaborating dyad.},
+      theme_rationale={Captures legal reasoning, workflows and preferred AI support roles, and directly characterizes differences between human and LLM-generated reasoning. Connects human requirements with model behavior without claiming an observed collaborating dyad or measured human outcomes.},
       title={LawFlow: Collecting and Simulating Lawyers' Thought Processes on Business Formation Case Studies},
       author={Debarati Das and Khanh Chi Le and Ritik Sachin Parkar and Karin De Langis and Brendan Madson and Chad M. Berryman and Robin M. Willis and Daniel H. Moses and Brett McDonnell and Daniel Schwarcz and Dongyeop Kang},
       year={2025},
@@ -149,9 +154,9 @@
   abbr={preprint},
   keywords={natural-language-processing, computational-social-science},
   authorship={first},
-  research_themes={understanding-user-work-and-context, evaluating-consequences-of-ai},
-  theme_fit={indirect},
-  theme_rationale={Examines human characteristics missed by synthetic text and the implications of AI-generated data; it does not directly measure workplace gains or human control.},
+  research_themes={understanding-and-characterizing-llm-behavior},
+  theme_fit={direct},
+  theme_rationale={Directly characterizes artifacts, biases and missing human nuances in LLM-generated data across benchmarks. This is agent-side evidence, not a direct study of consequences for people using AI.},
   title={Under the surface: Tracking the artifactuality of llm-generated data},
   author={Das, Debarati and De Langis, Karin and Martin-Boyle, Anna and Kim, Jaehyung and Lee, Minhwa and Kim, Zae Myung and Hayati, Shirley Anugrah and Owan, Risako and Hu, Bin and Parkar, Ritik and others},
   journal={arXiv preprint arXiv:2401.14698},
@@ -166,9 +171,9 @@
 abbr={conference},
 keywords={natural-language-processing, network-science},
 authorship={first},
-research_themes={understanding-user-work-and-context},
-theme_fit={indirect},
-theme_rationale={Graph encoding determines which relational information reaches an LLM; the connection to user context is methodological rather than a study of user work.},
+research_themes={understanding-and-characterizing-llm-behavior},
+theme_fit={direct},
+theme_rationale={Directly characterizes how input modalities and graph encodings affect LLM reasoning and performance. This is agent-side evidence rather than a study of human collaboration or consequences for people.},
   title={Which Modality should I use-Text, Motif, or Image?: Understanding Graphs with Large Language Models},
   author={Das, Debarati and Gupta, Ishaan and Srivastava, Jaideep and Kang, Dongyeop},
   booktitle={Findings of the Association for Computational Linguistics: NAACL 2024},
@@ -247,9 +252,9 @@ theme_rationale={Graph encoding determines which relational information reaches 
 abbr={conference},
 keywords={natural-language-processing, machine-learning-data-mining},
 authorship={first},
-research_themes={understanding-ai-collaboration},
+research_themes={understanding-and-characterizing-llm-behavior},
 theme_fit={indirect},
-theme_rationale={Controllable style generation enables steering language output; the paper studies training data and models rather than human-AI interaction.},
+theme_rationale={Studies how training-data balance changes control over generated text styles. Provides an indirect methodological precursor to understanding and steering LLM behavior, rather than evidence about human collaboration or human consequences.},
   title={Balancing the Effect of Training Dataset Distribution of Multiple Styles for Multi-Style Text Transfer},
   author={Das, Debarati and Ma, David and Kang, Dongyeop},
   booktitle={Findings of the Association for Computational Linguistics: ACL 2023},
