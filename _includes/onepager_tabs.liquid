@@ -1,0 +1,13 @@
+{% comment %}
+  Shared tab row for the one-pager site. Driven by _data/onepager_nav.yml so
+  both layouts stay in sync. A page is active when its url matches, so the
+  tabs keep you inside the new site instead of dropping into the old pages.
+{% endcomment %}
+<nav class="op-tabs">
+  {% for tab in site.data.onepager_nav %}
+    <a
+      class="op-tab{% if page.url == tab.url %} is-active{% endif %}"
+      href="{{ tab.url | relative_url }}"
+    >{{ tab.label }}</a>
+  {% endfor %}
+</nav>

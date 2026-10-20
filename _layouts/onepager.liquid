@@ -1,0 +1,172 @@
+---
+layout: onepager_base
+---
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&display=swap"
+>
+<link rel="stylesheet" href="{{ '/assets/css/onepager.css' | relative_url }}">
+
+<div class="op-wrap">
+  <div class="op-grid">
+    <!-- ───────────────────────── Main column ───────────────────────── -->
+    <main class="op-main">
+      {% include onepager_tabs.liquid %}
+
+      {% if page.kicker %}
+        <p class="op-kicker">{{ page.kicker }}</p>
+      {% endif %}
+
+      <h1 class="op-headline">{{ page.headline }}</h1>
+
+      <div class="op-intro">{{ content }}</div>
+
+      <!-- Explore publications -->
+      <div class="op-cta">
+        <a class="op-btn op-btn--primary" href="{{ '/publications/' | relative_url }}">Explore publications</a>
+      </div>
+
+      <!-- Research pillars -->
+      {% if page.pillars %}
+        <section class="op-section">
+          <h2 class="op-section-title">My research focuses on</h2>
+          <div class="op-pillars">
+            {% for pillar in page.pillars %}
+              <article class="op-pillar">
+                <span class="op-pillar-num">{{ forloop.index | prepend: '0' }}</span>
+                <h3 class="op-pillar-title">{{ pillar.title }}</h3>
+                <p class="op-pillar-body">{{ pillar.body }}</p>
+                {% if pillar.links %}
+                  <p class="op-pillar-links">
+                    {% for link in pillar.links %}
+                      <a href="{{ link.url }}" target="_blank" rel="noopener">{{ link.name }}</a>
+                    {% endfor %}
+                  </p>
+                {% endif %}
+              </article>
+            {% endfor %}
+          </div>
+        </section>
+      {% endif %}
+
+      <!-- Recent publications -->
+      <section class="op-section">
+        <h2 class="op-section-title">
+          Recent publications
+          <a class="op-section-link" href="{{ '/publications/' | relative_url }}">full list</a>
+        </h2>
+
+        <!-- Tag map straight from papers.bib, so retagging there re-sorts here -->
+        <script type="application/json" id="opPubAreaData">
+          [{% bibliography --query @*[selected=true]* --template bib_areas --group_by none %}]
+        </script>
+        <script type="application/json" id="opAreaLabels">
+          [{% for area in site.data.research_areas %}{"tag": "{{ area.tag }}", "label": "{{ area.label }}"}{% unless forloop.last %},{% endunless %}{% endfor %}]
+        </script>
+
+        <div class="op-pub-filters" id="opPubFilters">
+          <button class="op-pub-filter is-active" type="button" data-area="all">By date</button>
+        </div>
+
+        <div class="op-pubs" id="opPubs">{% include selected_papers.liquid %}</div>
+        <button class="op-more" id="opPubsMore" type="button" hidden>Show more publications</button>
+      </section>
+    </main>
+
+    <!-- ───────────────────────── Side column ───────────────────────── -->
+    <aside class="op-side">
+      <div class="op-side-inner">
+        <div class="op-card">
+          {% if page.profile.image %}
+            <img
+              class="op-avatar"
+              src="{{ page.profile.image | prepend: '/assets/img/' | relative_url }}"
+              alt="{{ page.profile.name }}"
+              loading="eager"
+            >
+          {% endif %}
+
+          {% if page.profile.name %}
+            <h2 class="op-name">{{ page.profile.name }}</h2>
+          {% else %}
+            <h2 class="op-name">{{ site.first_name | strip }} {{ site.last_name | strip }}</h2>
+          {% endif %}
+
+          {% if page.profile.lines %}
+            <div class="op-affil">
+              {% for line in page.profile.lines %}
+                <p>{{ line }}</p>
+              {% endfor %}
+            </div>
+          {% endif %}
+
+          <div class="op-socials social">
+            <div class="contact-icons">{% include social.liquid %}</div>
+          </div>
+
+          {% if site.cv_url or site.cv_pdf %}
+            <a
+              class="op-cv"
+              href="{% if site.cv_url %}{{ site.cv_url | relative_url }}{% else %}{{ site.cv_pdf | prepend: '/assets/pdf/' | relative_url }}{% endif %}"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="fa-solid fa-file-lines"></i>
+              <span>Curriculum Vitae</span>
+            </a>
+          {% endif %}
+        </div>
+
+        <section class="op-updates">
+          <h2 class="op-side-title">Updates</h2>
+          {% assign news_types = site.data.news | map: "type" | uniq %}
+          <div class="op-news-filters" id="opNewsFilters">
+            <button class="op-news-filter is-active" type="button" data-type="all">All</button>
+            {% for t in news_types %}
+              <button class="op-news-filter" type="button" data-type="{{ t }}">{{ t | downcase | capitalize }}</button>
+            {% endfor %}
+          </div>
+          <ol class="op-news-list" id="opNews">
+            {% for item in site.data.news %}
+              <li class="op-news-item{% if forloop.index > 6 %} op-news-item--extra{% endif %}" data-type="{{ item.type }}">
+                <div class="op-news-meta">
+                  {% if item.type %}<span class="op-news-type">{{ item.type | downcase | capitalize }}</span>{% endif %}
+                  <span class="op-news-date">{{ item.date }}</span>
+                </div>
+                <div class="op-news-text">
+                  {{ item.text | markdownify | remove: '<p>' | remove: '</p>' | strip }}
+                </div>
+                {% if item.tags %}
+                  <div class="op-news-tags">
+                    {% for tag in item.tags %}
+                      {% if tag.url %}
+                        <a
+                          class="op-link-tag"
+                          data-link-tag="{{ tag.label | downcase }}"
+                          href="{{ tag.url }}"
+                          target="_blank"
+                          rel="noopener"
+                        >{{ tag.label | downcase }}</a>
+                      {% else %}
+                        <span class="op-link-tag" data-link-tag="{{ tag | downcase }}">{{ tag | downcase }}</span>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ol>
+          {% assign news_count = site.data.news | size %}
+          {% if news_count > 6 %}
+            <button class="op-more" id="opNewsMore" type="button">Show all {{ news_count }} updates</button>
+          {% endif %}
+        </section>
+      </div>
+    </aside>
+  </div>
+</div>
+
+{% include onepager_scripts.liquid %}

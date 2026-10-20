@@ -1,0 +1,16 @@
+# Navigation for the one-pager site. Edit this list to change the tab row;
+# both onepager.liquid and onepager_page.liquid read it.
+- url: /
+  label: Home
+- url: /publications/
+  label: Publications
+- url: /awards/
+  label: Awards
+- url: /service/
+  label: Service
+- url: /teaching/
+  label: Teaching and mentorship
+- url: /talks/
+  label: Talks
+- url: /news/
+  label: News

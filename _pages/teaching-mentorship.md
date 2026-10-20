@@ -1,47 +1,32 @@
 ---
-layout: page
+layout: onepager_page
 permalink: /teaching/
-nav: true
-title: teaching-mentorship
-nav_order: 6
-_styles: >
-  .post-title { display: none; }
+title: Teaching and mentorship
+kicker: Students I have worked with
+nav: false
+mentorship: true
+section: mentorship
+tab_match: /teaching/
 ---
 
-# mentorship experience
-1. [Khanh Chi Le](https://chile2706.github.io/) -> PhD @ UMN TC  [[Publication during mentorship]](https://arxiv.org/abs/2504.18942)
-2. [Ritik Sachin Parkar](https://github.com/RitikParkar) -> Thomson Reuters  [[Publication during mentorship]](https://arxiv.org/abs/2504.18942)
-3. [Jianing Wen](jianingwen.github.io/) -> PhD @ Northeastern University
-4. [Amrutha Shetty](https://amruthashetty3899.wixsite.com/amruthaslittleworld) -> Data analyst @ Malec Engineering
-5. [Sanjali Roy](https://github.com/sanjaliroy) -> BS @ UMN TC [[Publication during mentorship]](https://arxiv.org/pdf/2401.14698)
-6. [Ishaan Gupta](https://ishaang-1.github.io/portfolio/) -> Intern @ Seagate [[Publication during mentorship]](https://aclanthology.org/2024.findings-naacl.34/)
-7. [David Ma](https://www.linkedin.com/in/david-ma-8551b39b/) -> Quant Trader @ Optiver [[Publication during mentorship]](https://aclanthology.org/2023.findings-acl.243/)
-8. [Josh Spitzer-Resnick](https://www.linkedin.com/in/joshspitzerresnick/) -> Data Scientist @ Solventum Healthcare
-9. [Aryan Srivastava](https://www.linkedin.com/in/aryan-srivastava-9b1664185/) -> BSE @ Purdue University [[Publication during mentorship]](https://cse.umn.edu/cs/feature-stories/public-insights-covid19-vaccination-using-exploratory-and-sentiment-analysis)
-10. [Haoyu Gong](https://www.linkedin.com/in/haoyu-gong-14abb8203/) -> PhD @ UMN TC
-11. [Aadesh Salesha](https://www.linkedin.com/in/aadesh-salecha/) -> Staff Data Scientist @ Stanford
-12. [Ahmed Hassan](https://cse.umn.edu/college/alumni/cse-mentor-program) -> BS @ UMN TC
-13. [Hao Zou](https://haozou-official.github.io/) -> BS @ UMN TC
-14. [Roopana Chenchu](https://www.linkedin.com/in/roopana-vuppalapati-chenchu-b5871458/) -> SDE3 @ Google [[Publication during mentorship]](https://aclanthology.org/2022.wnut-1.19.pdf)
-15. [Mayura Nene](https://www.linkedin.com/in/mayura-nene/) -> SDE2 @ Amazon [[Publication during mentorship]](https://www.proquest.com/openview/c037a7dcf06919d66de63c37f9abac79/1?pq-origsite=gscholar&cbl=40231)
+## Courses
 
-# courses
--  [UMN CSE TALK Program](https://cei.umn.edu/programs/international-teaching-assistant-ita-program/cse-talk-teaching-and-language-kick)
-    * Designing course material and instructing prospective graduate students on how to serve as teaching assistants.
-    * Summer 2023
+- [UMN CSE TALK Program](https://cei.umn.edu/programs/international-teaching-assistant-ita-program/cse-talk-teaching-and-language-kick)
+  - Designing course material and instructing prospective graduate students on how to serve as teaching assistants.
+  - Summer 2023
 
-# teaching assistant experience
+## Teaching assistant experience
 
--  **UMN CSCI 4707 Practice of Database Systems**
-    * Designing and grading assignments, holding office hours, and conducting lectures.
-    * Spring 2024, Summer 2023, Fall 2022, Summer 2022, Summer 2021, Spring 2020, Spring 2018
--  **UMN CSCI 5541 Natural Language Processing**
-    * Mentoring group projects, designing tutorials, and organizing research poster presentations.
-    * Designing and grading assignments, holding office hours, and conducting lectures.
-    * Spring 2023
--  **UMN CSCI 1933 Introduction to Algorithms and Data structures using Java**
-    * Grading assignments and holding office hours.
-    * Fall 2019
--  **UMN CSCI 1913 Intro to Algorithms, Data Structures and Program Development**
-    * Grading assignments and holding office hours.
-    * Fall 2023, Spring 2019, Fall 2018
+- **UMN CSCI 4707 Practice of Database Systems**
+  - Designing and grading assignments, holding office hours, and conducting lectures.
+  - Spring 2024, Summer 2023, Fall 2022, Summer 2022, Summer 2021, Spring 2020, Spring 2018
+- **UMN CSCI 5541 Natural Language Processing**
+  - Mentoring group projects, designing tutorials, and organizing research poster presentations.
+  - Designing and grading assignments, holding office hours, and conducting lectures.
+  - Spring 2023
+- **UMN CSCI 1933 Introduction to Algorithms and Data structures using Java**
+  - Grading assignments and holding office hours.
+  - Fall 2019
+- **UMN CSCI 1913 Intro to Algorithms, Data Structures and Program Development**
+  - Grading assignments and holding office hours.
+  - Fall 2023, Spring 2019, Fall 2018

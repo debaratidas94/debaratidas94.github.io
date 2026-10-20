@@ -1,0 +1,26 @@
+# Display labels and ordering for the research-area filter on the one-pager.
+#
+# The tags themselves live in _bibliography/papers.bib, in each entry's
+# `keywords` field. This file only controls how they are named and ordered.
+#
+# To retag a paper, edit its `keywords` in papers.bib. Nothing here needs to
+# change. A tag that is not listed below still appears in the filter, labelled
+# from the tag itself and sorted to the end.
+
+- tag: human-ai-collaboration
+  label: Human-AI collaboration
+
+- tag: llm-behavior
+  label: LLM behavior
+
+- tag: productivity
+  label: Productivity
+
+- tag: computational-social-science
+  label: Computational social science
+
+- tag: networks-memetics
+  label: Networks and memetics
+
+- tag: ml-methods
+  label: ML methods

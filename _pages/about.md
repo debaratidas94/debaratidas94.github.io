@@ -1,34 +1,52 @@
 ---
-layout: about
-title: about
+layout: onepager
+title: home
 permalink: /
-subtitle: <a href='#'>Senior Applied Scientist at Microsoft</a>
+nav: false
+description: Debarati Das is a Senior Applied Scientist at Microsoft working on human-AI collaboration, LLM behavior, and AI in expert workflows.
+
+kicker: Human-Centered NLP · Computational Social Science · Human-AI Collaboration
+
+headline: >
+  I study how people work with AI, so it makes work <em>better</em> to do,
+  not just faster.
 
 profile:
-  align: right
-  image: dp_2.jpg
-  image_circular: true # crops the image to make it circular
-  <!--more_info: >
-    <p>200 Union St SE</p>
-    <p>Minneapolis, Minnesota</p>-->
+  image: dp_profile.jpg
+  name: Debarati Das
+  lines:
+    - Senior Applied Scientist at <a href="https://www.microsoft.com/en-us/research/people/debaratidas/">Microsoft</a>
+    - PhD in Computer Science, University of Minnesota
+    - Research in Human-AI Collaboration, LLMs, and NLP
 
-news: true # includes a list of news items
-selected_papers: true # includes a list of papers marked as "selected={true}"
-social: true # includes social icons at the bottom of the page
+pillars:
+  - title: Human-AI collaboration in expert workflows
+    body: >
+      I capture how professionals actually reason through complex work, then design
+      systems that fit those workflows instead of flattening them.
+    links:
+      - name: LawFlow
+        url: https://arxiv.org/abs/2504.18942
+
+  - title: Characterizing and steering LLM behavior
+    body: >
+      I study how generated text drifts from what people value and intend, and build
+      the controls that pull it back.
+    links:
+      - name: Under the Surface
+        url: https://arxiv.org/abs/2401.14698
+
+  - title: Measuring AI's impact on real productivity
+    body: >
+      I measure how generative AI changes real work at scale, turning observed
+      behavior into better agent design.
+    links:
+      - name: Collaboration Behaviors
+        url: https://arxiv.org/pdf/2505.16023
 ---
-I am a part of the [IDEAS Research group](https://www.microsoft.com/en-us/research/people/debaratidas/) led by Scott Counts, where I work on measuring and steering the impact of Generative AI on Productivity. 
 
-During my PhD, I was a member of the [Minnesota NLP group](https://minnesotanlp.github.io/) led by [Prof. Dongyeop Kang](https://dykang.github.io/) and was co-supervised by [Prof. Jaideep Srivastava](https://scholar.google.com/citations?user=Y4J5SOwAAAAJ&hl=en), who leads the Data Mining and Research Group ([DMR](https://cse.umn.edu/cs/data-science-and-machine-learning)) at the University of Minnesota Twin Cities. 
+I'm a senior applied scientist at the [IDEAS Research group](https://www.microsoft.com/en-us/research/people/debaratidas/) at Microsoft, led by Scott Counts, where I work on measuring and steering the impact of generative AI on productivity.
 
-Previously, I have interned at Microsoft Research and 3M R&D. Before completing my PhD, I earned my Master's degree at the University of Minnesota Twin Cities, where I worked on applying NLP to online social media analysis.
+My research is in human-centered NLP. Drawing on how people use AI assistants and agents in real work, I study when AI supports people's sense of control and competence and when it quietly erodes them, and how model behavior aligns or misaligns with users' values, expectations, and goals. I'm excited about building NLP systems that support meaningful human–AI collaboration in real work environments.
 
-My research sits at the intersection of natural language processing and computational social science, with a focus on designing and evaluating large language models (LLMs) in human-centered, high-stakes contexts. I’m especially interested in how LLMs can support expert decision-making by participating in structured and interpretable workflows. Alongside that, I work on characterizing the generative behavior of LLMs, with an emphasis on understanding how their outputs align (or misalign) with users’ values, expectations, and goals. This includes applications like email personalization, task delegation, and other AI-augmented workplace tools where trust, intent matching, and social nuance are essential.
-
-I'm excited about building modular, accountable NLP systems that not only generate fluent text but also support meaningful human–AI collaboration in real-world environments.
-
-<!-- I've also had the good fortune of collaborating with experts outside Computer Science, like Professors [Jisu Huh](https://cla.umn.edu/about/directory/profile/jhuh), [Daniel Schwarcz](https://law.umn.edu/profiles/daniel-schwarcz), and [Brett McDonnell](https://law.umn.edu/profiles/brett-mcdonnell). -->
-
-
-
-
-
+I did my PhD in the [Minnesota NLP group](https://minnesotanlp.github.io/) with [Prof. Dongyeop Kang](https://dykang.github.io/), co-advised by [Prof. Jaideep Srivastava](https://scholar.google.com/citations?user=Y4J5SOwAAAAJ&hl=en), and interned at Microsoft Research and 3M R&D.

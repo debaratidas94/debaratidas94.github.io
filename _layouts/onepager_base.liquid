@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="{{ site.lang }}">
+  <!-- Head -->
+  <head>
+    {% include head.liquid %}
+  </head>
+
+  <!--
+    Body. This mirrors _layouts/default.liquid but deliberately omits
+    header.liquid: the one-pager has its own tab row, and rendering the
+    al-folio navbar as well gave every page two navigations, the old one
+    pointing back at the old site.
+  -->
+  <body class="op-body {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %}">
+    <div role="main">{{ content }}</div>
+
+    <!-- Footer -->
+    {% include footer.liquid %}
+
+    <!-- JavaScripts -->
+    {% include scripts.liquid %}
+  </body>
+</html>

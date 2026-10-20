@@ -1,0 +1,72 @@
+# Mentorship, rendered as cards on the new mentorship page.
+#
+# `publication` is optional. Its pill label is derived from the URL using the
+# same rules as the updates pills, unless you set `publication_label`.
+
+- name: Khanh Chi Le
+  url: https://chile2706.github.io/
+  designation: PhD @ UMN TC
+  publication: https://arxiv.org/abs/2504.18942
+
+- name: Ritik Sachin Parkar
+  url: https://github.com/RitikParkar
+  designation: Thomson Reuters
+  publication: https://arxiv.org/abs/2504.18942
+
+- name: Jianing Wen
+  url: https://jianingwen.github.io/
+  designation: PhD @ Northeastern University
+
+- name: Amrutha Shetty
+  url: https://amruthashetty3899.wixsite.com/amruthaslittleworld
+  designation: Data Analyst @ Malec Engineering
+
+- name: Sanjali Roy
+  url: https://github.com/sanjaliroy
+  designation: BS @ UMN TC
+  publication: https://arxiv.org/pdf/2401.14698
+
+- name: Ishaan Gupta
+  url: https://ishaang-1.github.io/portfolio/
+  designation: Intern @ Seagate
+  publication: https://aclanthology.org/2024.findings-naacl.34/
+
+- name: David Ma
+  url: https://www.linkedin.com/in/david-ma-8551b39b/
+  designation: Quant Trader @ Optiver
+  publication: https://aclanthology.org/2023.findings-acl.243/
+
+- name: Josh Spitzer-Resnick
+  url: https://www.linkedin.com/in/joshspitzerresnick/
+  designation: Data Scientist @ Solventum Healthcare
+
+- name: Aryan Srivastava
+  url: https://www.linkedin.com/in/aryan-srivastava-9b1664185/
+  designation: BSE @ Purdue University
+  publication: https://cse.umn.edu/cs/feature-stories/public-insights-covid19-vaccination-using-exploratory-and-sentiment-analysis
+
+- name: Haoyu Gong
+  url: https://www.linkedin.com/in/haoyu-gong-14abb8203/
+  designation: PhD @ UMN TC
+
+- name: Aadesh Salesha
+  url: https://www.linkedin.com/in/aadesh-salecha/
+  designation: Staff Data Scientist @ Stanford
+
+- name: Ahmed Hassan
+  url: https://cse.umn.edu/college/alumni/cse-mentor-program
+  designation: BS @ UMN TC
+
+- name: Hao Zou
+  url: https://haozou-official.github.io/
+  designation: BS @ UMN TC
+
+- name: Roopana Chenchu
+  url: https://www.linkedin.com/in/roopana-vuppalapati-chenchu-b5871458/
+  designation: SDE3 @ Google
+  publication: https://aclanthology.org/2022.wnut-1.19.pdf
+
+- name: Mayura Nene
+  url: https://www.linkedin.com/in/mayura-nene/
+  designation: SDE2 @ Amazon
+  publication: https://www.proquest.com/openview/c037a7dcf06919d66de63c37f9abac79/1?pq-origsite=gscholar&cbl=40231

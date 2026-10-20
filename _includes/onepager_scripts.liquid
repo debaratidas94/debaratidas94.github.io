@@ -1,0 +1,247 @@
+<script>
+  (function () {
+    function collapse(listId, buttonId, visible, labelMore) {
+      var list = document.getElementById(listId);
+      var btn = document.getElementById(buttonId);
+      if (!list || !btn) return;
+      var items = list.querySelectorAll(':scope > li');
+      if (items.length <= visible) {
+        btn.hidden = true;
+        return;
+      }
+      var hidden = [];
+      for (var i = visible; i < items.length; i++) {
+        items[i].style.display = 'none';
+        hidden.push(items[i]);
+      }
+      btn.hidden = false;
+      btn.textContent = labelMore;
+      btn.addEventListener('click', function () {
+        hidden.forEach(function (el) {
+          el.style.display = '';
+        });
+        btn.dataset.expanded = '1';
+        btn.hidden = true;
+      });
+    }
+
+    // Gaurav-style link tags: derive the kind of link from its destination,
+    // so no extra bookkeeping is needed in _data/news.json
+    var LINK_TAGS = [
+      [/arxiv\.org|ssrn\.com/i, 'preprint'],
+      [/aclanthology\.org|dl\.acm\.org|doi\.org|sciencedirect|springer|ieee|onlinelibrary\.wiley/i, 'paper'],
+      [/github\.com|gitlab\.com/i, 'code'],
+      [/huggingface\.co|zenodo\.org|osf\.io/i, 'data'],
+      [/youtube\.com|youtu\.be|vimeo\.com/i, 'video'],
+      [/medium\.com|substack\.com|\/blog|blog\./i, 'blog'],
+      [/microsoft\.com|umn\.edu|\.org\/news|\/press/i, 'reader'],
+    ];
+
+    function tagForHref(href) {
+      if (!href) return null;
+      for (var i = 0; i < LINK_TAGS.length; i++) {
+        if (LINK_TAGS[i][0].test(href)) return LINK_TAGS[i][1];
+      }
+      return null;
+    }
+
+    function tagNewsLinks(root) {
+      [].forEach.call(root.querySelectorAll('.op-news-item'), function (item) {
+        if (item.dataset.tagged) return;
+        item.dataset.tagged = '1';
+
+        var textEl = item.querySelector('.op-news-text');
+        if (!textEl) return;
+
+        // an explicit tags row from news.json wins over anything derived
+        if (item.querySelector('.op-news-tags')) return;
+
+        var seen = {};
+        var chips = [];
+        [].forEach.call(textEl.querySelectorAll('a'), function (a) {
+          var href = a.getAttribute('href');
+          var tag = tagForHref(href);
+          if (!tag) return;
+          var id = tag + '|' + href;
+          if (seen[id]) return;
+          seen[id] = true;
+          chips.push({ tag: tag, href: href });
+        });
+        if (!chips.length) return;
+
+        var row = document.createElement('div');
+        row.className = 'op-news-tags';
+        chips.forEach(function (c) {
+          var el = document.createElement('a');
+          el.className = 'op-link-tag';
+          el.setAttribute('data-link-tag', c.tag);
+          el.setAttribute('href', c.href);
+          el.setAttribute('target', '_blank');
+          el.setAttribute('rel', 'noopener');
+          el.textContent = c.tag;
+          row.appendChild(el);
+        });
+        textEl.insertAdjacentElement('afterend', row);
+      });
+    }
+
+    // Publication grouping. The tags come from `keywords` in papers.bib; this
+    // only reads them, so retagging the bib is enough to change the grouping.
+    function initPubAreas() {
+      var dataEl = document.getElementById('opPubAreaData');
+      var bar = document.getElementById('opPubFilters');
+      var list = document.getElementById('opPubsList');
+      var moreBtn = document.getElementById('opPubsMore');
+      if (!dataEl || !bar || !list) return;
+
+      var map = {};
+      // jekyll-scholar always wraps each entry in <ol class="bibliography"><li>,
+      // even with a custom template, so the blob is not valid JSON as a whole.
+      // Pull out the individual objects instead of parsing the whole thing.
+      var objects = dataEl.textContent.match(/\{[^{}]*\}/g) || [];
+      objects.forEach(function (chunk) {
+        var row;
+        try {
+          row = JSON.parse(chunk);
+        } catch (err) {
+          return;
+        }
+        if (!row || !row.key) return;
+        map[row.key] = String(row.keywords || '')
+          .split(',')
+          .map(function (s) { return s.trim(); })
+          .filter(Boolean);
+      });
+      if (!Object.keys(map).length) return;
+
+      var labels = {};
+      var order = [];
+      try {
+        JSON.parse(document.getElementById('opAreaLabels').textContent).forEach(function (a) {
+          labels[a.tag] = a.label;
+          order.push(a.tag);
+        });
+      } catch (err) {
+        /* labels are optional */
+      }
+
+      var items = [].slice.call(list.querySelectorAll(':scope > li'));
+      var present = [];
+      items.forEach(function (li) {
+        var areas = [];
+        Object.keys(map).forEach(function (key) {
+          if (li.querySelector('#' + CSS.escape(key)) || li.id === key) areas = areas.concat(map[key]);
+        });
+        li.dataset.areas = areas.join('|');
+        areas.forEach(function (a) {
+          if (present.indexOf(a) === -1) present.push(a);
+        });
+      });
+
+      // known tags keep their configured order, unknown tags fall in after them
+      present.sort(function (a, b) {
+        var ia = order.indexOf(a);
+        var ib = order.indexOf(b);
+        return (ia === -1 ? 999 : ia) - (ib === -1 ? 999 : ib);
+      });
+
+      function prettify(tag) {
+        return labels[tag] || tag.replace(/-/g, ' ').replace(/^./, function (c) { return c.toUpperCase(); });
+      }
+
+      present.forEach(function (tag) {
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'op-pub-filter';
+        btn.setAttribute('data-area', tag);
+        btn.textContent = prettify(tag);
+        bar.appendChild(btn);
+      });
+
+      bar.addEventListener('click', function (event) {
+        var btn = event.target.closest('.op-pub-filter');
+        if (!btn) return;
+        var area = btn.getAttribute('data-area');
+        [].forEach.call(bar.querySelectorAll('.op-pub-filter'), function (b) {
+          b.classList.toggle('is-active', b === btn);
+        });
+        items.forEach(function (li) {
+          var matches = area === 'all' || (li.dataset.areas || '').split('|').indexOf(area) !== -1;
+          li.style.display = matches ? '' : 'none';
+        });
+        // the 5-item cap is a date-view idea only
+        if (area === 'all') {
+          if (moreBtn && !moreBtn.dataset.expanded) {
+            items.forEach(function (li, i) {
+              if (i >= 5) li.style.display = 'none';
+            });
+            moreBtn.hidden = false;
+          }
+        } else if (moreBtn) {
+          moreBtn.hidden = true;
+        }
+      });
+    }
+
+    function init() {
+      // Publications are rendered by jekyll-scholar into <ol class="bibliography">
+      var bib = document.querySelector('#opPubs ol.bibliography');
+      if (bib) {
+        bib.id = 'opPubsList';
+        collapse('opPubsList', 'opPubsMore', 5, 'Show more publications');
+        initPubAreas();
+      }
+
+      tagNewsLinks(document);
+
+      var newsList = document.getElementById('opNews');
+      if (newsList) {
+        var items = [].slice.call(newsList.querySelectorAll('.op-news-item'));
+        var newsBtn = document.getElementById('opNewsMore');
+        var filterBar = document.getElementById('opNewsFilters');
+        var activeType = 'all';
+        var expanded = false;
+
+        function applyNewsFilter() {
+          items.forEach(function (item) {
+            var matches = activeType === 'all' || item.getAttribute('data-type') === activeType;
+            var isExtra = item.classList.contains('op-news-item--extra');
+            // The 6-item cap only applies to the unfiltered date view
+            var capped = activeType === 'all' && isExtra && !expanded;
+            item.style.display = matches && !capped ? '' : 'none';
+          });
+          if (newsBtn) {
+            newsBtn.hidden = activeType !== 'all' || expanded;
+          }
+        }
+
+        if (newsBtn) {
+          newsBtn.addEventListener('click', function () {
+            expanded = true;
+            applyNewsFilter();
+          });
+        }
+
+        if (filterBar) {
+          filterBar.addEventListener('click', function (event) {
+            var btn = event.target.closest('.op-news-filter');
+            if (!btn) return;
+            activeType = btn.getAttribute('data-type');
+            [].forEach.call(filterBar.querySelectorAll('.op-news-filter'), function (b) {
+              b.classList.toggle('is-active', b === btn);
+            });
+            applyNewsFilter();
+          });
+        }
+
+        applyNewsFilter();
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  })();
+</script>

@@ -1,0 +1,8 @@
+{% comment %}
+  Minimal jekyll-scholar template. Emits one JSON object per entry so the
+  one-pager can group publications by the `keywords` tags in papers.bib
+  without duplicating the full bib.liquid template.
+
+  Used as: {% bibliography --template bib_areas ... %}
+{% endcomment %}
+{"key": "{{ entry.key }}", "keywords": "{{ entry.keywords | default: '' | strip }}"},
