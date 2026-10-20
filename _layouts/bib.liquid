@@ -7,10 +7,11 @@
         {%- if site.data.venues[entry.abbr] -%}
           {% assign venue_style = null %}
           {% if site.data.venues[entry.abbr].color != blank %}
-            {% assign venue_style = site.data.venues[entry.abbr].color | prepend: 'style="background-color:' | append: '"' %}
+            {% assign venue_style = site.data.venues[entry.abbr].color | prepend: 'style="background-color:var(--op-category-tint, ' | append: ')"' %}
           {%- endif -%}
           <abbr
             class="badge rounded w-100"
+            data-category="{{ entry.abbr | downcase }}"
             {% if venue_style %}
               {{ venue_style }}
             {% endif -%}
@@ -22,7 +23,7 @@
             {% endif %}
           </abbr>
         {% else %}
-          <abbr class="badge rounded w-100">{{ entry.abbr }}</abbr>
+          <abbr class="badge rounded w-100" data-category="{{ entry.abbr | downcase }}">{{ entry.abbr }}</abbr>
         {% endif %}
       {% endif %}
       {% if entry.preview %}

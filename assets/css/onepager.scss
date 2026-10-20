@@ -1,31 +1,70 @@
 ---
 ---
 
-/* ==========================================================================
-   One-pager layout (/new/). Scoped entirely under .op-* so it cannot affect
-   any existing page on the site.
+/* Shared palette for redesigned pages, including inherited components and footer. */
+.op-body {
+  --op-ink: #242424;
+  --op-ink-soft: #454950;
+  --op-muted: #626973;
+  --op-line: #e3e7eb;
+  --op-rule: #a9b2bc;
+  --op-bg: #ffffff;
+  --op-accent: #2867a8;
+  --op-accent-soft: #edf3fa;
+  --op-bg-contrast: #ffffff;
 
-   Styling is a hybrid of two references:
-     - Dongyeop Kang: monochrome ink palette, sans headings, hierarchy carried
-       by weight rather than by colour or serif contrast, bold reserved to 500.
-     - Gaurav Verma: sidebar craft, ringed profile photo, tinted date chips,
-       and a single restrained accent used only for chips and hovers.
-   ========================================================================== */
+  --op-slate: #4c6175;
+  --op-slate-soft: #eef2f6;
+  --op-teal: #286d63;
+  --op-teal-soft: #edf5f2;
+  --op-ochre: #7b5e2f;
+  --op-ochre-soft: #f7f2e8;
+  --op-purple: #66547f;
+  --op-purple-soft: #f2eef6;
+  --op-blue: #3d6684;
+  --op-blue-soft: #edf3f7;
+
+  --global-bg-color: var(--op-bg);
+  --global-text-color: var(--op-ink);
+  --global-text-color-light: var(--op-muted);
+  --global-theme-color: var(--op-accent);
+  --global-hover-color: var(--op-accent);
+  --global-divider-color: var(--op-line);
+  --global-footer-bg-color: var(--op-bg);
+  --global-footer-text-color: var(--op-muted);
+  --global-footer-link-color: var(--op-accent);
+}
+
+html[data-theme="dark"] .op-body {
+  --op-ink: #e8eaed;
+  --op-ink-soft: #c7ccd3;
+  --op-muted: #a5adb8;
+  --op-line: #343b44;
+  --op-rule: #687481;
+  --op-bg: #1c1c1d;
+  --op-accent: #9cc9f5;
+  --op-accent-soft: #24364a;
+  --op-bg-contrast: #1c1c1d;
+
+  --op-slate: #b4c2d1;
+  --op-slate-soft: #29333e;
+  --op-teal: #9bccbf;
+  --op-teal-soft: #233b35;
+  --op-ochre: #ddc394;
+  --op-ochre-soft: #3c3324;
+  --op-purple: #c8b6df;
+  --op-purple-soft: #352d40;
+  --op-blue: #abcae1;
+  --op-blue-soft: #263746;
+}
+
+.op-body footer {
+  border-top: 1px solid var(--op-line);
+  background: var(--op-bg);
+}
 
 .op-wrap {
   --op-sans: "Inter Tight", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-
-  /* DK's monochrome base */
-  --op-ink: #0b0b0c;
-  --op-ink-soft: #2a2a2e;
-  --op-muted: #5c5c62;
-  --op-line: #e8e8ec;
-  --op-rule: #b8b8bc;
-
-  /* the one accent, used Gaurav-style */
-  --op-accent: #b5121b;
-  --op-accent-soft: #fdf2f2;
-  --op-bg-contrast: #ffffff;
 
   max-width: 1180px;
   margin: 0 auto;
@@ -45,17 +84,6 @@
   }
 }
 
-html[data-theme="dark"] .op-wrap {
-  --op-ink: #ececee;
-  --op-ink-soft: #cfcfd4;
-  --op-muted: #9a9aa2;
-  --op-line: #2e2e33;
-  --op-rule: #55555c;
-  --op-accent: #ff7a73;
-  --op-accent-soft: rgba(255, 122, 115, 0.12);
-  --op-bg-contrast: #121214;
-}
-
 .op-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.9fr) minmax(0, 1fr);
@@ -66,7 +94,7 @@ html[data-theme="dark"] .op-wrap {
 /* ─────────────────────────── Main column ─────────────────────────── */
 
 .op-kicker {
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -100,7 +128,7 @@ html[data-theme="dark"] .op-wrap {
   }
 
   a {
-    color: var(--op-ink);
+    color: var(--op-accent);
     text-decoration: underline;
     text-decoration-thickness: 1px;
     text-underline-offset: 2px;
@@ -237,7 +265,7 @@ html[data-theme="dark"] .op-wrap {
 .op-pillar-num {
   display: block;
   font-family: var(--op-sans);
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   color: var(--op-muted);
@@ -268,7 +296,7 @@ html[data-theme="dark"] .op-wrap {
   gap: 0.3rem;
 
   a {
-    font-size: 0.68rem;
+    font-size: 0.75rem;
     font-weight: 500;
     line-height: 1.5;
     padding: 0.1rem 0.4rem;
@@ -285,7 +313,7 @@ html[data-theme="dark"] .op-wrap {
 
 /* Recent publications: tighten the inherited jekyll-scholar markup */
 
-.op-pubs {
+.op-body .op-pubs {
   ol.bibliography {
     list-style: none;
     padding: 0;
@@ -316,26 +344,52 @@ html[data-theme="dark"] .op-wrap {
   }
 
   abbr.badge {
-    font-size: 0.7rem;
+    --op-category-color: var(--op-slate);
+    --op-category-tint: var(--op-slate-soft);
+    font-size: 0.75rem;
     padding: 0.2rem 0.4rem;
+    /* MDB marks badge text white with !important. */
+    color: var(--op-category-color) !important;
+    background: var(--op-category-tint);
+    box-shadow: none;
+
+    &[data-category="journal"] {
+      --op-category-color: var(--op-teal);
+      --op-category-tint: var(--op-teal-soft);
+    }
+
+    &[data-category="conference"] {
+      --op-category-color: var(--op-blue);
+      --op-category-tint: var(--op-blue-soft);
+    }
+
+    &[data-category="workshop"] {
+      --op-category-color: var(--op-purple);
+      --op-category-tint: var(--op-purple-soft);
+    }
+
+    div,
+    a {
+      color: inherit;
+    }
   }
 
   /* Compact the PDF / Website / DOI button row from bib.liquid */
-  .links {
+  ol.bibliography .links {
     margin-top: 0.35rem;
 
-    .btn {
-      font-size: 0.72rem;
+    a.btn {
+      font-size: 0.75rem;
       padding: 0.1rem 0.5rem;
       margin-right: 0.25rem;
-      border: 1px solid var(--op-rule);
+      border: 1px solid var(--op-line);
       border-radius: 4px;
-      color: var(--op-muted);
-      background: transparent;
+      color: var(--op-accent);
+      background: var(--op-accent-soft);
       box-shadow: none;
     }
 
-    .btn:hover {
+    a.btn:hover {
       border-color: var(--op-accent);
       color: var(--op-accent);
     }
@@ -374,7 +428,7 @@ html[data-theme="dark"] .op-wrap {
 
 .op-pub-filter {
   font-family: inherit;
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.01em;
   line-height: 1.5;
@@ -396,9 +450,11 @@ html[data-theme="dark"] .op-wrap {
 }
 
 .op-pub-filter.is-active {
-  background: var(--op-ink);
-  border-color: var(--op-ink);
-  color: var(--op-bg-contrast);
+  background: var(--op-accent-soft);
+  border-color: var(--op-accent);
+  color: var(--op-accent);
+  outline: 1px solid var(--op-accent);
+  outline-offset: -2px;
 }
 
 /* ─────────────────────────── Side column ─────────────────────────── */
@@ -440,7 +496,7 @@ html[data-theme="dark"] .op-wrap {
 }
 
 .op-affil {
-  font-size: 0.73rem;
+  font-size: 0.75rem;
   line-height: 1.5;
   color: var(--op-muted);
 
@@ -449,7 +505,7 @@ html[data-theme="dark"] .op-wrap {
   }
 
   a {
-    color: var(--op-muted);
+    color: var(--op-accent);
     text-decoration: underline;
     text-decoration-color: var(--op-rule);
     text-underline-offset: 2px;
@@ -516,7 +572,7 @@ html[data-theme="dark"] .op-wrap {
   padding: 5px 12px;
   border: 1px solid var(--op-line);
   border-radius: 4px;
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.01em;
   color: var(--op-ink);
@@ -537,7 +593,7 @@ html[data-theme="dark"] .op-wrap {
 }
 
 .op-side-title {
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -571,7 +627,7 @@ html[data-theme="dark"] .op-wrap {
 
 .op-news-filter {
   font-family: inherit;
-  font-size: 0.62rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.02em;
   line-height: 1.5;
@@ -593,10 +649,10 @@ html[data-theme="dark"] .op-wrap {
 }
 
 .op-news-filter.is-active {
-  background: var(--op-news-tint, var(--op-ink));
-  border-color: var(--op-news-color, var(--op-ink));
-  color: var(--op-news-color, var(--op-bg-contrast));
-  outline: 1px solid var(--op-news-color, var(--op-ink));
+  background: var(--op-news-tint, var(--op-line));
+  border-color: var(--op-news-color, var(--op-muted));
+  color: var(--op-news-color, var(--op-ink));
+  outline: 1px solid var(--op-news-color, var(--op-muted));
   outline-offset: -2px;
 }
 
@@ -611,7 +667,7 @@ html[data-theme="dark"] .op-wrap {
 /* Tinted chip, but tinted by update type rather than the single page accent */
 .op-news-type {
   display: inline-block;
-  font-size: 0.6rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.03em;
   padding: 1px 5px;
@@ -623,75 +679,41 @@ html[data-theme="dark"] .op-wrap {
 
 .op-news-date {
   display: inline-block;
-  font-size: 0.63rem;
+  font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.02em;
   color: var(--op-muted);
   white-space: nowrap;
 }
 
-/* Palette lifted from _includes/news.liquid so both versions agree */
 .op-news-filter[data-type="AWARD"],
 .op-news-item[data-type="AWARD"] {
-  --op-news-color: #457b9d;
-  --op-news-tint: rgba(69, 123, 157, 0.12);
+  --op-news-color: var(--op-ochre);
+  --op-news-tint: var(--op-ochre-soft);
 }
 
 .op-news-filter[data-type="MILESTONE"],
 .op-news-item[data-type="MILESTONE"] {
-  --op-news-color: #2a9d8f;
-  --op-news-tint: rgba(42, 157, 143, 0.12);
+  --op-news-color: var(--op-teal);
+  --op-news-tint: var(--op-teal-soft);
 }
 
 .op-news-filter[data-type="PAPER"],
 .op-news-item[data-type="PAPER"] {
-  --op-news-color: #6a4c93;
-  --op-news-tint: rgba(106, 76, 147, 0.12);
+  --op-news-color: var(--op-purple);
+  --op-news-tint: var(--op-purple-soft);
 }
 
 .op-news-filter[data-type="TALK"],
 .op-news-item[data-type="TALK"] {
-  --op-news-color: #d67c26;
-  --op-news-tint: rgba(214, 124, 38, 0.12);
+  --op-news-color: var(--op-blue);
+  --op-news-tint: var(--op-blue-soft);
 }
 
 .op-news-filter[data-type="ANNOUNCEMENT"],
 .op-news-item[data-type="ANNOUNCEMENT"] {
-  --op-news-color: #e91e8c;
-  --op-news-tint: rgba(233, 30, 140, 0.12);
-}
-
-/* Lift the type colours off a near-black background */
-html[data-theme="dark"] {
-  .op-news-filter[data-type="AWARD"],
-  .op-news-item[data-type="AWARD"] {
-    --op-news-color: #7fb4d6;
-    --op-news-tint: rgba(127, 180, 214, 0.16);
-  }
-
-  .op-news-filter[data-type="MILESTONE"],
-  .op-news-item[data-type="MILESTONE"] {
-    --op-news-color: #5fcdbf;
-    --op-news-tint: rgba(95, 205, 191, 0.16);
-  }
-
-  .op-news-filter[data-type="PAPER"],
-  .op-news-item[data-type="PAPER"] {
-    --op-news-color: #a98bd4;
-    --op-news-tint: rgba(169, 139, 212, 0.16);
-  }
-
-  .op-news-filter[data-type="TALK"],
-  .op-news-item[data-type="TALK"] {
-    --op-news-color: #eda45c;
-    --op-news-tint: rgba(237, 164, 92, 0.16);
-  }
-
-  .op-news-filter[data-type="ANNOUNCEMENT"],
-  .op-news-item[data-type="ANNOUNCEMENT"] {
-    --op-news-color: #f472b6;
-    --op-news-tint: rgba(244, 114, 182, 0.16);
-  }
+  --op-news-color: var(--op-slate);
+  --op-news-tint: var(--op-slate-soft);
 }
 
 .op-news-text {
@@ -700,7 +722,7 @@ html[data-theme="dark"] {
   color: var(--op-ink-soft);
 
   a {
-    color: var(--op-ink);
+    color: var(--op-accent);
     text-decoration: underline;
     text-decoration-color: var(--op-rule);
     text-underline-offset: 2px;
@@ -734,21 +756,21 @@ html[data-theme="dark"] {
   display: inline-block;
   padding: 0 5px;
   border-radius: 3px;
-  font-size: 0.63rem;
+  font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0;
   text-transform: capitalize;
   white-space: nowrap;
   text-decoration: none;
-  color: var(--op-muted);
-  background: var(--op-line);
+  color: var(--op-accent);
+  background: var(--op-accent-soft);
   border: 0;
   transition: filter 0.15s ease;
 }
 
 a.op-link-tag[target="_blank"]::after {
   content: "\2197";
-  font-size: 0.55rem;
+  font-size: 0.75rem;
   margin-left: 2px;
   display: inline-block;
 }
@@ -756,47 +778,6 @@ a.op-link-tag[target="_blank"]::after {
 a.op-link-tag:hover {
   text-decoration: none;
   filter: brightness(0.92);
-}
-
-.op-link-tag[data-link-tag="preprint"] {
-  color: #6a4c93;
-  background: rgba(106, 76, 147, 0.1);
-}
-
-.op-link-tag[data-link-tag="paper"] {
-  color: #457b9d;
-  background: rgba(69, 123, 157, 0.1);
-}
-
-.op-link-tag[data-link-tag="code"] {
-  color: #2a9d8f;
-  background: rgba(42, 157, 143, 0.1);
-}
-
-.op-link-tag[data-link-tag="data"] {
-  color: #d67c26;
-  background: rgba(214, 124, 38, 0.1);
-}
-
-.op-link-tag[data-link-tag="video"] {
-  color: #e91e8c;
-  background: rgba(233, 30, 140, 0.1);
-}
-
-.op-link-tag[data-link-tag="blog"],
-.op-link-tag[data-link-tag="reader"] {
-  color: var(--op-accent);
-  background: var(--op-accent-soft);
-}
-
-.op-news-item .op-news-tags .op-link-tag {
-  color: #2867a8;
-  background: #edf3fa;
-}
-
-html[data-theme="dark"] .op-news-item .op-news-tags .op-link-tag {
-  color: #9cc9f5;
-  background: rgba(80, 145, 210, 0.16);
 }
 
 /* Sub-page shell (mentorship, etc.) */
@@ -876,7 +857,7 @@ html[data-theme="dark"] .op-news-item .op-news-tags .op-link-tag {
   margin: 0 0 0.2rem;
 
   a {
-    color: inherit;
+    color: var(--op-accent);
     text-decoration: none;
   }
 
@@ -930,7 +911,7 @@ html[data-theme="dark"] .op-news-item .op-news-tags .op-link-tag {
 
 .op-year-period {
   margin-top: 0.15rem;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   color: var(--op-muted);
 }
 
@@ -948,7 +929,7 @@ html[data-theme="dark"] .op-news-item .op-news-tags .op-link-tag {
   margin: 0 0 0.2rem;
 
   a {
-    color: inherit;
+    color: var(--op-accent);
     text-decoration: underline;
     text-decoration-color: var(--op-rule);
     text-underline-offset: 2px;
@@ -974,7 +955,7 @@ html[data-theme="dark"] .op-news-item .op-news-tags .op-link-tag {
 }
 
 .op-sublabel {
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -1002,11 +983,6 @@ html[data-theme="dark"] .op-news-item .op-news-tags .op-link-tag {
   .op-news-text {
     font-size: 0.85rem;
   }
-}
-
-.op-link-tag[data-link-tag="slides"] {
-  color: #457b9d;
-  background: rgba(69, 123, 157, 0.1);
 }
 
 /* ─────────────────────────── Responsive ─────────────────────────── */
