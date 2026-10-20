@@ -201,18 +201,7 @@ layout: onepager_base
 
     {% elsif page.section == 'publications' %}
       <section class="op-section op-section--first">
-        <script type="application/json" id="opPubAreaData">
-          [{% bibliography --template bib_areas --group_by none %}]
-        </script>
-        <script type="application/json" id="opAreaLabels">
-          [{% for area in site.data.research_areas %}{"tag": "{{ area.tag }}", "label": "{{ area.label }}"}{% unless forloop.last %},{% endunless %}{% endfor %}]
-        </script>
-
-        <div class="op-pub-filters" id="opPubFilters">
-          <button class="op-pub-filter is-active" type="button" data-area="all">By date</button>
-        </div>
-
-        <div class="op-pubs" id="opPubs">{% bibliography --group_by none %}</div>
+        {% include publication_explorer.liquid %}
       </section>
     {% endif %}
 

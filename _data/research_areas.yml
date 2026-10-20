@@ -1,26 +1,28 @@
-# Display labels and ordering for the research-area filter on the one-pager.
+# Display labels, subtopics and ordering for the research areas.
 #
 # The tags themselves live in _bibliography/papers.bib, in each entry's
-# `keywords` field. This file only controls how they are named and ordered.
+# `keywords` field. This file controls their names, subtopics and ordering.
 #
 # To retag a paper, edit its `keywords` in papers.bib. Nothing here needs to
 # change. A tag that is not listed below still appears in the filter, labelled
 # from the tag itself and sorted to the end.
 
-- tag: human-ai-collaboration
-  label: Human-AI collaboration
+- tag: human-ai-interaction
+  label: Human-AI Interaction
+  subtopics: Collaborative interactions, agent workflows, personalization
 
-- tag: llm-behavior
-  label: LLM behavior
-
-- tag: productivity
-  label: Productivity
+- tag: natural-language-processing
+  label: Natural Language Processing
+  subtopics: Language generation, style transfer, synthetic-data evaluation, multimodal reasoning
 
 - tag: computational-social-science
-  label: Computational social science
+  label: Computational Social Science
+  subtopics: Public opinion, persuasion, consumer behavior
 
-- tag: networks-memetics
-  label: Networks and memetics
+- tag: network-science
+  label: Network Science
+  subtopics: Social networks, information diffusion
 
-- tag: ml-methods
-  label: ML methods
+- tag: machine-learning-data-mining
+  label: Machine Learning & Data Mining
+  subtopics: Clustering, pattern discovery

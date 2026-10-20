@@ -1,0 +1,50 @@
+<link rel="stylesheet" href="{{ '/assets/css/publication-explorer.css' | relative_url }}">
+<div class="publication-explorer" id="publicationExplorer" data-dimension="discipline">
+  <p class="intro">Each square is one paper. Hover for details; click to open it.</p>
+  <section class="overview" aria-label="Publication overview">
+    <div class="legend" id="legend" aria-label="Filter by research discipline"></div>
+    <div class="chart-scroll" tabindex="0" role="region" aria-label="Papers by year. Scroll horizontally on narrow screens." aria-describedby="dimensionNote">
+      <div id="chart" class="chart"></div>
+    </div>
+    <p class="chart-note" id="dimensionNote"></p>
+    <dl class="area-guide" id="areaGuide" aria-label="Research disciplines and subtopics"></dl>
+  </section>
+  <section aria-labelledby="listTitle">
+    <h2 id="listTitle" class="sr-only">Publications</h2>
+    <div class="list-toolbar">
+      <div class="list-tabs" id="listViews" aria-label="Publication list view">
+        <button type="button" data-view="date" aria-pressed="true">By Date</button>
+        <button type="button" data-view="category" aria-pressed="false">By Research Discipline</button>
+        <button type="button" data-view="focus" aria-pressed="false">By Research Focus</button>
+      </div>
+      <span class="results" id="results" role="status"></span>
+    </div>
+    <div id="publications">
+      {% assign publication_years = site.data.publication_explorer.papers | group_by: 'year' | sort: 'name' | reverse %}
+      {% for year in publication_years %}
+        <section class="publication-group" aria-label="{{ year.name }}" data-group="{{ year.name }}">
+          <h2 class="group-heading">{{ year.name }}</h2>
+          {% for paper in year.items %}
+            <article class="publication" id="paper-{{ paper.key | escape }}" data-key="{{ paper.key | escape }}">
+              <div class="paper-marker">{{ paper.venue | escape }}</div>
+              <div class="paper-body">
+                <h3>{{ paper.title | escape }}</h3>
+                <p class="authors">
+                  {%- for author in paper.authorNames -%}
+                    {%- unless forloop.first -%}, {% endunless -%}
+                    {%- if author.isSelf -%}<span class="author-self">{{ author.name | escape }}</span>{%- else -%}{{ author.name | escape }}{%- endif -%}
+                  {%- endfor -%}
+                </p>
+                {% if paper.publication != '' %}<p class="paper-venue">{{ paper.publication | escape }}</p>{% endif %}
+                {% if paper.url != '' %}<a class="paper-link" href="{{ paper.url | escape }}" target="_blank" rel="noopener noreferrer">Paper</a>{% endif %}
+              </div>
+            </article>
+          {% endfor %}
+        </section>
+      {% endfor %}
+    </div>
+  </section>
+  <div id="paperTooltip" role="tooltip" hidden></div>
+  <script id="publicationData" type="application/json">{{ site.data.publication_explorer_json }}</script>
+</div>
+<script defer src="{{ '/assets/js/publication-explorer.js' | relative_url }}"></script>

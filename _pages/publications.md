@@ -2,7 +2,7 @@
 layout: onepager_page
 permalink: /publications/
 title: Publications
-kicker: Filter by research area
+kicker: Explore by date, discipline, or focus
 nav: false
 section: publications
 tab_match: /publications/
