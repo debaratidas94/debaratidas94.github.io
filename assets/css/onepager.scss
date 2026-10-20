@@ -578,8 +578,8 @@ html[data-theme="dark"] .op-wrap {
   padding: 2px 7px;
   border: 1px solid var(--op-line);
   border-radius: 3px;
-  background: transparent;
-  color: var(--op-muted);
+  background: var(--op-news-tint, transparent);
+  color: var(--op-news-color, var(--op-muted));
   cursor: pointer;
   transition:
     background 0.15s ease,
@@ -588,14 +588,16 @@ html[data-theme="dark"] .op-wrap {
 }
 
 .op-news-filter:hover {
-  border-color: var(--op-rule);
-  color: var(--op-ink);
+  border-color: var(--op-news-color, var(--op-rule));
+  color: var(--op-news-color, var(--op-ink));
 }
 
 .op-news-filter.is-active {
-  background: var(--op-news-color, var(--op-ink));
+  background: var(--op-news-tint, var(--op-ink));
   border-color: var(--op-news-color, var(--op-ink));
-  color: var(--op-bg-contrast);
+  color: var(--op-news-color, var(--op-bg-contrast));
+  outline: 1px solid var(--op-news-color, var(--op-ink));
+  outline-offset: -2px;
 }
 
 .op-news-meta {
@@ -785,6 +787,16 @@ a.op-link-tag:hover {
 .op-link-tag[data-link-tag="reader"] {
   color: var(--op-accent);
   background: var(--op-accent-soft);
+}
+
+.op-news-item .op-news-tags .op-link-tag {
+  color: #2867a8;
+  background: #edf3fa;
+}
+
+html[data-theme="dark"] .op-news-item .op-news-tags .op-link-tag {
+  color: #9cc9f5;
+  background: rgba(80, 145, 210, 0.16);
 }
 
 /* Sub-page shell (mentorship, etc.) */

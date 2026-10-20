@@ -1,8 +1,47 @@
 [
   {
+    "date": "Jul 22, 2026",
+    "type": "ANNOUNCEMENT",
+    "text": "New piece in the **New Future of Work Reader** on the context AI misses while drafting in the workplace.",
+    "tags": [
+      {
+        "label": "Microsoft blog",
+        "url": "https://microsoft.github.io/nfw-reader/posts/context-ai-doesnt-see"
+      }
+    ]
+  },
+  {
+    "date": "May 2026",
+    "type": "ANNOUNCEMENT",
+    "text": "The **2026 Work Trend Index** is out, focusing on agents and human agency. It features our user x agent intensity framework and has been covered by Forbes, GeekWire, and other news outlets.",
+    "tags": [
+      {
+        "label": "Microsoft report",
+        "url": "https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization"
+      }
+    ]
+  },
+  {
     "date": "Feb 2026",
     "type": "MILESTONE",
-    "text": "Thrilled to announce that I have defended my PhD titled *LLMs as Sociotechnical Actors: A Scaffolding Framework for Recovering Context Lost in Text-Only Settings*. Grateful to everyone who supported this work!"
+    "text": "Thrilled to announce that I have defended my PhD titled *LLMs as Sociotechnical Actors: A Scaffolding Framework for Recovering Context Lost in Text-Only Settings*. Grateful to everyone who supported this work!",
+    "tags": [
+      {
+        "label": "Paper",
+        "url": "https://www.proquest.com/openview/69161249fbce5c4693b82d8add6f9913/1?pq-origsite=gscholar&cbl=18750&diss=y"
+      }
+    ]
+  },
+  {
+    "date": "Dec 2025",
+    "type": "ANNOUNCEMENT",
+    "text": "The **2025 Microsoft New Future of Work report** is out.",
+    "tags": [
+      {
+        "label": "Microsoft report",
+        "url": "https://www.microsoft.com/en-us/research/publication/new-future-of-work-report-2025/"
+      }
+    ]
   },
   {
     "date": "Nov 2025",
@@ -12,7 +51,8 @@
   {
     "date": "Aug 2025",
     "type": "MILESTONE",
-    "text": "Started as a Senior Applied Scientist at [Microsoft](https://www.microsoft.com/en-us/research/group/office-of-applied-research/) and moved to the Seattle area! I will continue working on human-agent collaboration for productivity."
+    "text": "Started as a Senior Applied Scientist at [Microsoft](https://www.microsoft.com/en-us/research/group/ideas-research/) and moved to the Seattle area! I will continue working on human-agent collaboration for productivity.",
+    "tags": []
   },
   {
     "date": "Aug 2025",
