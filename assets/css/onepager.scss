@@ -295,7 +295,8 @@ html[data-theme="dark"] .op-body {
   flex-wrap: wrap;
   gap: 0.3rem;
 
-  a {
+  a, button {
+    font-family: inherit;
     font-size: 0.75rem;
     font-weight: 500;
     line-height: 1.5;
@@ -306,8 +307,35 @@ html[data-theme="dark"] .op-body {
     text-decoration: none;
   }
 
-  a:hover {
+  button {
+    border: 0;
+    cursor: pointer;
+  }
+
+  a:hover, button:hover {
     filter: brightness(0.95);
+  }
+}
+
+.op-coming-soon {
+  background: var(--op-bg);
+  color: var(--op-ink);
+  border: 1px solid var(--op-rule);
+  border-radius: 6px;
+  padding: 1.25rem;
+  max-width: calc(100vw - 2rem);
+  font: inherit;
+
+  &::backdrop { background: rgba(0, 0, 0, 0.2); }
+  p { margin: 0 0 1rem; font-weight: 500; }
+  button {
+    font: inherit;
+    color: var(--op-accent);
+    background: var(--op-accent-soft);
+    border: 1px solid var(--op-line);
+    border-radius: 3px;
+    padding: 0.2rem 0.65rem;
+    cursor: pointer;
   }
 }
 

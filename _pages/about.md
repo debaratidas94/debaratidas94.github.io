@@ -20,29 +20,35 @@ profile:
     - Research in Human-AI Collaboration, LLMs, and NLP
 
 pillars:
-  - title: Human-AI collaboration in expert workflows
+  - focus: human-ai-collaboration-in-expert-workflows
     body: >
-      I capture how professionals actually reason through complex work, then design
-      systems that fit those workflows instead of flattening them.
+      Understand people's goals, work contexts, and collaboration with AI to design
+      assistance that fits their needs.
     links:
+      - name: Not Just My Style
+        paper: das2026contextualpersonalization
       - name: LawFlow
-        url: https://arxiv.org/abs/2504.18942
+        paper: das2025lawflowcollectingsimulating
 
-  - title: Characterizing and steering LLM behavior
+  - focus: characterizing-and-steering-llm-behavior
     body: >
-      I study how generated text drifts from what people value and intend, and build
-      the controls that pull it back.
+      Characterize how language models reason and generate, and how inputs and
+      steering shape their behavior.
     links:
       - name: Under the Surface
-        url: https://arxiv.org/abs/2401.14698
+        paper: das2024under
+      - name: GraphLLM
+        paper: das2024modality
 
-  - title: Measuring AI's impact on real productivity
+  - focus: evaluating-consequences-of-ai
     body: >
-      I measure how generative AI changes real work at scale, turning observed
-      behavior into better agent design.
+      Examine the benefits, burdens, and demands of AI use on people, with attention
+      to oversight and meaningful control.
     links:
-      - name: Collaboration Behaviors
-        url: https://arxiv.org/pdf/2505.16023
+      - name: Babysitting AI Agents
+        paper: mittal2026babysitting
+      - name: Thinking Like a Lawyer
+        paper: schwarcz2025thinking
 ---
 
 I'm a senior applied scientist at the [IDEAS Research group](https://www.microsoft.com/en-us/research/people/debaratidas/) at Microsoft, led by Scott Counts, where I work on measuring and steering the impact of generative AI on productivity.

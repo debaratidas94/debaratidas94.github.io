@@ -1,6 +1,29 @@
 ---
 ---
 
+.publication-explorer, .op-pillars {
+  --cp-focus-context: #6d42a6;
+  --cp-focus-collaboration: #9a431c;
+  --cp-focus-consequences: #0b6b68;
+  --cp-focus-foundation: #526277;
+
+  html[data-theme="dark"] & {
+    --cp-focus-context: #c2a7ed;
+    --cp-focus-collaboration: #f0ad87;
+    --cp-focus-consequences: #83cbc4;
+    --cp-focus-foundation: #b6c3d3;
+  }
+}
+
+.op-pillars .op-pillar-title {
+  display: inline-block;
+  padding: 1px 5px;
+  border: 1px solid var(--cp-mark);
+  border-radius: 2px;
+  background: var(--op-bg);
+  color: var(--cp-mark);
+}
+
 .publication-explorer {
   --cp-surface: var(--op-bg);
   --cp-bg-elevated: var(--op-accent-soft);
@@ -14,10 +37,6 @@
   --cp-warning: #f59e0b;
   --cp-link: #0078d4;
   --cp-author: #a3158b;
-  --cp-focus-context: #6d42a6;
-  --cp-focus-collaboration: #9a431c;
-  --cp-focus-consequences: #0b6b68;
-  --cp-focus-foundation: #526277;
 
   font-family: inherit;
   font-size: 14px;
@@ -31,10 +50,6 @@
     --cp-warning: #fbbf24;
     --cp-link: #4da6ff;
     --cp-author: #f49ade;
-    --cp-focus-context: #c2a7ed;
-    --cp-focus-collaboration: #f0ad87;
-    --cp-focus-consequences: #83cbc4;
-    --cp-focus-foundation: #b6c3d3;
   }
 
   &:not(.is-ready) .intro,
@@ -66,6 +81,7 @@
   .legend button[aria-pressed="true"] { font-weight: 600; color: var(--cp-text); }
   .legend button:not([data-category="all"])[aria-pressed="true"] { background: color-mix(in srgb, var(--cp-mark) 30%, var(--cp-surface)); }
   .legend button:hover { color: var(--cp-text); text-decoration: underline; }
+  &[data-dimension="focus"] .legend { flex-direction: column; align-items: flex-start; }
   &[data-dimension="focus"] .legend button:not([data-category="all"]) { color: var(--cp-mark); }
   &[data-dimension="focus"] .legend button:not([data-category="all"])[aria-pressed="true"] { background: var(--cp-surface); outline: 1px solid var(--cp-mark); outline-offset: 2px; }
   .swatch { display: inline-block; width: 10px; height: 10px; border-radius: 2px; background: var(--cp-mark); flex-shrink: 0; }

@@ -1,11 +1,15 @@
-- tag: understanding-human-ai-collaboration
-  label: Understanding human-AI collaboration
+- tag: human-ai-collaboration-in-expert-workflows
+  label: Human-AI collaboration in expert workflows
+  color: --cp-focus-context
 
-- tag: understanding-and-characterizing-llm-behavior
-  label: Understanding and characterizing LLM behavior
+- tag: characterizing-and-steering-llm-behavior
+  label: Characterizing and steering LLM behavior
+  color: --cp-focus-collaboration
 
 - tag: evaluating-consequences-of-ai
   label: Evaluating consequences of AI
+  color: --cp-focus-consequences
 
 - tag: foundation
   label: Broader Research
+  color: --cp-focus-foundation

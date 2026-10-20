@@ -184,6 +184,13 @@
     }
 
     function init() {
+      var comingSoon = document.getElementById('opComingSoon');
+      if (comingSoon) {
+        document.querySelectorAll('[data-coming-soon]').forEach(function (button) {
+          button.addEventListener('click', function () { comingSoon.showModal(); });
+        });
+      }
+
       // Publications are rendered by jekyll-scholar into <ol class="bibliography">
       var bib = document.querySelector('#opPubs ol.bibliography');
       if (bib) {

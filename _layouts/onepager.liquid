@@ -24,55 +24,48 @@ layout: onepager_base
 
       <div class="op-intro">{{ content }}</div>
 
-      <!-- Explore publications -->
-      <div class="op-cta">
-        <a class="op-btn op-btn--primary" href="{{ '/publications/' | relative_url }}">Explore publications</a>
-      </div>
-
       <!-- Research pillars -->
       {% if page.pillars %}
         <section class="op-section">
-          <h2 class="op-section-title">My research focuses on</h2>
+          <h2 class="op-section-title">Research focus</h2>
           <div class="op-pillars">
             {% for pillar in page.pillars %}
-              <article class="op-pillar">
+              {% assign focus = site.data.research_focus | where: 'tag', pillar.focus | first %}
+              <article class="op-pillar" style="--cp-mark: var({{ focus.color }});">
                 <span class="op-pillar-num">{{ forloop.index | prepend: '0' }}</span>
-                <h3 class="op-pillar-title">{{ pillar.title }}</h3>
+                <h3 class="op-pillar-title">{{ focus.label }}</h3>
                 <p class="op-pillar-body">{{ pillar.body }}</p>
                 {% if pillar.links %}
                   <p class="op-pillar-links">
                     {% for link in pillar.links %}
-                      <a href="{{ link.url }}" target="_blank" rel="noopener">{{ link.name }}</a>
+                      {% assign linked_paper = site.data.publication_explorer.papers | where: 'key', link.paper | first %}
+                      {% assign link_url = linked_paper.website | default: linked_paper.url %}
+                      {% if link_url != '' %}
+                        <a href="{{ link_url | escape }}" target="_blank" rel="noopener">{{ link.name }}</a>
+                      {% else %}
+                        <button type="button" data-coming-soon aria-haspopup="dialog" aria-controls="opComingSoon" title="Coming soon">{{ link.name }}</button>
+                      {% endif %}
                     {% endfor %}
                   </p>
                 {% endif %}
               </article>
             {% endfor %}
           </div>
+          <dialog class="op-coming-soon" id="opComingSoon" aria-labelledby="opComingSoonTitle">
+            <p id="opComingSoonTitle">Coming soon</p>
+            <form method="dialog"><button type="submit" autofocus>Close</button></form>
+          </dialog>
         </section>
       {% endif %}
 
       <!-- Recent publications -->
       <section class="op-section">
         <h2 class="op-section-title">
-          Recent publications
+          Explore Recent publications
           <a class="op-section-link" href="{{ '/publications/' | relative_url }}">full list</a>
         </h2>
 
-        <!-- Tag map straight from papers.bib, so retagging there re-sorts here -->
-        <script type="application/json" id="opPubAreaData">
-          [{% bibliography --query @*[selected=true]* --template bib_areas --group_by none %}]
-        </script>
-        <script type="application/json" id="opAreaLabels">
-          [{% for area in site.data.research_areas %}{"tag": "{{ area.tag }}", "label": "{{ area.label }}"}{% unless forloop.last %},{% endunless %}{% endfor %}]
-        </script>
-
-        <div class="op-pub-filters" id="opPubFilters">
-          <button class="op-pub-filter is-active" type="button" data-area="all">By date</button>
-        </div>
-
-        <div class="op-pubs" id="opPubs">{% include selected_papers.liquid %}</div>
-        <button class="op-more" id="opPubsMore" type="button" hidden>Show more publications</button>
+        {% include publication_explorer.liquid data=site.data.publication_explorer_current json=site.data.publication_explorer_current_json %}
       </section>
     </main>
 
@@ -104,7 +97,7 @@ layout: onepager_base
           {% endif %}
 
           <div class="op-socials social">
-            <div class="contact-icons">{% include social.liquid %}</div>
+            <div class="contact-icons">{% include social.liquid hide_cv=true %}</div>
           </div>
 
           {% if site.cv_url or site.cv_pdf %}

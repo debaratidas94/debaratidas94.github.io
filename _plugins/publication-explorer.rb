@@ -36,6 +36,7 @@ module Jekyll
           'themes' => theme_tags,
           'venue' => entry.abbr.to_s.strip.downcase,
           'url' => [entry[:pdf], entry[:html]].map(&:to_s).find { |url| !url.empty? }.to_s,
+          'website' => entry[:website].to_s,
           'authors' => entry.author.to_s,
           'authorDisplay' => author_names.map { |author| author['name'] }.join(', '),
           'authorNames' => author_names,
@@ -51,9 +52,15 @@ module Jekyll
         'themes' => themes,
         'areas' => site.data.fetch('research_areas')
       }
-      site.data['publication_explorer'] = data
-      # Keep titles containing HTML characters inside the JSON script element.
-      site.data['publication_explorer_json'] = JSON.generate(data).gsub('<', '\u003c').gsub('>', '\u003e').gsub('&', '\u0026')
+      current_data = data.merge(
+        'papers' => papers.select { |paper| paper['themes'].any? { |theme| theme != 'foundation' } },
+        'themes' => themes.reject { |theme| theme.fetch('tag') == 'foundation' }
+      )
+      { 'publication_explorer' => data, 'publication_explorer_current' => current_data }.each do |key, explorer|
+        site.data[key] = explorer
+        # Keep titles containing HTML characters inside the JSON script element.
+        site.data["#{key}_json"] = JSON.generate(explorer).gsub('<', '\u003c').gsub('>', '\u003e').gsub('&', '\u0026')
+      end
     end
   end
 end

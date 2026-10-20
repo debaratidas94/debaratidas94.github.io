@@ -1,8 +1,10 @@
+{% assign explorer_data = include.data | default: site.data.publication_explorer %}
+{% assign explorer_json = include.json | default: site.data.publication_explorer_json %}
 <link rel="stylesheet" href="{{ '/assets/css/publication-explorer.css' | relative_url }}">
-<div class="publication-explorer" id="publicationExplorer" data-dimension="discipline">
+<div class="publication-explorer" id="publicationExplorer" data-dimension="focus">
   <p class="intro">Each square is one paper. Hover for details; click to open it.</p>
   <section class="overview" aria-label="Publication overview">
-    <div class="legend" id="legend" aria-label="Filter by research discipline"></div>
+    <div class="legend" id="legend" aria-label="Filter by research focus"></div>
     <div class="chart-scroll" tabindex="0" role="region" aria-label="Papers by year. Scroll horizontally on narrow screens." aria-describedby="dimensionNote">
       <div id="chart" class="chart"></div>
     </div>
@@ -13,14 +15,14 @@
     <h2 id="listTitle" class="sr-only">Publications</h2>
     <div class="list-toolbar">
       <div class="list-tabs" id="listViews" aria-label="Publication list view">
-        <button type="button" data-view="date" aria-pressed="true">By Date</button>
+        <button type="button" data-view="date" aria-pressed="false">By Date</button>
         <button type="button" data-view="category" aria-pressed="false">By Research Discipline</button>
-        <button type="button" data-view="focus" aria-pressed="false">By Research Focus</button>
+        <button type="button" data-view="focus" aria-pressed="true">By Research Focus</button>
       </div>
       <span class="results" id="results" role="status"></span>
     </div>
     <div id="publications">
-      {% assign publication_years = site.data.publication_explorer.papers | group_by: 'year' | sort: 'name' | reverse %}
+      {% assign publication_years = explorer_data.papers | group_by: 'year' | sort: 'name' | reverse %}
       {% for year in publication_years %}
         <section class="publication-group" aria-label="{{ year.name }}" data-group="{{ year.name }}">
           <h2 class="group-heading">{{ year.name }}</h2>
@@ -45,6 +47,6 @@
     </div>
   </section>
   <div id="paperTooltip" role="tooltip" hidden></div>
-  <script id="publicationData" type="application/json">{{ site.data.publication_explorer_json }}</script>
+  <script id="publicationData" type="application/json">{{ explorer_json }}</script>
 </div>
 <script defer src="{{ '/assets/js/publication-explorer.js' | relative_url }}"></script>

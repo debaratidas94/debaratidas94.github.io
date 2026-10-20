@@ -3,12 +3,12 @@
   if (!root) return;
   const { papers, areas, themes } = JSON.parse(root.querySelector('#publicationData').textContent);
   const venueLabels = { conference: 'Conference', journal: 'Journal', workshop: 'Workshop', preprint: 'Preprint', abstract: 'Conference abstract' };
-  let categories = areas.map(area => [area.tag, area.label]);
+  let categories = themes.map(theme => [theme.tag, theme.label]);
   const categoryColors = ['--cp-link', '--cp-accent', '--cp-success', '--cp-warning', '--cp-text-muted', '--cp-border-strong'];
-  const focusColors = ['--cp-focus-context', '--cp-focus-collaboration', '--cp-focus-consequences', '--cp-focus-foundation'];
+  const focusColors = themes.map(theme => theme.color);
   let filter = 'all';
-  let grouping = 'date';
-  let dimension = 'discipline';
+  let grouping = 'focus';
+  let dimension = 'focus';
   const chart = root.querySelector('#chart');
   const legend = root.querySelector('#legend');
   const list = root.querySelector('#publications');
