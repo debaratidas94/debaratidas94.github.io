@@ -1,55 +1,20 @@
-- title: UMN CSE TALK Program
+- title: CSE TALK Program
+  period: "2023"
   role: Instructor
   url: https://cei.umn.edu/programs/international-teaching-assistant-ita-program/cse-talk-teaching-and-language-kick
-  details:
-    - Designing course material and instructing prospective graduate students on how to serve as teaching assistants.
-  offerings:
-    - year: 2023
-      terms: Summer
+  summary: trained incoming graduate teaching assistants
 
-- title: UMN CSCI 4707 Practice of Database Systems
+- title: Natural Language Processing
+  period: "2023"
   role: Teaching Assistant
-  details:
-    - Designing and grading assignments, holding office hours, and conducting lectures.
-  offerings:
-    - year: 2024
-      terms: Spring
-    - year: 2023
-      terms: Summer
-    - year: 2022
-      terms: Fall, Summer
-    - year: 2021
-      terms: Summer
-    - year: 2020
-      terms: Spring
-    - year: 2018
-      terms: Spring
+  summary: course material, mentored projects, organized research posters
 
-- title: UMN CSCI 5541 Natural Language Processing
+- title: Practice of Database Systems
+  period: "2018-2024"
   role: Teaching Assistant
-  details:
-    - Mentoring group projects, designing tutorials, and organizing research poster presentations.
-    - Designing and grading assignments, holding office hours, and conducting lectures.
-  offerings:
-    - year: 2023
-      terms: Spring
+  summary: 7 terms, course development and delivered lectures
 
-- title: UMN CSCI 1933 Introduction to Algorithms and Data structures using Java
+- title: Intro Algorithms & Data Structures / Program Development
+  period: "2018-2023"
   role: Teaching Assistant
-  details:
-    - Grading assignments and holding office hours.
-  offerings:
-    - year: 2019
-      terms: Fall
-
-- title: UMN CSCI 1913 Intro to Algorithms, Data Structures and Program Development
-  role: Teaching Assistant
-  details:
-    - Grading assignments and holding office hours.
-  offerings:
-    - year: 2023
-      terms: Fall
-    - year: 2019
-      terms: Spring
-    - year: 2018
-      terms: Fall
+  summary: 4 terms, grading and course material development

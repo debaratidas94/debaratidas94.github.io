@@ -352,6 +352,10 @@ html[data-theme="dark"] .op-body {
     margin-bottom: 1.4rem;
   }
 
+  .bibtex.hidden:not(.open) {
+    display: none;
+  }
+
   .title {
     font-family: var(--op-sans);
     font-size: 0.95rem;

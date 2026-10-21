@@ -55,35 +55,6 @@ layout: onepager_base
         {% endfor %}
       </section>
 
-      <section class="op-section op-timeline" id="teaching" aria-labelledby="teaching-title">
-        <h2 class="op-section-title" id="teaching-title">Teaching</h2>
-        {% assign teaching_years = '' | split: ',' %}
-        {% for course in site.data.teaching %}
-          {% assign course_years = course.offerings | map: 'year' %}
-          {% assign teaching_years = teaching_years | concat: course_years %}
-        {% endfor %}
-        {% assign teaching_years = teaching_years | uniq | sort | reverse %}
-        {% for year in teaching_years %}
-          <div class="op-year-row">
-            <h3 class="op-year">{{ year }}</h3>
-            <div class="op-year-items">
-              {% for course in site.data.teaching %}
-                {% assign offering = course.offerings | where: 'year', year | first %}
-                {% if offering %}
-                  <article class="op-entry">
-                    <h4 class="op-entry-title">{% if course.url %}<a href="{{ course.url | escape }}">{{ course.title | escape }}</a>{% else %}{{ course.title | escape }}{% endif %}</h4>
-                    <p class="op-entry-meta">{{ offering.terms }} | {{ course.role }}</p>
-                    {% for detail in course.details %}
-                      <p class="op-entry-note">{{ detail | escape }}</p>
-                    {% endfor %}
-                  </article>
-                {% endif %}
-              {% endfor %}
-            </div>
-          </div>
-        {% endfor %}
-      </section>
-
     {% elsif page.section == 'awards' %}
       <section class="op-section op-section--first op-timeline" id="patents" aria-labelledby="patents-title">
         <h2 class="op-section-title" id="patents-title">Patents</h2>
@@ -167,8 +138,19 @@ layout: onepager_base
       </section>
 
     {% elsif page.section == 'service' %}
-      <section class="op-section op-section--first">
-        {% for item in site.data.service %}
+      {% assign service_groups = site.data.service | group_by: 'category' %}
+      {% for group in service_groups %}
+      {% assign section_id = group.name | slugify %}
+      <section class="op-section{% if forloop.first %} op-section--first{% endif %}" id="{{ section_id }}" aria-labelledby="{{ section_id }}-title">
+        <h2 class="op-section-title" id="{{ section_id }}-title">{{ group.name }}</h2>
+        {% if group.items.first.summary %}
+          <ul class="op-plain-list">
+            {% for item in group.items %}
+              <li><strong>{{ item.role | escape }}{% if item.period %} ({{ item.period | escape }}){% endif %}:</strong> {{ item.summary | escape }}</li>
+            {% endfor %}
+          </ul>
+        {% else %}
+        {% for item in group.items %}
           <div class="op-year-row">
             <div class="op-year">
               <div class="op-year-role">{{ item.role }}</div>
@@ -198,6 +180,18 @@ layout: onepager_base
             </div>
           </div>
         {% endfor %}
+        {% endif %}
+      </section>
+      {% endfor %}
+
+      <section class="op-section" id="teaching" aria-labelledby="teaching-title">
+        <h2 class="op-section-title" id="teaching-title">Teaching</h2>
+        <p class="op-entry-title">University of Minnesota Twin Cities</p>
+        <ul class="op-plain-list">
+          {% for course in site.data.teaching %}
+            <li><strong>{{ course.period | escape }}</strong> {{ course.role | escape }}, {% if course.url %}<a href="{{ course.url | escape }}">{{ course.title | escape }}</a>{% else %}{{ course.title | escape }}{% endif %} ({{ course.summary | escape }})</li>
+          {% endfor %}
+        </ul>
       </section>
 
     {% elsif page.section == 'news' %}

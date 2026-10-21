@@ -1,8 +1,8 @@
 ---
 layout: onepager_page
 permalink: /service/
-title: Service
-kicker: Reviewing, organizing, and community
+title: Academic Service
+kicker: Reviewing, organizing, and teaching
 nav: false
 section: service
 tab_match: /service/

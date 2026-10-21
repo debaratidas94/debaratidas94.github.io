@@ -7,9 +7,9 @@
 - url: /awards/
   label: Patents and Awards
 - url: /service/
-  label: Service
-- url: /teaching/
-  label: Teaching and mentorship
+  label: Academic Service
+- url: /mentorship/
+  label: Mentorship
 - url: /talks/
   label: Talks
 - url: /news/

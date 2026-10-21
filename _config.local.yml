@@ -1,0 +1,36 @@
+# Local preview overrides. Used only by serve.ps1 via
+#   jekyll serve --config _config.yml,_config.local.yml
+# CI never reads this file, so production output is unaffected.
+#
+# Why this exists: jupyter.exe cannot be spawned in this environment
+# (Errno::EINVAL), and a failed notebook conversion aborts the entire
+# build. The jupyter plugin is auto-loaded from the Gemfile's
+# :jekyll_plugins group, so it cannot be disabled via `plugins:` --
+# the notebook itself has to be excluded instead.
+#
+# The only notebook is assets/jupyter/blog.ipynb, which belongs to the
+# old blog and is unrelated to the one-pager.
+#
+# Jekyll replaces arrays wholesale rather than merging them, so this is
+# the full exclude list from _config.yml plus the notebook.
+exclude:
+  - bin/
+  - CONTRIBUTING.md
+  - CUSTOMIZE.md
+  - Dockerfile
+  - docker-compose.yml
+  - docker-compose-slim.yml
+  - FAQ.md
+  - Gemfile
+  - Gemfile.lock
+  - INSTALL.md
+  - LICENSE
+  - lighthouse_results/
+  - package.json
+  - package-lock.json
+  - _pages/about_einstein.md
+  - purgecss.config.js
+  - README.md
+  - readme_preview/
+  - vendor
+  - assets/jupyter/

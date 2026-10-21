@@ -1,39 +1,30 @@
 [
   {
-    "role": "Reviewer",
-    "org": "",
-    "period": "Fall 2022 – Present",
-    "sections": [
-      {
-        "label": "CS Conferences and Workshops",
-        "entries": [
-          "ACM SIGCHI 2026",
-          "NLP4PosImpact 2025 @ ACL 2025",
-          "COLING 2025",
-          "IC2S2 2024, 2025",
-          "In2Writing Workshop @ CHI 2024, 2025",
-          "Pluralistic‑Alignment @ Neurips 2024",
-          "CustomNLP4U @ EMNLP 2024",
-          "ARR [2024 – Feb, June, August]",
-          "WiNLP Workshop @ EMNLP 2024",
-          "LREC‑COLING 2024",
-          "NLP+CSS Workshop @ EMNLP 2023"
-        ]
-      },
-      {
-        "label": "Journals and Other Scholarly Venues",
-        "entries": [
-          "Transactions on Knowledge Discovery from Data",
-          "Transactions on Visualizations and Computer Graphics",
-          "Humanities and Social Sciences Communications",
-          "Computational Communication Research Journal",
-          "Journal of Marketing Communications",
-          "American Academy of Advertising 2023"
-        ]
-      }
+    "category": "Program committees and reviewing",
+    "role": "Program/Scientific Committee",
+    "summary": "COLING 2025; LREC 2026."
+  },
+  {
+    "category": "Program committees and reviewing",
+    "role": "Conference Reviewer",
+    "summary": "CHI, ACL Rolling Review (ACL, EMNLP, NAACL), COLING, LREC, IC2S2, American Academy of Advertising; workshops at CHI, NeurIPS, EMNLP, and ACL."
+  },
+  {
+    "category": "Program committees and reviewing",
+    "role": "Journal Reviewer",
+    "summary": "Nature Humanities & Social Sciences Communications, ACM TKDD, IEEE TVCG, Computational Communication Research, Journal of Marketing Communications."
+  },
+  {
+    "category": "Community leadership",
+    "role": "Organizer",
+    "org": "AI Future of Work workshop at CHIWORK",
+    "period": "2027 (Upcoming)",
+    "bullets": [
+      "Speakers across NLP, HCI, and economics."
     ]
   },
   {
+    "category": "Community leadership",
     "role": "Co-organizer",
     "org": "Minnesota NLP Seminar",
     "period": "Fall 2021 – Fall 2023",
@@ -42,6 +33,7 @@
     ]
   },
   {
+    "category": "Community leadership",
     "role": "Officer",
     "org": "Computer Science Graduate Students Association",
     "period": "Fall 2020 – Fall 2022",
@@ -51,6 +43,7 @@
     ]
   },
   {
+    "category": "Community leadership",
     "role": "Member",
     "org": "Diversity, Equity, and Advocacy Committee (CS-IDEA)",
     "period": "Spring 2020 – Fall 2025",
@@ -60,6 +53,7 @@
     ]
   },
   {
+    "category": "Community leadership",
     "role": "Coordinator",
     "org": "Women in Computer Science",
     "period": "Spring 2019 – Spring 2022",

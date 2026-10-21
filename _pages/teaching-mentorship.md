@@ -1,10 +1,10 @@
 ---
 layout: onepager_page
-permalink: /teaching/
-title: Teaching and mentorship
+permalink: /mentorship/
+title: Mentorship
 kicker: Students I have worked with
 nav: false
 mentorship: true
 section: mentorship
-tab_match: /teaching/
+tab_match: /mentorship/
 ---

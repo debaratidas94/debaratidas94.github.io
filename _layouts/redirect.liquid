@@ -9,7 +9,10 @@
   <body>
     <p>This page has moved. <a href="{{ page.redirect_to | relative_url }}">Continue to the updated page.</a></p>
     <script>
-      window.location.replace({{ page.redirect_to | relative_url | jsonify }} + window.location.search + window.location.hash);
+      const target = new URL({{ page.redirect_to | relative_url | jsonify }}, window.location.href);
+      if (window.location.search) target.search = window.location.search;
+      if (!target.hash) target.hash = window.location.hash;
+      window.location.replace(target.href);
     </script>
   </body>
 </html>
