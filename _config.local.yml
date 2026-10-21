@@ -14,6 +14,8 @@
 # Jekyll replaces arrays wholesale rather than merging them, so this is
 # the full exclude list from _config.yml plus the notebook.
 exclude:
+  - _posts/
+  - _projects/
   - bin/
   - CONTRIBUTING.md
   - CUSTOMIZE.md

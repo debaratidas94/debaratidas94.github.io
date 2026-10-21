@@ -146,10 +146,10 @@ collections:
   news:
     defaults:
       layout: post
-    output: true
+    output: false
     permalink: /:collection/:title/
   projects:
-    output: true
+    output: false
     permalink: /:collection/:title/
 
 announcements:
@@ -182,6 +182,9 @@ kramdown:
 # Includes & excludes
 include: ["_pages", "_scripts"]
 exclude:
+  - _posts/
+  - _projects/
+  - assets/jupyter/
   - bin/
   - CONTRIBUTING.md
   - CUSTOMIZE.md
@@ -256,7 +259,7 @@ terser:
 # -----------------------------------------------------------------------------
 
 jekyll-archives:
-  enabled: [year, tags, categories] # enables year, tag and category archives (remove if you need to disable one of them).
+  enabled: []
   layouts:
     year: archive-year
     tag: archive-tag
