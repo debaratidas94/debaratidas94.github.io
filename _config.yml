@@ -244,7 +244,8 @@ sass:
 
 jekyll-minifier:
   compress_javascript: false # set to false since we are using terser as the js minifier
-  # exclude: ["robots.txt", "assets/js/search/*.js"]
+  # Sass already compresses this file; cssminify2 corrupts calc() spacing.
+  exclude: ["assets/css/publication-explorer.css"]
 
 # -----------------------------------------------------------------------------
 # Terser
