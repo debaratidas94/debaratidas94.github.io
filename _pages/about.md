@@ -5,7 +5,7 @@ permalink: /
 nav: false
 description: Debarati Das is a Senior Applied Scientist at Microsoft working on human-AI collaboration, LLM behavior, and AI in expert workflows.
 
-kicker: Human-Centered NLP · Computational Social Science · Human-AI Collaboration
+kicker: Human-AI Interaction | Natural Language Processing | Computational Social Science
 
 headline: >
   I study how people work with AI, so it makes work <em>better</em> to do,
@@ -16,8 +16,7 @@ profile:
   name: Debarati Das
   lines:
     - Senior Applied Scientist at <a href="https://www.microsoft.com/en-us/research/people/debaratidas/">Microsoft</a>
-    - PhD in Computer Science, University of Minnesota
-    - Research in Human-AI Collaboration, LLMs, and NLP
+    - PhD in Computer Science, University of Minnesota Twin-Cities
 
 pillars:
   - focus: human-ai-collaboration-in-expert-workflows
@@ -51,8 +50,8 @@ pillars:
         paper: schwarcz2025thinking
 ---
 
-I'm a senior applied scientist at the [IDEAS Research group](https://www.microsoft.com/en-us/research/people/debaratidas/) at Microsoft, led by Scott Counts, where I work on measuring and steering the impact of generative AI on productivity.
+I’m a senior applied scientist at the [IDEAS Research group](https://www.microsoft.com/en-us/research/people/debaratidas/) at Microsoft, led by [Scott Counts](https://scottcounts.com/).
 
-My research is in human-centered NLP. Drawing on how people use AI assistants and agents in real work, I study when AI supports people's sense of control and competence and when it quietly erodes them, and how model behavior aligns or misaligns with users' values, expectations, and goals. I'm excited about building NLP systems that support meaningful human–AI collaboration in real work environments.
+I study human-AI collaboration in work that requires expertise and judgment. My research examines how people communicate their needs and interact with AI, how LLMs behave and can be steered, and how using AI changes people’s work. I use interaction traces to make this collaboration visible over time, examining how people steer AI, evaluate its outputs, and recover from failures. I ask when AI expands people’s capabilities, when it creates additional work, and how people can stay in control.
 
-I did my PhD in the [Minnesota NLP group](https://minnesotanlp.github.io/) with [Prof. Dongyeop Kang](https://dykang.github.io/), co-advised by [Prof. Jaideep Srivastava](https://scholar.google.com/citations?user=Y4J5SOwAAAAJ&hl=en), and interned at Microsoft Research and 3M R&D.
+I did my PhD in the [Minnesota NLP group](https://minnesotanlp.github.io/) with [Prof. Dongyeop Kang](https://dykang.github.io/), co-advised by [Prof. Jaideep Srivastava](https://scholar.google.com/citations?user=Y4J5SOwAAAAJ&hl=en), and interned as a doctoral student at Microsoft Research and 3M R&D.

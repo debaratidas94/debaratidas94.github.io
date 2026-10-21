@@ -1,7 +1,7 @@
 ---
 layout: onepager_page
 permalink: /awards/
-title: Awards and honors
+title: Patents and Awards
 kicker: Recognition
 nav: false
 section: awards

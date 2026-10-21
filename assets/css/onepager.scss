@@ -969,6 +969,32 @@ a.op-link-tag:hover {
   }
 }
 
+.op-award-details {
+  summary { cursor: pointer; }
+  summary::marker { color: var(--op-accent); }
+  summary:focus-visible { outline: 2px solid var(--op-accent); outline-offset: 3px; }
+}
+
+.op-award-details[open] .op-entry-title {
+  margin-bottom: 0.5rem;
+}
+
+.op-timeline {
+  .op-year-row { display: block; padding-bottom: 0; margin-bottom: 20px; border-bottom: 0; }
+  .op-year { margin: 20px 0 12px; padding: 0; text-align: left; font-size: 15px; line-height: 1.4; font-weight: 600; color: var(--op-ink); }
+  .op-entry { position: relative; margin: 0 0 0 4px; padding: 0 0 14px 18px; border-left: 1px solid var(--op-line); }
+  .op-entry::before { content: ''; position: absolute; left: -4.5px; top: 6px; width: 8px; height: 8px; border-radius: 50%; background: var(--op-accent); }
+  .op-entry:last-child { padding-bottom: 0; border-left-color: transparent; }
+  .op-entry-note { font-size: 1rem; }
+  .op-timeline-intro { margin: 0 0 20px; color: var(--op-muted); }
+  .op-mentee-line { margin: 0; line-height: 1.5; }
+  .op-mentee-name { font-weight: 500; }
+  .op-mentee-affiliation { color: var(--op-ink-soft); }
+  .op-mentee-papers { list-style: none; margin: 3px 0 0; padding: 0; font-size: 13px; line-height: 1.5; }
+  .op-mentee-papers li + li { margin-top: 2px; }
+  a { color: var(--op-accent); text-underline-offset: 3px; }
+}
+
 .op-entry-meta {
   font-size: 0.76rem;
   color: var(--op-muted);

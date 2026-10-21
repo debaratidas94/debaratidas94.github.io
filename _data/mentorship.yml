@@ -1,72 +1,109 @@
-# Mentorship, rendered as cards on the new mentorship page.
-#
-# `publication` is optional. Its pill label is derived from the URL using the
-# same rules as the updates pills, unless you set `publication_label`.
+# Years are mentorship start years from the CV, not publication years.
+# Papers reference bibliography keys so titles and links match Publications.
+
+- name: Yikun Chi
+  year: 2026
+  url: https://www.yikun.io/
+  designation: PhD at Stanford University
+  papers:
+    - chi2026cogent
+
+- name: Shravika Mittal
+  year: 2026
+  url: https://mittalshravika.github.io/
+  designation: PhD at Georgia Tech
+  papers:
+    - mittal2026babysitting
 
 - name: Khanh Chi Le
+  year: 2024
   url: https://chile2706.github.io/
-  designation: PhD @ UMN TC
-  publication: https://arxiv.org/abs/2504.18942
+  designation: PhD at University of Minnesota Twin Cities
+  papers:
+    - das2025lawflowcollectingsimulating
 
 - name: Ritik Sachin Parkar
+  year: 2024
   url: https://github.com/RitikParkar
   designation: Thomson Reuters
-  publication: https://arxiv.org/abs/2504.18942
+  papers:
+    - das2025lawflowcollectingsimulating
+    - das2024under
 
 - name: Jianing Wen
+  year: 2024
   url: https://jianingwen.github.io/
-  designation: PhD @ Northeastern University
+  designation: PhD at Northeastern University
 
 - name: Amrutha Shetty
+  year: 2024
   url: https://amruthashetty3899.wixsite.com/amruthaslittleworld
-  designation: Data Analyst @ Malec Engineering
+  designation: Data Analyst at Wunderlich Malec Engineering
 
 - name: Sanjali Roy
+  year: 2023
   url: https://github.com/sanjaliroy
-  designation: BS @ UMN TC
-  publication: https://arxiv.org/pdf/2401.14698
+  designation: Master of Information Management and Systems at UC Berkeley
+  papers:
+    - das2024under
 
 - name: Ishaan Gupta
+  year: 2023
   url: https://ishaang-1.github.io/portfolio/
-  designation: Intern @ Seagate
-  publication: https://aclanthology.org/2024.findings-naacl.34/
+  designation: Software Engineer at Bosch
+  papers:
+    - das2024modality
 
 - name: David Ma
+  year: 2021
   url: https://www.linkedin.com/in/david-ma-8551b39b/
-  designation: Quant Trader @ Optiver
-  publication: https://aclanthology.org/2023.findings-acl.243/
+  designation: Quantitative Trader at Optiver
+  papers:
+    - das2023balancing
 
 - name: Josh Spitzer-Resnick
+  year: 2021
   url: https://www.linkedin.com/in/joshspitzerresnick/
-  designation: Data Scientist @ Solventum Healthcare
+  designation: Data Scientist at Solventum
 
-- name: Aryan Srivastava
+- name: Aaryan Srivastava
+  year: 2021
   url: https://www.linkedin.com/in/aryan-srivastava-9b1664185/
-  designation: BSE @ Purdue University
-  publication: https://cse.umn.edu/cs/feature-stories/public-insights-covid19-vaccination-using-exploratory-and-sentiment-analysis
+  designation: BS at Purdue University
+  papers:
+    - srivastava2021vaccination
 
 - name: Haoyu Gong
+  year: 2021
   url: https://www.linkedin.com/in/haoyu-gong-14abb8203/
-  designation: PhD @ UMN TC
+  designation: PhD at University of Minnesota Twin Cities
 
-- name: Aadesh Salesha
-  url: https://www.linkedin.com/in/aadesh-salecha/
-  designation: Staff Data Scientist @ Stanford
+- name: Aadesh Salecha
+  year: 2021
+  url: https://profiles.stanford.edu/aadesh-salecha
+  designation: Founding Engineer at Hyfin
 
 - name: Ahmed Hassan
+  year: 2020
   url: https://cse.umn.edu/college/alumni/cse-mentor-program
-  designation: BS @ UMN TC
+  designation: BS at University of Minnesota Twin Cities
 
 - name: Hao Zou
+  year: 2020
   url: https://haozou-official.github.io/
-  designation: BS @ UMN TC
+  designation: MS at Columbia University
 
 - name: Roopana Chenchu
+  year: 2020
   url: https://www.linkedin.com/in/roopana-vuppalapati-chenchu-b5871458/
-  designation: SDE3 @ Google
-  publication: https://aclanthology.org/2022.wnut-1.19.pdf
+  designation: Software Engineer III at Google
+  papers:
+    - das2022adbert
+    - kim2021gender
 
 - name: Mayura Nene
+  year: 2020
   url: https://www.linkedin.com/in/mayura-nene/
-  designation: SDE2 @ Amazon
-  publication: https://www.proquest.com/openview/c037a7dcf06919d66de63c37f9abac79/1?pq-origsite=gscholar&cbl=40231
+  designation: Software Engineer II at Amazon
+  papers:
+    - kim2021gender

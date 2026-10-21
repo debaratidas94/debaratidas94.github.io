@@ -21,67 +21,109 @@ layout: onepager_base
     <h1 class="op-page-title">{{ page.title }}</h1>
 
     {% if page.section == 'mentorship' %}
-      <section class="op-section op-section--first">
-        <h2 class="op-section-title">Mentorship</h2>
-        <div class="op-cards">
-          {% for m in site.data.mentorship %}
-            <article class="op-card-item">
-              <h3 class="op-card-name">
-                {% if m.url %}
-                  <a href="{{ m.url }}" target="_blank" rel="noopener">{{ m.name }}</a>
-                {% else %}
-                  {{ m.name }}
-                {% endif %}
-              </h3>
-              <p class="op-card-role">{{ m.designation }}</p>
+      <section class="op-section op-section--first op-timeline" id="mentorship" aria-labelledby="mentorship-title">
+        <h2 class="op-section-title" id="mentorship-title">Mentorship</h2>
+        <p class="op-timeline-intro">Grouped by mentorship start year. Affiliations reflect current positions.</p>
+        {% assign mentorship_years = site.data.mentorship | group_by: 'year' | sort: 'name' | reverse %}
+        {% for group in mentorship_years %}
+          <div class="op-year-row">
+            <h3 class="op-year">{{ group.name }}</h3>
+            <div class="op-year-items">
+              {% for m in group.items %}
+                <article class="op-entry">
+                  <p class="op-mentee-line">
+                    <strong class="op-mentee-name">{% if m.url %}<a href="{{ m.url | escape }}" target="_blank" rel="noopener">{{ m.name | escape }}</a>{% else %}{{ m.name | escape }}{% endif %}</strong>,
+                    <span class="op-mentee-affiliation">{{ m.designation | escape }}</span>
+                  </p>
+                  {% if m.papers %}
+                    <ul class="op-mentee-papers">
+                      {% for key in m.papers %}
+                        {% assign paper = site.data.publication_explorer.papers | where: 'key', key | first %}
+                        {% assign paper_url = paper.url %}
+                        {% if paper_url == '' %}
+                          {% capture paper_path %}/publications/#paper-{{ key }}{% endcapture %}
+                          {% assign paper_url = paper_path | relative_url %}
+                        {% endif %}
+                        <li><a href="{{ paper_url | escape }}" data-paper="{{ key | escape }}">{{ paper.title | escape }}</a></li>
+                      {% endfor %}
+                    </ul>
+                  {% endif %}
+                </article>
+              {% endfor %}
+            </div>
+          </div>
+        {% endfor %}
+      </section>
 
-              {% if m.publication %}
-                {% assign pub = m.publication %}
-                {% if m.publication_label %}
-                  {% assign pub_tag = m.publication_label | downcase %}
-                {% elsif pub contains 'arxiv.org' or pub contains 'ssrn.com' %}
-                  {% assign pub_tag = 'preprint' %}
-                {% elsif pub contains 'aclanthology.org' or pub contains 'dl.acm.org' or pub contains 'doi.org' or pub contains 'proquest.com' %}
-                  {% assign pub_tag = 'paper' %}
-                {% elsif pub contains 'github.com' %}
-                  {% assign pub_tag = 'code' %}
-                {% else %}
-                  {% assign pub_tag = 'reader' %}
+      <section class="op-section op-timeline" id="teaching" aria-labelledby="teaching-title">
+        <h2 class="op-section-title" id="teaching-title">Teaching</h2>
+        {% assign teaching_years = '' | split: ',' %}
+        {% for course in site.data.teaching %}
+          {% assign course_years = course.offerings | map: 'year' %}
+          {% assign teaching_years = teaching_years | concat: course_years %}
+        {% endfor %}
+        {% assign teaching_years = teaching_years | uniq | sort | reverse %}
+        {% for year in teaching_years %}
+          <div class="op-year-row">
+            <h3 class="op-year">{{ year }}</h3>
+            <div class="op-year-items">
+              {% for course in site.data.teaching %}
+                {% assign offering = course.offerings | where: 'year', year | first %}
+                {% if offering %}
+                  <article class="op-entry">
+                    <h4 class="op-entry-title">{% if course.url %}<a href="{{ course.url | escape }}">{{ course.title | escape }}</a>{% else %}{{ course.title | escape }}{% endif %}</h4>
+                    <p class="op-entry-meta">{{ offering.terms }} | {{ course.role }}</p>
+                    {% for detail in course.details %}
+                      <p class="op-entry-note">{{ detail | escape }}</p>
+                    {% endfor %}
+                  </article>
                 {% endif %}
-                <div class="op-news-tags">
-                  <a
-                    class="op-link-tag"
-                    data-link-tag="{{ pub_tag }}"
-                    href="{{ pub }}"
-                    target="_blank"
-                    rel="noopener"
-                  >{{ pub_tag }}</a>
-                </div>
-              {% endif %}
-            </article>
-          {% endfor %}
-        </div>
+              {% endfor %}
+            </div>
+          </div>
+        {% endfor %}
       </section>
 
     {% elsif page.section == 'awards' %}
-      <section class="op-section op-section--first">
-        {% assign grouped = site.data.awards | group_by: 'year' %}
+      <section class="op-section op-section--first op-timeline" id="patents" aria-labelledby="patents-title">
+        <h2 class="op-section-title" id="patents-title">Patents</h2>
+        {% assign patent_years = site.data.patents | group_by: 'year' | sort: 'name' | reverse %}
+        {% for group in patent_years %}
+          <div class="op-year-row">
+            <h3 class="op-year">{{ group.name }}</h3>
+            <div class="op-year-items">
+              {% for patent in group.items %}
+                <article class="op-entry">
+                  <h4 class="op-entry-title">{{ patent.title | escape }}</h4>
+                  <p class="op-entry-meta">{{ patent.status | escape }}</p>
+                </article>
+              {% endfor %}
+            </div>
+          </div>
+        {% endfor %}
+      </section>
+
+      <section class="op-section op-timeline" id="awards" aria-labelledby="awards-title">
+        <h2 class="op-section-title" id="awards-title">Awards</h2>
+        {% assign grouped = site.data.awards | group_by: 'year' | sort: 'name' | reverse %}
         {% for group in grouped %}
           <div class="op-year-row">
-            <div class="op-year">{{ group.name }}</div>
+            <h3 class="op-year">{{ group.name }}</h3>
             <div class="op-year-items">
               {% for award in group.items %}
                 <article class="op-entry">
-                  <h3 class="op-entry-title">
-                    {% if award.url and award.url != '#' %}
-                      <a href="{{ award.url }}" target="_blank" rel="noopener">{{ award.name }}</a>
-                    {% else %}
-                      {{ award.name }}
+                  <details class="op-award-details">
+                    <summary class="op-entry-title">{{ award.name }}</summary>
+                    {% if award.paper_title and award.paper_url %}
+                      <p class="op-entry-note"><a href="{{ award.paper_url | escape }}" target="_blank" rel="noopener">{{ award.paper_title | escape }}</a></p>
                     {% endif %}
-                  </h3>
-                  {% if award.about and award.about != '' %}
-                    <p class="op-entry-note">{{ award.about }}</p>
-                  {% endif %}
+                    {% if award.about and award.about != '' %}
+                      <p class="op-entry-note">{{ award.about }}</p>
+                    {% endif %}
+                    {% if award.url and award.url != '#' %}
+                      <p class="op-entry-meta"><a href="{{ award.url | escape }}" target="_blank" rel="noopener">Official award listing</a></p>
+                    {% endif %}
+                  </details>
                 </article>
               {% endfor %}
             </div>
