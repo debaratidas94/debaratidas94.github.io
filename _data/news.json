@@ -1,5 +1,10 @@
 [
   {
+    "date": "Oct 26, 2026",
+    "type": "ANNOUNCEMENT",
+    "text": "Our new preprint, [Babysitting AI Agents](https://arxiv.org/pdf/2610.34748), examines agentic delegation failures from a user perspective. Out now on arXiv!"
+  },
+  {
     "date": "Jul 22, 2026",
     "type": "ANNOUNCEMENT",
     "text": "New research in the **New Future of Work Reader** on the context AI misses while drafting in the workplace.",

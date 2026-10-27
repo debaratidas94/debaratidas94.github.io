@@ -10,4 +10,9 @@
       href="{{ tab.url | relative_url }}"
     >{{ tab.label }}</a>
   {% endfor %}
+  {% if site.enable_darkmode %}
+    <button class="op-tab" id="light-toggle" type="button" aria-label="Change theme (system, light, dark)" title="Cycle system, light, and dark mode">
+      Light / dark
+    </button>
+  {% endif %}
 </nav>

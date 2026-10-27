@@ -169,6 +169,23 @@ html[data-theme="dark"] .op-body {
   color: var(--op-ink);
 }
 
+.op-tabs #light-toggle {
+  align-self: baseline;
+  font-family: inherit;
+  line-height: inherit;
+  color: var(--op-muted);
+  cursor: pointer;
+
+  &:hover {
+    color: var(--op-accent);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--op-accent);
+    outline-offset: 4px;
+  }
+}
+
 /* Explore publications call to action */
 
 .op-cta {
