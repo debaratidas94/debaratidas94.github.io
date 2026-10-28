@@ -2,7 +2,13 @@
   {
     "date": "Oct 29, 2026",
     "type": "ANNOUNCEMENT",
-    "text": "New research in the New Future of Work Reader examining  agentic delegation failures from a user perspective"
+    "text": "New research in the New Future of Work Reader examining  agentic delegation failures from a user perspective",
+    "tags": [
+      {
+        "label": "Preprint",
+        "url": "https://arxiv.org/pdf/2610.34748"
+      }
+    ]
   },
   {
     "date": "Oct 26, 2026",
