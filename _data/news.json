@@ -93,13 +93,13 @@
   },
   {
     "date": "Dec 2024",
-    "type": "TALK",
+    "type": "ANNOUNCEMENT",
     "text": "Gave a talk titled *When AI Learns to Listen: Generative AI in the Social Sciences* to high school students at the [Sparkway Learning PythonAI Workshop 2024](https://sites.google.com/view/sparkwaylearning/home)."
   },
   {
     "date": "Nov 2024",
-    "type": "TALK",
-    "text": "Honored to be a speaker at the [Women in AI and Data Science Conference 2024](https://sites.google.com/umn.edu/dsi-wiads/speakers), discussing the impact of artifacts in LLM-generated data."
+    "type": "ANNOUNCEMENT",
+    "text": "Honored to be a speaker at the [Women in AI and Data Science Conference 2024](https://sites.google.com/umn.edu/2026-aihub-wiads/home), discussing the impact of artifacts in LLM-generated data."
   },
   {
     "date": "Oct 2024",
@@ -118,12 +118,12 @@
   },
   {
     "date": "Jul 2024",
-    "type": "TALK",
+    "type": "ANNOUNCEMENT",
     "text": "Gave a talk titled *Beyond Words: Incorporating Graph Data into LLMs for Comprehensive Social System Analysis* at [IC2S2 2024](https://ic2s2-2024.org/schedule)."
   },
   {
     "date": "Jun 2024",
-    "type": "TALK",
+    "type": "ANNOUNCEMENT",
     "text": "Presented [Which Modality should I use?](https://aclanthology.org/2024.findings-naacl.34/) at NAACL 2024 in Mexico City! [[Tweet]](https://x.com/geekylildeb/status/1803542147460690103)"
   },
   {
@@ -133,7 +133,7 @@
   },
   {
     "date": "May 2024",
-    "type": "TALK",
+    "type": "ANNOUNCEMENT",
     "text": "Presented my [recent paper](https://arxiv.org/abs/2401.14698) on LLM-generated artifacts at Megagon Labs, along with [Dongyeop Kang](https://dykang.github.io/)."
   },
   {
