@@ -21,20 +21,15 @@
 
 - tag: social-networks
   label: Social Networks
-  subtopics: Memes, information diffusion
+  subtopics: Memes, information diffusion, graph reasoning with LLMs
   color: --cp-domain-networks
 
 - tag: digital-humanities
   label: Digital Humanities
-  subtopics: Computational analysis of literary texts
+  subtopics: Computational analysis of literary texts and scholarly writing
   color: --cp-domain-humanities
 
-- tag: science-of-science
-  label: Science of Science
-  subtopics: Mining author research interests
-  color: --cp-domain-science
-
 - tag: domain-general
-  label: Domain-general
-  subtopics: Methods not tied to one field, such as synthetic data, style transfer, graph reasoning and clustering
+  label: General
+  subtopics: Methods not tied to one field, such as synthetic data, style transfer and clustering
   color: --cp-domain-general
