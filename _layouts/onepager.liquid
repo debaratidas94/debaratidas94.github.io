@@ -16,16 +16,19 @@ layout: onepager_base
 
       <h1 class="op-headline">{{ page.headline }}</h1>
 
+      {% include hero_trace.liquid %}
+
       <div class="op-intro">{{ content }}</div>
 
       <!-- Research pillars -->
       {% if page.pillars %}
         <section class="op-section">
-          <h2 class="op-section-title">Research focus</h2>
+          <h2 class="op-section-title"><span class="op-section-label">{% include trace_glyph.liquid %}Research focus</span></h2>
           <div class="op-pillars">
             {% for pillar in page.pillars %}
               {% assign focus = site.data.research_focus | where: 'tag', pillar.focus | first %}
               <article class="op-pillar" style="--cp-mark: var({{ focus.color }});">
+                <span class="op-pillar-thread" aria-hidden="true"><i></i><i></i><i></i></span>
                 {% include focus_icons/{{ pillar.focus }}.liquid %}
                 <h3 class="op-pillar-title">{{ focus.label }}</h3>
                 <p class="op-pillar-body">{{ pillar.body }}</p>
@@ -55,7 +58,7 @@ layout: onepager_base
       <!-- Recent publications -->
       <section class="op-section">
         <h2 class="op-section-title">
-          Explore Recent publications
+          <span class="op-section-label">{% include trace_glyph.liquid %}Explore Recent publications</span>
           <a class="op-section-link" href="{{ '/publications/' | relative_url }}">full list</a>
         </h2>
 
@@ -77,9 +80,9 @@ layout: onepager_base
           {% endif %}
 
           {% if page.profile.name %}
-            <h2 class="op-name">{{ page.profile.name }}</h2>
+            <h2 class="op-name">{% include trace_glyph.liquid steps=2 %}{{ page.profile.name }}</h2>
           {% else %}
-            <h2 class="op-name">{{ site.first_name | strip }} {{ site.last_name | strip }}</h2>
+            <h2 class="op-name">{% include trace_glyph.liquid steps=2 %}{{ site.first_name | strip }} {{ site.last_name | strip }}</h2>
           {% endif %}
 
           {% if page.profile.lines %}

@@ -1,0 +1,96 @@
+{% comment %}
+  Hero trace: one human-agent session drawn as two lanes. Each human move takes the
+  color of one research focus. Labels are HTML, positioned in % of the 760x170 viewBox,
+  so text keeps its pixel size when the SVG scales down.
+{% endcomment %}
+<figure class="op-trace" id="opTrace">
+  <div class="op-trace-canvas">
+    <svg
+      viewBox="0 0 760 170"
+      role="img"
+      aria-label="A human and AI agent session: you delegate, steer, then evaluate a silent failure and recover, and the task passes."
+    >
+      <path class="ht-lane" d="M62 58 H752" />
+      <path class="ht-lane" d="M62 128 H752" />
+
+      <path class="ht-hand ht-draw" pathLength="1" style="--ht: var(--ht-c); --d: 0.32s" d="M110 58 C110 93,150 93,150 128" />
+      <path class="ht-run ht-draw" pathLength="1" style="--d: 0.54s" d="M150 128 H300" data-tip-k="Agent" data-tip="Agent works on its own: tool calls, edits, commands." />
+      <path class="ht-hand ht-draw" pathLength="1" style="--ht: var(--ht-agent); --d: 0.89s" d="M300 128 C300 93,335 93,335 58" />
+      <path class="ht-hand ht-draw" pathLength="1" style="--ht: var(--ht-s); --d: 1.33s" d="M335 58 C335 93,370 93,370 128" />
+      <path class="ht-run ht-draw" pathLength="1" style="--d: 1.55s" d="M370 128 H495" data-tip-k="Agent" data-tip="Agent works on its own: tool calls, edits, commands." />
+      <path class="ht-hand ht-hand--dashed ht-fade" style="--ht: var(--ht-agent); --d: 2.12s" d="M505 128 C505 93,545 93,545 58" />
+      <path class="ht-hand ht-draw" pathLength="1" style="--ht: var(--ht-e); --d: 2.78s" d="M612 58 C612 93,648 93,648 128" />
+      <path class="ht-run ht-draw" pathLength="1" style="--d: 3s" d="M648 128 H730" data-tip-k="Agent" data-tip="Agent works on its own: tool calls, edits, commands." />
+
+      <g class="ht-step ht-pop" style="--ht: var(--ht-c); --d: 0.1s" data-tip-k="Delegate" data-tip="Hand the task to the agent." data-tip-focus="Human-AI collaboration in expert workflows">
+        <circle class="ht-dot" cx="110" cy="58" r="7" />
+        <circle class="ht-hit" cx="110" cy="58" r="16" />
+      </g>
+      <g class="ht-step ht-pop" style="--ht: var(--ht-s); --d: 1.11s" data-tip-k="Steer" data-tip="Redirect the agent mid-task when it drifts." data-tip-focus="Characterizing and steering LLM behavior">
+        <circle class="ht-dot" cx="335" cy="58" r="7" />
+        <circle class="ht-hit" cx="335" cy="58" r="16" />
+      </g>
+      <g class="ht-step ht-pop" style="--d: 1.9s" data-tip-k="Agent" data-tip="The agent fails without saying so. The score alone would miss this.">
+        <circle class="ht-fail" cx="500" cy="128" r="9" />
+        <path class="ht-fail-x" d="M496.5 124.5 L503.5 131.5 M503.5 124.5 L496.5 131.5" />
+        <circle class="ht-hit" cx="500" cy="128" r="16" />
+      </g>
+      <g class="ht-step ht-pop" style="--ht: var(--ht-e); --d: 2.34s" data-tip-k="Evaluate" data-tip="Notice that the output is wrong." data-tip-focus="Evaluating consequences of AI">
+        <circle class="ht-dot" cx="545" cy="58" r="7" />
+        <circle class="ht-hit" cx="545" cy="58" r="16" />
+      </g>
+      <g class="ht-step ht-pop" style="--ht: var(--ht-e); --d: 2.56s" data-tip-k="Recover" data-tip="Repair the work and stay in control." data-tip-focus="Evaluating consequences of AI">
+        <circle class="ht-dot ht-dot--ring" cx="612" cy="58" r="7" />
+        <circle class="ht-hit" cx="612" cy="58" r="16" />
+      </g>
+      <g class="ht-step ht-pop" style="--d: 3.35s" data-tip-k="Outcome" data-tip="Task passes. Same score as a session with no trouble, but a different collaboration.">
+        <path class="ht-done" d="M737 128 L741 132 L748 123" />
+        <circle class="ht-hit" cx="742" cy="128" r="16" />
+      </g>
+    </svg>
+
+    <span class="ht-label ht-label--lane" style="top: 34.12%">YOU</span>
+    <span class="ht-label ht-label--lane" style="top: 75.29%">AGENT</span>
+    <span class="ht-label ht-label--step ht-fade" style="--ht: var(--ht-c); --d: 0.1s; left: 14.47%">delegate</span>
+    <span class="ht-label ht-label--step ht-fade" style="--ht: var(--ht-s); --d: 1.11s; left: 44.08%">steer</span>
+    <span class="ht-label ht-label--step ht-label--before ht-fade" style="--ht: var(--ht-e); --d: 2.34s; left: 71.71%">evaluate</span>
+    <span class="ht-label ht-label--step ht-label--after ht-fade" style="--ht: var(--ht-e); --d: 2.56s; left: 80.53%">recover</span>
+    <span class="ht-label ht-label--note ht-fade" style="--d: 1.9s; left: 65.79%">silent failure</span>
+  </div>
+
+  <figcaption class="op-trace-legend">
+    <span style="--ht: var(--ht-c)"><i></i>Human-AI collaboration in expert workflows</span>
+    <span style="--ht: var(--ht-s)"><i></i>Characterizing and steering LLM behavior</span>
+    <span style="--ht: var(--ht-e)"><i></i>Evaluating consequences of AI</span>
+  </figcaption>
+
+  <div class="op-trace-tip" id="opTraceTip" role="tooltip" hidden></div>
+</figure>
+
+<script>
+  (() => {
+    const trace = document.getElementById('opTrace');
+    const tip = document.getElementById('opTraceTip');
+    if (!trace || !tip) return;
+    const line = (tag, text, className) => {
+      const node = document.createElement(tag);
+      node.textContent = text;
+      if (className) node.className = className;
+      return node;
+    };
+    trace.querySelectorAll('[data-tip]').forEach(node => {
+      node.addEventListener('pointerenter', () => {
+        tip.replaceChildren(line('strong', node.dataset.tipK), line('span', node.dataset.tip));
+        if (node.dataset.tipFocus) tip.append(line('span', `Focus: ${node.dataset.tipFocus}`, 'op-trace-tip-focus'));
+        tip.hidden = false;
+      });
+      node.addEventListener('pointermove', event => {
+        const width = tip.offsetWidth;
+        tip.style.left = `${Math.max(12, Math.min(event.clientX + 14, window.innerWidth - width - 12))}px`;
+        tip.style.top = `${event.clientY + 16}px`;
+      });
+      node.addEventListener('pointerleave', () => { tip.hidden = true; });
+    });
+    window.addEventListener('scroll', () => { tip.hidden = true; }, { passive: true });
+  })();
+</script>

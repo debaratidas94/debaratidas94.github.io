@@ -1,0 +1,12 @@
+{% comment %}
+  Lane glyph: a two-lane trace in miniature. Pass steps=2 for the wordmark version,
+  which returns to the human lane in the evaluation color.
+{% endcomment %}
+<svg class="op-glyph" viewBox="0 0 26 16" aria-hidden="true" focusable="false">
+  <path class="op-glyph-lane" d="M1 3 H25 M1 13 H25" />
+  <path class="op-glyph-move" d="M7 3 C7 8,15 8,15 13" />
+  {% if include.steps == 2 %}<path class="op-glyph-move op-glyph-move--e" d="M15 13 C15 8,21 8,21 3" />{% endif %}
+  <circle class="op-glyph-you" cx="7" cy="3" r="2.6" />
+  <circle class="op-glyph-agent" cx="15" cy="13" r="2.6" />
+  {% if include.steps == 2 %}<circle class="op-glyph-you op-glyph-you--e" cx="21" cy="3" r="2.6" />{% endif %}
+</svg>

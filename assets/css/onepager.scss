@@ -24,6 +24,15 @@
   --op-blue: #3d6684;
   --op-blue-soft: #edf3f7;
 
+  /* Focus colors for the trace motif. Keep in sync with publication-explorer.scss. */
+  --cp-focus-context: #6d42a6;
+  --cp-focus-collaboration: #9a431c;
+  --cp-focus-consequences: #0b6b68;
+  --ht-c: var(--cp-focus-context);
+  --ht-s: var(--cp-focus-collaboration);
+  --ht-e: var(--cp-focus-consequences);
+  --ht-agent: #c4c8ce;
+
   --global-bg-color: var(--op-bg);
   --global-text-color: var(--op-ink);
   --global-text-color-light: var(--op-muted);
@@ -56,6 +65,11 @@ html[data-theme="dark"] .op-body {
   --op-purple-soft: #352d40;
   --op-blue: #abcae1;
   --op-blue-soft: #263746;
+
+  --cp-focus-context: #c2a7ed;
+  --cp-focus-collaboration: #f0ad87;
+  --cp-focus-consequences: #83cbc4;
+  --ht-agent: #4c5158;
 }
 
 .op-body footer {
@@ -125,17 +139,268 @@ html[data-theme="dark"] .op-body {
     margin-bottom: 1rem;
   }
 
+  /* Trace links: a dotted underline in the first focus color that marches on hover */
   a {
-    color: var(--op-accent);
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 2px;
-    text-decoration-color: var(--op-rule);
+    color: var(--op-ink);
+    text-decoration: none;
     border-bottom: 0;
+    padding-bottom: 2px;
+    background-image: linear-gradient(to right, var(--ht-c) 55%, transparent 55%);
+    background-size: 7px 1.5px;
+    background-repeat: repeat-x;
+    background-position: 0 100%;
   }
 
   a:hover {
-    text-decoration-color: currentColor;
+    color: var(--op-ink);
+    text-decoration: none;
+    animation: op-trace-march 0.6s linear infinite;
+  }
+}
+
+@keyframes op-trace-march {
+  to {
+    background-position: 7px 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .op-intro a:hover {
+    animation: none;
+  }
+}
+
+/* Hero trace: one session, two lanes */
+
+.op-trace {
+  position: relative;
+  margin: -0.25rem 0 2rem;
+}
+
+.op-trace-canvas {
+  position: relative;
+  aspect-ratio: 760 / 170;
+  max-width: 760px;
+  margin-bottom: 0.9rem;
+
+  svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+}
+
+.ht-lane {
+  fill: none;
+  stroke: var(--op-line);
+  stroke-width: 1.5;
+  stroke-dasharray: 2 5;
+}
+
+.ht-hand {
+  fill: none;
+  stroke: var(--ht);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.ht-hand--dashed {
+  stroke-dasharray: 3 4;
+}
+
+.ht-run {
+  fill: none;
+  stroke: var(--ht-agent);
+  stroke-width: 8;
+  stroke-linecap: round;
+}
+
+.ht-dot {
+  fill: var(--ht);
+}
+
+.ht-dot--ring {
+  fill: var(--op-bg);
+  stroke: var(--ht);
+  stroke-width: 2.5;
+}
+
+.ht-fail {
+  fill: var(--op-bg);
+  stroke: var(--op-ink-soft);
+  stroke-width: 1.5;
+}
+
+.ht-fail-x,
+.ht-done {
+  fill: none;
+  stroke: var(--op-ink-soft);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.ht-done {
+  stroke-width: 2;
+}
+
+.ht-hit {
+  fill: transparent;
+}
+
+.ht-step,
+.ht-run {
+  cursor: default;
+}
+
+.ht-label {
+  position: absolute;
+  font-family: var(--op-mono);
+  font-size: 12px;
+  line-height: 1;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.ht-label--lane {
+  left: 0;
+  transform: translateY(-50%);
+  letter-spacing: 0.06em;
+  color: var(--op-muted);
+}
+
+.ht-label--step {
+  top: 25.9%;
+  transform: translate(-50%, -100%);
+  font-weight: 500;
+  color: var(--ht);
+}
+
+/* evaluate and recover sit close together, so their labels lean apart */
+.ht-label--before {
+  transform: translate(-78%, -100%);
+}
+
+.ht-label--after {
+  transform: translate(-22%, -100%);
+}
+
+.ht-label--note {
+  top: 84%;
+  transform: translateX(-50%);
+  color: var(--op-muted);
+}
+
+.op-trace-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.1rem;
+  font-size: var(--op-font-meta);
+  color: var(--op-ink-soft);
+
+  span {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+  }
+
+  i {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--ht);
+  }
+}
+
+.op-trace-tip {
+  position: fixed;
+  z-index: 1000;
+  max-width: min(300px, calc(100vw - 24px));
+  padding: 6px 8px;
+  border: 1px solid var(--op-rule);
+  border-radius: 4px;
+  background: var(--op-bg);
+  color: var(--op-ink);
+  pointer-events: none;
+  line-height: 1.35;
+  font-size: var(--op-font-meta);
+
+  strong {
+    display: block;
+    font-size: var(--op-font-body);
+    font-weight: 700;
+  }
+
+  span {
+    display: block;
+    margin-top: 2px;
+  }
+
+  .op-trace-tip-focus {
+    color: var(--op-muted);
+  }
+}
+
+/* Draw once on load */
+.ht-draw {
+  opacity: 0;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: ht-draw 0.55s ease-out forwards;
+  animation-delay: var(--d);
+}
+
+.ht-pop {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: ht-pop 0.35s cubic-bezier(0.3, 1.6, 0.6, 1) forwards;
+  animation-delay: var(--d);
+}
+
+.ht-fade {
+  opacity: 0;
+  animation: ht-fade 0.4s ease forwards;
+  animation-delay: var(--d);
+}
+
+@keyframes ht-draw {
+  0% {
+    opacity: 1;
+    stroke-dashoffset: 1;
+  }
+  100% {
+    opacity: 1;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes ht-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes ht-fade {
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ht-draw,
+  .ht-pop,
+  .ht-fade {
+    animation: none;
+    opacity: 1;
+    stroke-dashoffset: 0;
   }
 }
 
@@ -314,6 +579,48 @@ html[data-theme="dark"] .op-tabs {
   border-bottom: 1px solid var(--op-line);
 }
 
+.op-section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Lane glyph: the trace motif in miniature */
+.op-glyph {
+  flex: none;
+  width: 26px;
+  height: 16px;
+  overflow: visible;
+}
+
+.op-glyph-lane {
+  fill: none;
+  stroke: var(--op-line);
+  stroke-width: 1.5;
+}
+
+.op-glyph-move {
+  fill: none;
+  stroke: var(--ht-c);
+  stroke-width: 1.5;
+}
+
+.op-glyph-move--e {
+  stroke: var(--ht-e);
+}
+
+.op-glyph-you {
+  fill: var(--ht-c);
+}
+
+.op-glyph-you--e {
+  fill: var(--ht-e);
+}
+
+.op-glyph-agent {
+  fill: var(--op-muted);
+}
+
 .op-section-link {
   font-family: inherit;
   font-size: var(--op-font-meta);
@@ -345,12 +652,46 @@ html[data-theme="dark"] .op-tabs {
   --fi-tint2: color-mix(in srgb, var(--cp-mark) 32%, var(--fi-card));
   display: flex;
   flex-direction: column;
-  padding: 1.1rem 1.15rem 1.15rem;
+  position: relative;
+  padding: 1.1rem 1.15rem 1.15rem 2.1rem;
   background: var(--fi-card);
   border: 1px solid var(--op-line);
-  border-left: 3px solid var(--cp-mark);
   border-radius: 6px;
   box-shadow: 0 1px 2px rgba(36, 36, 36, 0.05), 0 4px 14px rgba(36, 36, 36, 0.05);
+}
+
+/* Thread accent: a short trace in the card's focus color */
+.op-pillar-thread {
+  position: absolute;
+  left: 0.85rem;
+  top: 1.1rem;
+  bottom: 1.15rem;
+  width: 2px;
+  background: color-mix(in srgb, var(--cp-mark) 35%, transparent);
+
+  i {
+    position: absolute;
+    left: 50%;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--cp-mark);
+    transform: translate(-50%, -50%);
+  }
+
+  i:nth-child(1) {
+    top: 0;
+  }
+
+  i:nth-child(2) {
+    top: 50%;
+    background: var(--fi-card);
+    border: 2px solid var(--cp-mark);
+  }
+
+  i:nth-child(3) {
+    top: 100%;
+  }
 }
 
 html[data-theme="dark"] .op-pillar {
@@ -619,6 +960,10 @@ html[data-theme="dark"] .op-pillar {
 }
 
 .op-name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   font-family: var(--op-sans);
   font-size: 1.35rem;
   font-weight: 500;
@@ -746,6 +1091,40 @@ html[data-theme="dark"] .op-pillar {
 
 .op-news-item:first-child {
   padding-top: 0;
+}
+
+/* Updates as a trace: one vertical line, a dot per update in its type color */
+.op-updates .op-news-list {
+  position: relative;
+  padding-left: 24px;
+}
+
+.op-updates .op-news-list::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  background: var(--op-line);
+}
+
+.op-updates .op-news-item {
+  position: relative;
+  border-bottom: 0;
+  padding: 0 0 0.95rem;
+}
+
+.op-updates .op-news-item::before {
+  content: "";
+  position: absolute;
+  left: -24px;
+  top: 5px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--op-news-color, var(--op-muted));
+  box-shadow: 0 0 0 3px var(--op-bg);
 }
 
 /* Type filters, carried over from the old site's news section */
@@ -1157,6 +1536,10 @@ a.op-link-tag:hover {
 
   .op-card {
     text-align: left;
+  }
+
+  .op-name {
+    justify-content: flex-start;
   }
 
   .op-avatar {
