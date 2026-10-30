@@ -10,15 +10,14 @@ contact_note: >
   Email or a Linkedin message is the fastest way to reach me!
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   An NLP researcher interested in socially aligned NLP models and Computational Social Science.
-footer_text: >
-  Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>
+footer_text: ""
 keywords: jekyll, jekyll-theme, academic-website, portfolio-website # add your own keywords or leave empty
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: female.jpg # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 
 url: https://debaratidas94.github.io # the base hostname & protocol for your site
 baseurl:  # the subpath of your site, e.g. /blog/. Leave blank for root
-last_updated: true # set to true if you want to display last updated in the footer
+last_updated: false # set to true if you want to display last updated in the footer
 impressum_path: # set to path to include impressum link in the footer, use the same path as permalink in a page, helps to conform with EU GDPR
 back_to_top: true # set to false to disable the back to top button
 cv_url: assets/pdf/DebaratiDas_10_20_2026.pdf

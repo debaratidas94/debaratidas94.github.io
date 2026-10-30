@@ -108,6 +108,7 @@
   .authors .author-self { color: var(--cp-author); }
   .paper-link { display: inline-block; font-size: var(--op-font-meta); margin-top: 2px; text-decoration: none; }
   .paper-link:hover { text-decoration: underline; }
+  .paper-award { display: table; margin: 4px 0; padding: 2px 6px; border: 1px solid var(--op-rule); border-radius: 4px; background: var(--op-accent-soft); color: var(--op-ink); font-size: var(--op-font-meta); line-height: 1.4; }
   .group-heading { margin: 20px 0 12px; font-size: 15px; line-height: 1.4; font-weight: 600; }
   .area-heading { font-size: var(--op-font-meta); line-height: 1.8; }
   .area-tag { display: inline-block; padding: 1px 5px; border-radius: 2px; background: color-mix(in srgb, var(--cp-mark) 30%, var(--cp-surface)); border-left: 3px solid var(--cp-mark); color: var(--cp-text); font-size: var(--op-font-meta); line-height: 1.4; }

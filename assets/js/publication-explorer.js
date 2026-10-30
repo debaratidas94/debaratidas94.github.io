@@ -191,6 +191,13 @@
       authors.append(author.isSelf ? element('span', author.name, 'author-self') : document.createTextNode(author.name));
     });
     body.append(element('h3', paper.title), authors);
+    if (paper.award) {
+      const award = element('p', undefined, 'paper-award');
+      const icon = element('span', '🏆');
+      icon.setAttribute('aria-hidden', 'true');
+      award.append(icon, document.createTextNode(` ${paper.awardName || paper.award}`));
+      body.append(award);
+    }
     if (paper.publication) body.append(element('p', paper.publication, 'paper-venue'));
     if (paper.url) {
       const link = element('a', 'Paper', 'paper-link');

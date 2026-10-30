@@ -37,6 +37,8 @@ module Jekyll
           'venue' => entry.abbr.to_s.strip.downcase,
           'url' => [entry[:pdf], entry[:html]].map(&:to_s).find { |url| !url.empty? }.to_s,
           'website' => entry[:website].to_s,
+          'award' => entry[:award].to_s,
+          'awardName' => entry[:award_name].to_s,
           'authors' => entry.author.to_s,
           'authorDisplay' => author_names.map { |author| author['name'] }.join(', '),
           'authorNames' => author_names,

@@ -37,6 +37,7 @@
                     {%- if author.isSelf -%}<span class="author-self">{{ author.name | escape }}</span>{%- else -%}{{ author.name | escape }}{%- endif -%}
                   {%- endfor -%}
                 </p>
+                {% if paper.award != '' %}<p class="paper-award"><span aria-hidden="true">🏆</span> {{ paper.awardName | default: paper.award | escape }}</p>{% endif %}
                 {% if paper.publication != '' %}<p class="paper-venue">{{ paper.publication | escape }}</p>{% endif %}
                 {% if paper.url != '' %}<a class="paper-link" href="{{ paper.url | escape }}" target="_blank" rel="noopener noreferrer">Paper</a>{% endif %}
               </div>
