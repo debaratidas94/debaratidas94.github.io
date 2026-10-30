@@ -26,7 +26,7 @@ layout: onepager_base
             {% for pillar in page.pillars %}
               {% assign focus = site.data.research_focus | where: 'tag', pillar.focus | first %}
               <article class="op-pillar" style="--cp-mark: var({{ focus.color }});">
-                <span class="op-pillar-num">{{ forloop.index | prepend: '0' }}</span>
+                {% include focus_icons/{{ pillar.focus }}.liquid %}
                 <h3 class="op-pillar-title">{{ focus.label }}</h3>
                 <p class="op-pillar-body">{{ pillar.body }}</p>
                 {% if pillar.links %}

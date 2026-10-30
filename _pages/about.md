@@ -54,4 +54,4 @@ I’m a senior applied scientist at the [IDEAS Research group](https://www.micro
 
 I study human-AI collaboration in work that requires expertise and judgment. My research examines how people communicate their needs and interact with AI, how LLMs behave and can be steered, and how using AI changes people’s work. I use interaction traces to make this collaboration visible over time, examining how people steer AI, evaluate its outputs, and recover from failures. I ask when AI expands people’s capabilities, when it creates additional work, and how people can stay in control.
 
-I did my PhD in the [Minnesota NLP group](https://minnesotanlp.github.io/) with [Prof. Dongyeop Kang](https://dykang.github.io/), co-advised by [Prof. Jaideep Srivastava](https://scholar.google.com/citations?user=Y4J5SOwAAAAJ&hl=en), and interned as a doctoral student at Microsoft Research and 3M R&D.
+I did my PhD in the [Minnesota NLP group](https://minnesotanlp.github.io/) with [Dongyeop Kang](https://dykang.github.io/), co-advised by [Jaideep Srivastava](https://scholar.google.com/citations?user=Y4J5SOwAAAAJ&hl=en), and interned as a doctoral student at Microsoft Research and 3M R&D.
