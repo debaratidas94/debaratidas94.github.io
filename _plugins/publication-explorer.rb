@@ -12,6 +12,8 @@ module Jekyll
       path = site.in_source_dir(source, scholar.fetch('bibliography'))
       themes = site.data.fetch('research_focus')
       known_themes = themes.map { |theme| theme.fetch('tag') }
+      domains = site.data.fetch('research_domains')
+      known_domains = domains.map { |domain| domain.fetch('tag') }
       entries = BibTeX.open(path).entries.values
       raise Errors::FatalException, 'No publications found for the publication explorer' if entries.empty?
 
@@ -19,6 +21,10 @@ module Jekyll
         theme_tags = entry[:research_themes].to_s.split(',').map(&:strip)
         unless !theme_tags.empty? && theme_tags.uniq == theme_tags && (theme_tags - known_themes).empty?
           raise Errors::FatalException, "Missing, duplicate or unknown research_themes for #{entry.key}: #{theme_tags.inspect}"
+        end
+        domain_tags = entry[:domain].to_s.split(',').map(&:strip)
+        unless !domain_tags.empty? && domain_tags.uniq == domain_tags && (domain_tags - known_domains).empty?
+          raise Errors::FatalException, "Missing, duplicate or unknown domain for #{entry.key}: #{domain_tags.inspect}"
         end
 
         author_names = entry.author.to_a.map do |author|
@@ -34,6 +40,7 @@ module Jekyll
           'year' => Integer(entry.year.to_s),
           'areas' => entry.keywords.to_s.split(',').map(&:strip),
           'themes' => theme_tags,
+          'domains' => domain_tags,
           'venue' => entry.abbr.to_s.strip.downcase,
           'url' => [entry[:pdf], entry[:html]].map(&:to_s).find { |url| !url.empty? }.to_s,
           'website' => entry[:website].to_s,
@@ -52,11 +59,14 @@ module Jekyll
       data = {
         'papers' => papers,
         'themes' => themes,
-        'areas' => site.data.fetch('research_areas')
+        'areas' => site.data.fetch('research_areas'),
+        'domains' => domains
       }
+      current_papers = papers.select { |paper| paper['themes'].any? { |theme| theme != 'foundation' } }
       current_data = data.merge(
-        'papers' => papers.select { |paper| paper['themes'].any? { |theme| theme != 'foundation' } },
-        'themes' => themes.reject { |theme| theme.fetch('tag') == 'foundation' }
+        'papers' => current_papers,
+        'themes' => themes.reject { |theme| theme.fetch('tag') == 'foundation' },
+        'domains' => domains.select { |domain| current_papers.any? { |paper| paper['domains'].include?(domain.fetch('tag')) } }
       )
       { 'publication_explorer' => data, 'publication_explorer_current' => current_data }.each do |key, explorer|
         site.data[key] = explorer

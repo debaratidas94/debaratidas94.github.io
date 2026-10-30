@@ -6,12 +6,26 @@
   --cp-focus-collaboration: #9a431c;
   --cp-focus-consequences: #0b6b68;
   --cp-focus-foundation: #526277;
+  --cp-domain-work: #2f6fb0;
+  --cp-domain-law: #8a6a1f;
+  --cp-domain-communication: #b4375f;
+  --cp-domain-networks: #3d7f3a;
+  --cp-domain-humanities: #7a4f9e;
+  --cp-domain-science: #1f7f8c;
+  --cp-domain-general: #7d848c;
 
   html[data-theme="dark"] & {
     --cp-focus-context: #c2a7ed;
     --cp-focus-collaboration: #f0ad87;
     --cp-focus-consequences: #83cbc4;
     --cp-focus-foundation: #b6c3d3;
+    --cp-domain-work: #8cbcf0;
+    --cp-domain-law: #d9b866;
+    --cp-domain-communication: #f2a0bb;
+    --cp-domain-networks: #9fd39a;
+    --cp-domain-humanities: #c9a9ea;
+    --cp-domain-science: #84cfd9;
+    --cp-domain-general: #a5adb8;
   }
 }
 

@@ -1,11 +1,13 @@
 (() => {
   const root = document.getElementById('publicationExplorer');
   if (!root) return;
-  const { papers, areas, themes } = JSON.parse(root.querySelector('#publicationData').textContent);
+  const { papers, areas, themes, domains } = JSON.parse(root.querySelector('#publicationData').textContent);
+  const dimensionCategories = { focus: themes, discipline: areas, domain: domains };
   const venueLabels = { conference: 'Conference', journal: 'Journal', workshop: 'Workshop', preprint: 'Preprint', abstract: 'Conference abstract' };
   let categories = themes.map(theme => [theme.tag, theme.label]);
   const categoryColors = ['--cp-link', '--cp-accent', '--cp-success', '--cp-warning', '--cp-text-muted', '--cp-border-strong'];
   const focusColors = themes.map(theme => theme.color);
+  const domainColors = domains.map(domain => domain.color);
   let filter = 'all';
   let grouping = 'focus';
   let dimension = 'focus';
@@ -16,11 +18,11 @@
   let activeCircle = null;
   const uniqueYears = papers.map(paper => paper.year);
   const years = Array.from({ length: Math.max(...uniqueYears) - Math.min(...uniqueYears) + 1 }, (_, i) => Math.min(...uniqueYears) + i);
-  const paperCategories = paper => dimension === 'focus' ? paper.themes : paper.areas;
+  const paperCategories = paper => dimension === 'focus' ? paper.themes : dimension === 'domain' ? paper.domains : paper.areas;
   const matches = paper => filter === 'all' || paperCategories(paper).includes(filter);
   const label = key => categories.find(category => category[0] === key)?.[1] || key;
   const mark = key => {
-    const palette = dimension === 'focus' ? focusColors : categoryColors;
+    const palette = dimension === 'focus' ? focusColors : dimension === 'domain' ? domainColors : categoryColors;
     const color = `var(${palette[categories.findIndex(category => category[0] === key) % palette.length]})`;
     return dimension === 'focus' ? color : `color-mix(in srgb, ${color} 66%, var(--cp-surface))`;
   };
@@ -155,14 +157,17 @@
     });
     root.querySelector('#dimensionNote').textContent = dimension === 'focus'
       ? 'Split colors: multiple research focus tags. Counts overlap.'
-      : 'Split colors: multiple research disciplines. Counts overlap.';
+      : dimension === 'domain'
+        ? 'Split colors: multiple domains. Counts overlap.'
+        : 'Split colors: multiple research disciplines. Counts overlap.';
   }
   function renderAreaGuide() {
     const guide = root.querySelector('#areaGuide');
     guide.replaceChildren();
     guide.hidden = dimension === 'focus';
     if (guide.hidden) return;
-    areas.forEach(area => {
+    guide.setAttribute('aria-label', dimension === 'domain' ? 'Domains and subtopics' : 'Research disciplines and subtopics');
+    dimensionCategories[dimension].forEach(area => {
       const term = element('dt');
       const swatch = element('span', undefined, 'swatch');
       swatch.style.setProperty('--cp-mark', mark(area.tag));
@@ -268,10 +273,10 @@
   root.querySelectorAll('[data-view]').forEach(button => button.addEventListener('click', () => {
     grouping = button.dataset.view;
     if (grouping !== 'date') {
-      const nextDimension = grouping === 'focus' ? 'focus' : 'discipline';
+      const nextDimension = grouping === 'focus' || grouping === 'domain' ? grouping : 'discipline';
       if (dimension !== nextDimension) {
         dimension = nextDimension;
-        categories = (dimension === 'focus' ? themes : areas).map(category => [category.tag, category.label]);
+        categories = dimensionCategories[dimension].map(category => [category.tag, category.label]);
         filter = 'all';
       }
     }

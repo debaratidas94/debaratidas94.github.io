@@ -1,0 +1,40 @@
+# Display labels, subtopics, colors and ordering for the application domains.
+#
+# The tags themselves live in _bibliography/papers.bib, in each entry's
+# `domain` field (comma-separated if a paper spans several). Every entry needs
+# at least one domain listed below.
+
+- tag: work
+  label: Work & Productivity
+  subtopics: Agent delegation, workplace writing and communication, user simulation
+  color: --cp-domain-work
+
+- tag: law
+  label: Law
+  subtopics: Legal reasoning, lawyers' workflows, AI adoption in legal practice
+  color: --cp-domain-law
+
+- tag: mass-communication
+  label: Mass Communication
+  subtopics: Advertising, public relations, crisis, political and health communication
+  color: --cp-domain-communication
+
+- tag: social-networks
+  label: Social Networks
+  subtopics: Memes, information diffusion
+  color: --cp-domain-networks
+
+- tag: digital-humanities
+  label: Digital Humanities
+  subtopics: Computational analysis of literary texts
+  color: --cp-domain-humanities
+
+- tag: science-of-science
+  label: Science of Science
+  subtopics: Mining author research interests
+  color: --cp-domain-science
+
+- tag: domain-general
+  label: Domain-general
+  subtopics: Methods not tied to one field, such as synthetic data, style transfer, graph reasoning and clustering
+  color: --cp-domain-general
