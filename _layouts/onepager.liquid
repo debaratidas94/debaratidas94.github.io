@@ -16,20 +16,17 @@ layout: onepager_base
 
       <h1 class="op-headline">{{ page.headline }}</h1>
 
-      {% include hero_trace.liquid %}
-
       <div class="op-intro">{{ content }}</div>
 
       <!-- Research pillars -->
       {% if page.pillars %}
         <section class="op-section">
           <h2 class="op-section-title"><span class="op-section-label">{% include trace_glyph.liquid %}Research focus</span></h2>
-          <div class="op-pillars">
+                    {% include hero_trace.liquid %}          <div class="op-pillars">
             {% for pillar in page.pillars %}
               {% assign focus = site.data.research_focus | where: 'tag', pillar.focus | first %}
               <article class="op-pillar" style="--cp-mark: var({{ focus.color }});">
                 <span class="op-pillar-thread" aria-hidden="true"><i></i><i></i><i></i></span>
-                {% include focus_icons/{{ pillar.focus }}.liquid %}
                 <h3 class="op-pillar-title">{{ focus.label }}</h3>
                 <p class="op-pillar-body">{{ pillar.body }}</p>
                 {% if pillar.links %}

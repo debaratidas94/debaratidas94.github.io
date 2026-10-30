@@ -58,12 +58,6 @@
     <span class="ht-label ht-label--note ht-fade" style="--d: 1.9s; left: 65.79%">silent failure</span>
   </div>
 
-  <figcaption class="op-trace-legend">
-    <span style="--ht: var(--ht-c)"><i></i>Human-AI collaboration in expert workflows</span>
-    <span style="--ht: var(--ht-s)"><i></i>Characterizing and steering LLM behavior</span>
-    <span style="--ht: var(--ht-e)"><i></i>Evaluating consequences of AI</span>
-  </figcaption>
-
   <div class="op-trace-tip" id="opTraceTip" role="tooltip" hidden></div>
 </figure>
 
@@ -92,5 +86,17 @@
       node.addEventListener('pointerleave', () => { tip.hidden = true; });
     });
     window.addEventListener('scroll', () => { tip.hidden = true; }, { passive: true });
+
+    // Hold the draw-in animation until the trace scrolls into view.
+    if ('IntersectionObserver' in window) {
+      trace.classList.add('is-waiting');
+      const observer = new IntersectionObserver(entries => {
+        if (entries.some(entry => entry.isIntersecting)) {
+          trace.classList.remove('is-waiting');
+          observer.disconnect();
+        }
+      }, { threshold: 0.4 });
+      observer.observe(trace);
+    }
   })();
 </script>

@@ -174,7 +174,7 @@ html[data-theme="dark"] .op-body {
 
 .op-trace {
   position: relative;
-  margin: -0.25rem 0 2rem;
+  margin: 0 0 1.75rem;
 }
 
 .op-trace-canvas {
@@ -293,27 +293,6 @@ html[data-theme="dark"] .op-body {
   color: var(--op-muted);
 }
 
-.op-trace-legend {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem 1.1rem;
-  font-size: var(--op-font-meta);
-  color: var(--op-ink-soft);
-
-  span {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-  }
-
-  i {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: var(--ht);
-  }
-}
-
 .op-trace-tip {
   position: fixed;
   z-index: 1000;
@@ -391,6 +370,14 @@ html[data-theme="dark"] .op-body {
 @keyframes ht-fade {
   to {
     opacity: 1;
+  }
+}
+
+.op-trace.is-waiting {
+  .ht-draw,
+  .ht-pop,
+  .ht-fade {
+    animation-play-state: paused;
   }
 }
 
