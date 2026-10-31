@@ -1,13 +1,24 @@
 (() => {
   const root = document.getElementById('publicationExplorer');
   if (!root) return;
-  const { papers, areas, themes, domains } = JSON.parse(root.querySelector('#publicationData').textContent);
-  const dimensionCategories = { focus: themes, discipline: areas, domain: domains };
+  const recentData = JSON.parse(root.querySelector('#publicationData').textContent);
+  // The home page also embeds the full dataset: Research Focus shows recent work, other views match the Publications page.
+  const allDataNode = root.querySelector('#publicationDataAll');
+  const allData = allDataNode ? JSON.parse(allDataNode.textContent) : recentData;
+  let data, papers, themes, domains, dimensionCategories, focusColors, domainColors, years;
+  function useData(next) {
+    data = next;
+    ({ papers, themes, domains } = data);
+    dimensionCategories = { focus: themes, discipline: data.areas, domain: domains };
+    focusColors = themes.map(theme => theme.color);
+    domainColors = domains.map(domain => domain.color);
+    const uniqueYears = papers.map(paper => paper.year);
+    years = Array.from({ length: Math.max(...uniqueYears) - Math.min(...uniqueYears) + 1 }, (_, i) => Math.min(...uniqueYears) + i);
+  }
+  useData(recentData);
   const venueLabels = { conference: 'Conference', journal: 'Journal', workshop: 'Workshop', preprint: 'Preprint', abstract: 'Conference abstract' };
   let categories = themes.map(theme => [theme.tag, theme.label]);
   const categoryColors = ['--cp-link', '--cp-accent', '--cp-success', '--cp-warning', '--cp-text-muted', '--cp-border-strong'];
-  const focusColors = themes.map(theme => theme.color);
-  const domainColors = domains.map(domain => domain.color);
   let filter = 'all';
   let grouping = 'focus';
   let dimension = 'focus';
@@ -16,8 +27,6 @@
   const list = root.querySelector('#publications');
   const tooltip = root.querySelector('#paperTooltip');
   let activeCircle = null;
-  const uniqueYears = papers.map(paper => paper.year);
-  const years = Array.from({ length: Math.max(...uniqueYears) - Math.min(...uniqueYears) + 1 }, (_, i) => Math.min(...uniqueYears) + i);
   const paperCategories = paper => dimension === 'focus' ? paper.themes : dimension === 'domain' ? paper.domains : paper.areas;
   const matches = paper => filter === 'all' || paperCategories(paper).includes(filter);
   const label = key => categories.find(category => category[0] === key)?.[1] || key;
@@ -135,6 +144,9 @@
     chart.style.setProperty('--cp-chart-height', `${Math.max(56, maxRows * 19 + 16)}px`);
     chart.style.gridTemplateColumns = `repeat(${years.length}, minmax(${columnWidth}px, 1fr))`;
     chart.style.minWidth = `${years.length * columnWidth}px`;
+    // Start scrolled to the right so the most recent years show first.
+    const scroller = chart.closest('.chart-scroll');
+    if (scroller) requestAnimationFrame(() => { scroller.scrollLeft = scroller.scrollWidth; });
   }
   function renderLegend() {
     legend.replaceChildren();
@@ -272,13 +284,15 @@
   }
   root.querySelectorAll('[data-view]').forEach(button => button.addEventListener('click', () => {
     grouping = button.dataset.view;
-    if (grouping !== 'date') {
-      const nextDimension = grouping === 'focus' || grouping === 'domain' ? grouping : 'discipline';
-      if (dimension !== nextDimension) {
-        dimension = nextDimension;
-        categories = dimensionCategories[dimension].map(category => [category.tag, category.label]);
-        filter = 'all';
-      }
+    const nextData = grouping === 'focus' ? recentData : allData;
+    const dataChanged = nextData !== data;
+    if (dataChanged) useData(nextData);
+    const nextDimension = grouping === 'date' ? dimension : grouping === 'focus' || grouping === 'domain' ? grouping : 'discipline';
+    if (dimension !== nextDimension || dataChanged) {
+      if (dimension !== nextDimension) filter = 'all';
+      dimension = nextDimension;
+      categories = dimensionCategories[dimension].map(category => [category.tag, category.label]);
+      if (filter !== 'all' && !categories.some(([tag]) => tag === filter)) filter = 'all';
     }
     root.querySelectorAll('[data-view]').forEach(other => other.setAttribute('aria-pressed', String(other === button)));
     render();

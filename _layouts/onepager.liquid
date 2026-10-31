@@ -59,7 +59,7 @@ layout: onepager_base
           <a class="op-section-link" href="{{ '/publications/' | relative_url }}">full list</a>
         </h2>
 
-        {% include publication_explorer.liquid data=site.data.publication_explorer_current json=site.data.publication_explorer_current_json %}
+        {% include publication_explorer.liquid data=site.data.publication_explorer_current json=site.data.publication_explorer_current_json all_json=site.data.publication_explorer_json %}
       </section>
     </main>
 

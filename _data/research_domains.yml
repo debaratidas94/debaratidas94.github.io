@@ -6,30 +6,30 @@
 
 - tag: work
   label: Work & Productivity
-  subtopics: Agent delegation, workplace writing and communication, user simulation
+  subtopics: How people get knowledge work done with AI.
   color: --cp-domain-work
 
 - tag: law
   label: Law
-  subtopics: Legal reasoning, lawyers' workflows, AI adoption in legal practice
+  subtopics: How legal experts reason, work and adopt AI.
   color: --cp-domain-law
 
 - tag: mass-communication
   label: Mass Communication
-  subtopics: Advertising, public relations, crisis, political and health communication
+  subtopics: How media messages shape public attitudes and behavior.
   color: --cp-domain-communication
 
 - tag: social-networks
   label: Social Networks
-  subtopics: Memes, information diffusion, graph reasoning with LLMs
+  subtopics: How content and ideas spread through online networks.
   color: --cp-domain-networks
 
 - tag: digital-humanities
   label: Digital Humanities
-  subtopics: Computational analysis of literary texts and scholarly writing
+  subtopics: Computational readings of literary and scholarly texts.
   color: --cp-domain-humanities
 
 - tag: domain-general
   label: General
-  subtopics: Methods not tied to one field, such as synthetic data, style transfer and clustering
+  subtopics: Methods that apply across fields.
   color: --cp-domain-general
