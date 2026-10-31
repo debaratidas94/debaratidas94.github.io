@@ -1521,6 +1521,21 @@ a.op-link-tag:hover {
     position: static;
   }
 
+  /* Single column: profile card first, Updates after the main column */
+  .op-side,
+  .op-side-inner {
+    display: contents;
+  }
+
+  .op-card {
+    order: -1;
+    margin-bottom: 0;
+  }
+
+  .op-updates {
+    order: 1;
+  }
+
   .op-card {
     text-align: left;
   }

@@ -12,11 +12,11 @@ layout: onepager_base
       <p class="op-kicker">{{ page.kicker }}</p>
     {% endif %}
 
-    <h1 class="op-page-title">{{ page.title }}</h1>
+    <h1 class="op-page-title"><span class="op-section-label">{% include trace_glyph.liquid %}{{ page.title }}</span></h1>
 
     {% if page.section == 'mentorship' %}
       <section class="op-section op-section--first op-timeline" id="mentorship" aria-labelledby="mentorship-title">
-        <h2 class="op-section-title" id="mentorship-title">Mentorship</h2>
+        <h2 class="sr-only" id="mentorship-title">Mentorship</h2>
         <p class="op-timeline-intro">Grouped by mentorship start year. Affiliations reflect current positions.</p>
         {% assign mentorship_years = site.data.mentorship | group_by: 'year' | sort: 'name' | reverse %}
         {% for group in mentorship_years %}
@@ -51,7 +51,7 @@ layout: onepager_base
 
     {% elsif page.section == 'awards' %}
       <section class="op-section op-section--first op-timeline" id="patents" aria-labelledby="patents-title">
-        <h2 class="op-section-title" id="patents-title">Patents</h2>
+        <h2 class="op-section-title" id="patents-title"><span class="op-section-label">{% include trace_glyph.liquid %}Patents</span></h2>
         {% assign patent_years = site.data.patents | group_by: 'year' | sort: 'name' | reverse %}
         {% for group in patent_years %}
           <div class="op-year-row">
@@ -69,7 +69,7 @@ layout: onepager_base
       </section>
 
       <section class="op-section op-timeline" id="awards" aria-labelledby="awards-title">
-        <h2 class="op-section-title" id="awards-title">Awards</h2>
+        <h2 class="op-section-title" id="awards-title"><span class="op-section-label">{% include trace_glyph.liquid %}Awards</span></h2>
         {% assign grouped = site.data.awards | group_by: 'year' | sort: 'name' | reverse %}
         {% for group in grouped %}
           <div class="op-year-row">
@@ -97,35 +97,38 @@ layout: onepager_base
       </section>
 
     {% elsif page.section == 'talks' %}
-      <section class="op-section op-section--first">
-        {% for talk in site.data.talks %}
+      <section class="op-section op-section--first op-timeline">
+        {% assign talk_years = site.data.talks | group_by_exp: 'talk', "talk.date | slice: -4, 4" %}
+        {% for group in talk_years %}
           <div class="op-year-row">
-            <div class="op-year">{{ talk.date }}</div>
+            <h3 class="op-year">{{ group.name }}</h3>
             <div class="op-year-items">
-              <article class="op-entry">
-                <h3 class="op-entry-title">
-                  {% if talk.url and talk.url != '' %}
-                    <a href="{{ talk.url }}" target="_blank" rel="noopener">{{ talk.title }}</a>
-                  {% else %}
-                    {{ talk.title }}
+              {% for talk in group.items %}
+                <article class="op-entry">
+                  <h4 class="op-entry-title">
+                    {% if talk.url and talk.url != '' %}
+                      <a href="{{ talk.url }}" target="_blank" rel="noopener">{{ talk.title }}</a>
+                    {% else %}
+                      {{ talk.title }}
+                    {% endif %}
+                  </h4>
+                  <p class="op-entry-meta">{{ talk.date }} · {{ talk.venue }}</p>
+                  {% if talk.about and talk.about != '' %}
+                    <p class="op-entry-note">{{ talk.about }}</p>
                   {% endif %}
-                </h3>
-                <p class="op-entry-meta">{{ talk.venue }}</p>
-                {% if talk.about and talk.about != '' %}
-                  <p class="op-entry-note">{{ talk.about }}</p>
-                {% endif %}
-                {% if talk.slides and talk.slides != '' %}
-                  <div class="op-news-tags">
-                    <a
-                      class="op-link-tag"
-                      data-link-tag="slides"
-                      href="{{ talk.slides }}"
-                      target="_blank"
-                      rel="noopener"
-                    >slides</a>
-                  </div>
-                {% endif %}
-              </article>
+                  {% if talk.slides and talk.slides != '' %}
+                    <div class="op-news-tags">
+                      <a
+                        class="op-link-tag"
+                        data-link-tag="slides"
+                        href="{{ talk.slides }}"
+                        target="_blank"
+                        rel="noopener"
+                      >slides</a>
+                    </div>
+                  {% endif %}
+                </article>
+              {% endfor %}
             </div>
           </div>
         {% endfor %}
@@ -136,7 +139,7 @@ layout: onepager_base
       {% for group in service_groups %}
       {% assign section_id = group.name | slugify %}
       <section class="op-section{% if forloop.first %} op-section--first{% endif %}" id="{{ section_id }}" aria-labelledby="{{ section_id }}-title">
-        <h2 class="op-section-title" id="{{ section_id }}-title">{{ group.name }}</h2>
+        <h2 class="op-section-title" id="{{ section_id }}-title"><span class="op-section-label">{% include trace_glyph.liquid %}{{ group.name }}</span></h2>
         {% if group.items.first.summary %}
           <ul class="op-plain-list">
             {% for item in group.items %}
@@ -179,7 +182,7 @@ layout: onepager_base
       {% endfor %}
 
       <section class="op-section" id="teaching" aria-labelledby="teaching-title">
-        <h2 class="op-section-title" id="teaching-title">Teaching</h2>
+        <h2 class="op-section-title" id="teaching-title"><span class="op-section-label">{% include trace_glyph.liquid %}Teaching</span></h2>
         <p class="op-entry-title">University of Minnesota Twin Cities</p>
         <ul class="op-plain-list">
           {% for course in site.data.teaching %}

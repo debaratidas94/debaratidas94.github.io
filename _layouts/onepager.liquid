@@ -108,7 +108,7 @@ layout: onepager_base
         </div>
 
         <section class="op-updates">
-          <h2 class="op-side-title">Updates</h2>
+          <h2 class="op-side-title"><span class="op-section-label">{% include trace_glyph.liquid %}Updates</span></h2>
           {% assign news_types = site.data.news | map: "type" | uniq %}
           <div class="op-news-filters" id="opNewsFilters">
             <button class="op-news-filter is-active" type="button" data-type="all">All</button>
