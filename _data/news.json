@@ -5,6 +5,10 @@
     "text": "New research in the New Future of Work Reader examining  agentic delegation failures from a user perspective",
     "tags": [
       {
+        "label": "Microsoft blog",
+        "url": "https://microsoft.github.io/nfw-reader/posts/babysitting-ai-agents"
+      },
+      {
         "label": "Preprint",
         "url": "https://arxiv.org/pdf/2610.34748"
       }
