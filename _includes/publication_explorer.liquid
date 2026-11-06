@@ -8,6 +8,7 @@
     <div class="chart-scroll" tabindex="0" role="region" aria-label="Papers by year. Scroll horizontally on narrow screens." aria-describedby="dimensionNote">
       <div id="chart" class="chart"></div>
     </div>
+    <div class="network-wrap" id="domainNetwork" hidden></div>
     <p class="chart-note" id="dimensionNote"></p>
     <dl class="area-guide" id="areaGuide" aria-label="Research disciplines and subtopics"></dl>
   </section>
@@ -52,4 +53,5 @@
   <script id="publicationData" type="application/json">{{ explorer_json }}</script>
   {% if include.all_json %}<script id="publicationDataAll" type="application/json">{{ include.all_json }}</script>{% endif %}
 </div>
+<script defer src="{{ '/assets/js/publication-network.js' | relative_url }}"></script>
 <script defer src="{{ '/assets/js/publication-explorer.js' | relative_url }}"></script>
