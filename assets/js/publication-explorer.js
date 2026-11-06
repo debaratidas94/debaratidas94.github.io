@@ -27,8 +27,28 @@
   const list = root.querySelector('#publications');
   const tooltip = root.querySelector('#paperTooltip');
   let activeCircle = null;
-  const paperCategories = paper => dimension === 'focus' ? paper.themes : dimension === 'domain' ? paper.domains : paper.areas;
-  const matches = paper => filter === 'all' || paperCategories(paper).includes(filter);
+  const chartScroll = root.querySelector('.chart-scroll');
+  const networkHost = root.querySelector('#domainNetwork');
+  let network = null;
+  let networkData = null;
+  // A discipline picked in the domain network; it filters the list alongside `filter`.
+  let areaFocus = null;
+  let usingNetwork = false;
+  // The domain view draws a network instead of the year chart when there is room for it.
+  const networkMode = () => grouping === 'domain' && !!window.PublicationNetwork && !!networkHost
+    && root.clientWidth >= window.PublicationNetwork.MIN_WIDTH;
+  const treeHost = root.querySelector('#focusTree');
+  let tree = null;
+  let treeData = null;
+  let usingTree = false;
+  // The focus view draws a tree instead of the year chart when there is room for it.
+  const treeMode = () => grouping === 'focus' && !!window.PublicationFocusTree && !!treeHost
+    && root.clientWidth >= window.PublicationFocusTree.MIN_WIDTH;
+  // In the tree, a paper belongs only to its main area: the first research_themes entry in the bib.
+  const paperCategories = paper => dimension === 'focus' ? (usingTree ? paper.themes.slice(0, 1) : paper.themes)
+    : dimension === 'domain' ? paper.domains : paper.areas;
+  const matches = paper => (filter === 'all' || paperCategories(paper).includes(filter))
+    && (!areaFocus || paper.areas.includes(areaFocus));
   const label = key => categories.find(category => category[0] === key)?.[1] || key;
   const mark = key => {
     const palette = dimension === 'focus' ? focusColors : dimension === 'domain' ? domainColors : categoryColors;
@@ -115,8 +135,71 @@
     }
     return positions;
   }
+  function renderNetwork() {
+    if (!network || networkData !== data) {
+      network = window.PublicationNetwork.create(networkHost, {
+        papers,
+        domains,
+        areas: data.areas,
+        tooltip,
+        venueLabels,
+        onSelect: focus => {
+          filter = focus?.type === 'domain' ? focus.id : 'all';
+          areaFocus = focus?.type === 'area' ? focus.id : null;
+          render();
+        },
+        onPaper: paper => {
+          filter = paper.domains[0];
+          areaFocus = null;
+          render();
+          const id = `paper-${paper.key}`;
+          if (location.hash === `#${id}`) document.getElementById(id)?.scrollIntoView({ block: 'start' });
+          else location.hash = id;
+        }
+      });
+      networkData = data;
+    }
+    network.setFocus(areaFocus ? { type: 'area', id: areaFocus } : filter !== 'all' ? { type: 'domain', id: filter } : null);
+  }
+  function renderTree() {
+    if (!tree || treeData !== data) {
+      tree = window.PublicationFocusTree.create(treeHost, {
+        papers,
+        themes: themes.filter(theme => theme.tag !== 'foundation'),
+        tooltip,
+        venueLabels,
+        onSelect: focus => {
+          filter = focus ? focus.id : 'all';
+          render();
+        },
+        onPaper: paper => {
+          filter = paper.themes[0];
+          render();
+          const id = `paper-${paper.key}`;
+          if (location.hash === `#${id}`) document.getElementById(id)?.scrollIntoView({ block: 'start' });
+          else location.hash = id;
+        }
+      });
+      treeData = data;
+    }
+    tree.setFocus(filter !== 'all' ? { type: 'theme', id: filter } : null);
+  }
   function renderChart() {
     hideDetails();
+    usingNetwork = networkMode();
+    usingTree = treeMode();
+    if (!usingNetwork) areaFocus = null;
+    if (networkHost) networkHost.hidden = !usingNetwork;
+    if (treeHost) treeHost.hidden = !usingTree;
+    chartScroll.hidden = usingNetwork || usingTree;
+    if (usingNetwork) {
+      renderNetwork();
+      return;
+    }
+    if (usingTree) {
+      renderTree();
+      return;
+    }
     chart.replaceChildren();
     let maxRows = 0;
     let columnWidth = 72;
@@ -164,19 +247,42 @@
       }
       const count = key === 'all' ? papers.length : papers.filter(paper => paperCategories(paper).includes(key)).length;
       button.append(element('span', name), element('span', count, 'count'));
-      button.addEventListener('click', () => { filter = key; render(); });
+      button.addEventListener('click', () => { filter = key; areaFocus = null; render(); });
       legend.append(button);
     });
-    root.querySelector('#dimensionNote').textContent = dimension === 'focus'
+    const note = root.querySelector('#dimensionNote');
+    if (usingNetwork || usingTree) {
+      renderNetworkNote(note);
+      return;
+    }
+    note.textContent = dimension === 'focus'
       ? 'Split colors: multiple research focus tags. Counts overlap.'
       : dimension === 'domain'
         ? 'Split colors: multiple domains. Counts overlap.'
         : 'Split colors: multiple research disciplines. Counts overlap.';
   }
+  function renderNetworkNote(note) {
+    note.replaceChildren();
+    const selected = areaFocus
+      ? data.areas.find(area => area.tag === areaFocus)
+      : filter !== 'all' ? dimensionCategories[dimension].find(category => category.tag === filter) : null;
+    if (!selected) {
+      note.textContent = usingTree
+        ? 'Each dot is a paper under its main focus area, most recent first from the left. Hover a dot to see the paper and click to open it, or click an area to list its papers.'
+        : 'Hubs are application domains and dots are papers. Center labels are research disciplines; thicker lines mean more papers. Click a domain or discipline to list its papers.';
+      return;
+    }
+    const count = papers.filter(matches).length;
+    note.append(document.createTextNode(`${selected.label}: ${count} paper${count === 1 ? '' : 's'} listed below. `));
+    const clear = element('button', usingTree ? 'Show all areas' : 'Show all domains', 'note-clear');
+    clear.type = 'button';
+    clear.addEventListener('click', () => { filter = 'all'; areaFocus = null; render(); });
+    note.append(clear);
+  }
   function renderAreaGuide() {
     const guide = root.querySelector('#areaGuide');
     guide.replaceChildren();
-    guide.hidden = dimension === 'focus';
+    guide.hidden = dimension === 'focus' || usingNetwork;
     if (guide.hidden) return;
     guide.setAttribute('aria-label', dimension === 'domain' ? 'Domains and subtopics' : 'Research disciplines and subtopics');
     dimensionCategories[dimension].forEach(area => {
@@ -230,6 +336,14 @@
     list.replaceChildren();
     const visible = papers.filter(matches).sort((a, b) => b.year - a.year);
     root.querySelector('#results').textContent = `${visible.length} papers`;
+    if (usingNetwork && filter === 'all' && !areaFocus) {
+      list.append(element('p', 'Select a domain or discipline in the network above to list its papers.', 'empty'));
+      return;
+    }
+    if (usingTree && filter === 'all') {
+      list.append(element('p', 'Select a focus area above to list its papers.', 'empty'));
+      return;
+    }
     if (!visible.length) {
       list.append(element('p', 'No entries in this category.', 'empty'));
       return;
@@ -271,6 +385,11 @@
         heading.append(document.createTextNode(` (${entries.length})`));
       }
       group.append(heading);
+      // The network view drops the domain guide, so each group carries its own description.
+      if (usingNetwork && tags.length === 1) {
+        const blurb = domains.find(domain => domain.tag === tags[0])?.subtopics;
+        if (blurb) group.append(element('p', blurb, 'group-blurb'));
+      }
       entries.forEach(paper => group.append(makePublication(paper)));
       list.append(group);
     });
@@ -284,10 +403,11 @@
   }
   root.querySelectorAll('[data-view]').forEach(button => button.addEventListener('click', () => {
     grouping = button.dataset.view;
+    areaFocus = null;
     const nextData = grouping === 'focus' ? recentData : allData;
     const dataChanged = nextData !== data;
     if (dataChanged) useData(nextData);
-    const nextDimension = grouping === 'date' ? dimension : grouping === 'focus' || grouping === 'domain' ? grouping : 'discipline';
+    const nextDimension = grouping === 'focus' || grouping === 'domain' ? grouping : 'discipline';
     if (dimension !== nextDimension || dataChanged) {
       if (dimension !== nextDimension) filter = 'all';
       dimension = nextDimension;
@@ -304,6 +424,12 @@
     if (activeCircle) positionDetails();
   }, true);
   window.addEventListener('resize', hideDetails);
+  // Switch between a graph and the year chart when the explorer crosses the width threshold.
+  if (window.ResizeObserver) {
+    new ResizeObserver(() => {
+      if ((grouping === 'domain' && networkMode() !== usingNetwork) || (grouping === 'focus' && treeMode() !== usingTree)) render();
+    }).observe(root);
+  }
   render();
   root.classList.add('is-ready');
 })();
