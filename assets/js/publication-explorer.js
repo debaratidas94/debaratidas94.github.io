@@ -363,7 +363,7 @@
     const nextData = grouping === 'focus' ? recentData : allData;
     const dataChanged = nextData !== data;
     if (dataChanged) useData(nextData);
-    const nextDimension = grouping === 'date' ? dimension : grouping === 'focus' || grouping === 'domain' ? grouping : 'discipline';
+    const nextDimension = grouping === 'focus' || grouping === 'domain' ? grouping : 'discipline';
     if (dimension !== nextDimension || dataChanged) {
       if (dimension !== nextDimension) filter = 'all';
       dimension = nextDimension;
